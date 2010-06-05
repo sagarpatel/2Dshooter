@@ -506,7 +506,8 @@ namespace _2Dshooter
                 if(player1_weapon2[i].alive)
                 {
 
-                    Gravity(snorelax, player1_weapon2[i]);
+                    //Gravity(snorelax, player1_weapon2[i]);
+                    Gravity(ball, player1_weapon2[i]);
 
                     
                 }
@@ -536,7 +537,7 @@ namespace _2Dshooter
             }
 
 
-            Update_PVA(ball);
+            //Update_PVA(ball);
             //Update_PVA(snorelax);
 
 
@@ -550,7 +551,7 @@ namespace _2Dshooter
         {
 
             float Weapon1_velocity = 10.0f;
-            float Weapon2_velocity = 10.0f;
+            float Weapon2_velocity = 50.0f;
                      
             
             switch (weapon_id)
@@ -605,7 +606,7 @@ namespace _2Dshooter
             {
                 if (shot.alive)
                 {
-                    shot.position += shot.velocity;
+                    
 
                     if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
                     {
@@ -622,7 +623,7 @@ namespace _2Dshooter
             {
                 if (shot.alive)
                 {
-                    shot.position += shot.velocity;
+                   
 
                     if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
                     {
@@ -758,7 +759,7 @@ namespace _2Dshooter
             {
                
                 player1_weapon2[i].mass = 10f;
-                player1_weapon2[i].acceleration_clamp = 10.0f;
+                player1_weapon2[i].acceleration_clamp = 50.0f;
                 player1_weapon2[i].friction = 0.0f;
 
             }
@@ -767,7 +768,7 @@ namespace _2Dshooter
         
             ball.position.X = 450;
             ball.position.Y = 350;
-            ball.mass = 1.0f;
+            ball.mass = 15000000.0f;
             ball.acceleration_clamp = 11000000.75f;
             ball.velocity.Y = 0;
             ball.velocity.X = 0f;
@@ -776,7 +777,7 @@ namespace _2Dshooter
 
             snorelax.position.X = 600;
             snorelax.position.Y = 350;
-            snorelax.scale = 1.0f;
+            snorelax.scale = 2.0f;
             snorelax.mass = 1500000;
             snorelax.acceleration_clamp = 10.0f;
 
