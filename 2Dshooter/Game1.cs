@@ -176,12 +176,16 @@ namespace _2Dshooter
                 frameCounter = 0;
             }
 
-
+            
+            
+            
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
+            Update_Walls();
             
             Controls();
             Update_Weapons();
@@ -625,7 +629,7 @@ namespace _2Dshooter
                 {
                    
 
-                    if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
+                    if (shot.position.X > Window_Width)
                     {
                         shot.alive = false;
                         shot.acceleration.X = 0;
@@ -733,11 +737,56 @@ namespace _2Dshooter
         }
 
 
+       
+        private void Check_Borders( GameObject m1 )
+        {
+
+            if (m1.position.Y > Window_Height)
+            {
+                m1.position.Y = 0;
+            }
+
+            if (m1.position.Y < 0)
+            {
+                m1.position.Y = Window_Height;
+            }
+
+
+        }
+
+
+        private void Wall_Bounce(GameObject m1)
+        {
+
+            if (m1.position.X < 0)
+            {
+                m1.velocity.X = -m1.velocity.X;
+            }
+
+
+
+        }
+
+
+        private void Update_Walls()
+        {
+            Check_Borders(player1);
+
+            Wall_Bounce(player1);
+
+            foreach (GameObject shot in player1_weapon2)
+            {
+                Check_Borders(shot);
+                Wall_Bounce(shot);
+            }
+        }
+
+
         private void Set_Values()
         {
 
             time_stretch = 0.01f;
-            G = 10f;
+            G = 1f;
             
             player1.scale = 1.0f;
             player1.mass = 1;
@@ -778,7 +827,7 @@ namespace _2Dshooter
             snorelax.position.X = 600;
             snorelax.position.Y = 350;
             snorelax.scale = 2.0f;
-            snorelax.mass = 1500000;
+            snorelax.mass = 150000;
             snorelax.acceleration_clamp = 10.0f;
 
 
