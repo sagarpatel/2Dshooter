@@ -122,6 +122,15 @@
       <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\snorelax.xnb</Output>
       <Time>2010-05-22T20:35:23.4388831-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\042-golbat.png</Source>
+      <Name>Sprites\042-golbat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb</Output>
+      <Time>2010-06-06T20:02:30.3738623-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
