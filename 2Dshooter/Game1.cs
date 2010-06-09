@@ -36,8 +36,16 @@ namespace _2Dshooter
         GameObject[] player1_weapon2;
         const int max_player1_weapon2 = 100;
 
-        const int player1_weapon2_mass = 100;
+        GameObject[] enemies1;
+        const int max_enemies1 = 20;
+        int min_enemies1_velocity = 0;
+        int max_enemies1_velocity = 0;
 
+        Random random = new Random();
+
+      
+
+ 
         SpriteFont font;
 
         KeyboardState keyboardState_before = Keyboard.GetState();
@@ -58,7 +66,6 @@ namespace _2Dshooter
         int frameCounter = 0;
         TimeSpan elapsedTime = TimeSpan.Zero;
 
-        public double theta_test;
 
         //GameObject planet;
         GameObject ball;
@@ -126,6 +133,13 @@ namespace _2Dshooter
                 player1_weapon2[i] = new GameObject(Content.Load<Texture2D>("Sprites\\gravity_weapon"));
               
             }
+
+            enemies1 = new GameObject[max_enemies1];
+            for (int i = 0; i < max_enemies1; i++)
+            {
+                enemies1[i] = new GameObject(Content.Load<Texture2D>("Sprites\\042-golbat"));
+            }
+
                         
 
             ball = new GameObject(Content.Load<Texture2D>("Sprites\\pokeball1"));        
@@ -147,6 +161,9 @@ namespace _2Dshooter
             BGM = Content.Load<Song>("Audio\\130-cycling");
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
+
+
+           
         }
 
         /// <summary>
@@ -176,8 +193,8 @@ namespace _2Dshooter
                 frameCounter = 0;
             }
 
-            
-            
+
+
             
 
             // Allows the game to exit
@@ -194,11 +211,13 @@ namespace _2Dshooter
 
             Physics(time_before, time_now );
 
+          
 
             time_before  = (float)gameTime.TotalGameTime.TotalMilliseconds;
 
-            
 
+            Spawn_enemies1();
+            
 
             
             //planet.position.X = 600;
@@ -267,6 +286,14 @@ namespace _2Dshooter
 
             }
 
+            foreach (GameObject enemy in enemies1)
+            {
+                if (enemy.alive)
+                {
+                    spriteBatch.Draw(enemy.sprite, enemy.position, Color.White);
+                }
+            }
+
 
 
 
@@ -313,7 +340,7 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "snorelax Position: " + snorelax.position.ToString(),
+                "enemies1[1] Position: " + enemies1[1].position.ToString(),
                 new Vector2(10,70),
                 Color.Yellow
                 );
@@ -472,9 +499,19 @@ namespace _2Dshooter
                 {
                     if (player1_weapon2[i].alive)
                     {
-
                         player1_weapon2[i].alive = false;
 
+                    }
+
+                }
+
+
+
+                for (int i = 0; i < max_enemies1 ; i++)
+                {
+                    if (enemies1[i].alive)
+                    {
+                        enemies1[i].alive = false;
 
                     }
 
@@ -545,6 +582,16 @@ namespace _2Dshooter
                 if (shot.alive)
                 {
                     Update_PVA(shot);
+                }
+            }
+
+            
+            //Update enemies1 PVA
+            foreach (GameObject enemy in enemies1)
+            {
+                if (enemy.alive)
+                {
+                    Update_PVA(enemy);
                 }
             }
 
@@ -761,7 +808,7 @@ namespace _2Dshooter
         }
 
 
-       
+       //Used for oboros top/bot
         private void Check_Borders( GameObject m1 )
         {
 
@@ -811,6 +858,33 @@ namespace _2Dshooter
         }
 
 
+        private void Spawn_enemies1()
+        {
+
+            for (int i = 0; i<max_enemies1; i++)
+            {
+                if(enemies1[i].alive == false)
+                {
+                    enemies1[i].alive = true;
+                    enemies1[i].position = new Vector2(Window_Width + 500, MathHelper.Lerp(0, Window_Height, (float)random.NextDouble()));
+                    enemies1[i].velocity = new Vector2(-(float)random.Next(min_enemies1_velocity, max_enemies1_velocity), 0f);
+                }
+
+                //if enemy has past left border, delete
+                if (enemies1[i].alive && enemies1[i].position.X < 0)
+                {
+                    enemies1[i].alive = false;
+                }
+
+
+             
+            }
+
+
+        }
+
+
+
         private void Set_Values()
         {
 
@@ -844,6 +918,16 @@ namespace _2Dshooter
             }
 
 
+            
+            foreach (GameObject enemy in enemies1)
+            {
+                enemy.friction = 0;
+                enemy.velocity_clamp = 100;
+            }
+            min_enemies1_velocity = 20;
+            max_enemies1_velocity = 60;
+
+
         
             ball.position.X = 450;
             ball.position.Y = 350;
@@ -859,7 +943,7 @@ namespace _2Dshooter
             snorelax.scale = 2.0f;
             snorelax.mass = 150000;
             snorelax.acceleration_clamp = 10.0f;
-
+     
 
         }
 

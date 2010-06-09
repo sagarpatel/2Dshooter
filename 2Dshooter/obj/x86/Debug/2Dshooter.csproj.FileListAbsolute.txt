@@ -45,3 +45,4 @@ C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\ResolveAs
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\2Dshooter.exe
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\2Dshooter.pdb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb
