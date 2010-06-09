@@ -385,6 +385,14 @@ namespace _2Dshooter
 
             KeyboardState keyboardState = Keyboard.GetState();
 
+            // Exit Game if ESC is pressed
+            if (keyboardState.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+        
+
+
 
             int acceleration_increment = 1;
 
@@ -690,17 +698,17 @@ namespace _2Dshooter
             // Clamp aceleration values
 
             
-            if (m1.IsPlayer == false)
-            {
-                m1.acceleration.X = MathHelper.Clamp(m1.acceleration.X, -m1.acceleration_clamp, m1.acceleration_clamp);
-                m1.acceleration.Y = MathHelper.Clamp(m1.acceleration.Y, -m1.acceleration_clamp, m1.acceleration_clamp);
-            }
+            //if (m1.IsPlayer == false)
+            //{
+            //    m1.acceleration.X = MathHelper.Clamp(m1.acceleration.X, -m1.acceleration_clamp, m1.acceleration_clamp);
+            //    m1.acceleration.Y = MathHelper.Clamp(m1.acceleration.Y, -m1.acceleration_clamp, m1.acceleration_clamp);
+            //}
 
-            if (m2.IsPlayer == false)
-            {
-                m2.acceleration.X = MathHelper.Clamp(m2.acceleration.X, -m2.acceleration_clamp, m2.acceleration_clamp);
-                m2.acceleration.Y = MathHelper.Clamp(m2.acceleration.Y, -m2.acceleration_clamp, m2.acceleration_clamp);
-            }
+            //if (m2.IsPlayer == false)
+            //{
+            //    m2.acceleration.X = MathHelper.Clamp(m2.acceleration.X, -m2.acceleration_clamp, m2.acceleration_clamp);
+            //    m2.acceleration.Y = MathHelper.Clamp(m2.acceleration.Y, -m2.acceleration_clamp, m2.acceleration_clamp);
+            //}
 
 
         }
@@ -711,6 +719,21 @@ namespace _2Dshooter
 
         private void Update_PVA(GameObject m1)
         {
+
+
+            if (m1.IsPlayer == false)
+            {
+                m1.acceleration.X = MathHelper.Clamp(m1.acceleration.X, -m1.acceleration_clamp, m1.acceleration_clamp);
+                m1.acceleration.Y = MathHelper.Clamp(m1.acceleration.Y, -m1.acceleration_clamp, m1.acceleration_clamp);
+            }
+
+
+            if (m1.IsPlayer == false)
+            {
+                m1.velocity.X = MathHelper.Clamp(m1.velocity.X, -m1.velocity_clamp, m1.velocity_clamp);
+                m1.velocity.Y = MathHelper.Clamp(m1.velocity.Y, -m1.velocity_clamp, m1.velocity_clamp);
+            }
+
 
             m1.velocity += m1.acceleration * (time_diff);
             m1.position += m1.velocity * (time_diff);
@@ -731,6 +754,7 @@ namespace _2Dshooter
             {
                 m1.velocity.Y = 0;
             }
+
 
 
 
@@ -763,6 +787,11 @@ namespace _2Dshooter
                 m1.velocity.X = -m1.velocity.X;
             }
 
+            if (m1.position.Y < 0 || m1.position.Y>Window_Height)
+            {
+                m1.velocity.Y = -m1.velocity.Y;
+            }
+
 
 
         }
@@ -770,13 +799,13 @@ namespace _2Dshooter
 
         private void Update_Walls()
         {
-            Check_Borders(player1);
+            //Check_Borders(player1);
 
             Wall_Bounce(player1);
 
             foreach (GameObject shot in player1_weapon2)
             {
-                Check_Borders(shot);
+                //Check_Borders(shot);
                 Wall_Bounce(shot);
             }
         }
@@ -809,6 +838,7 @@ namespace _2Dshooter
                
                 player1_weapon2[i].mass = 10f;
                 player1_weapon2[i].acceleration_clamp = 50.0f;
+                player1_weapon2[i].velocity_clamp = 300.0f;
                 player1_weapon2[i].friction = 0.0f;
 
             }

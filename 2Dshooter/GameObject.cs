@@ -34,6 +34,7 @@ namespace _2Dshooter
         public bool IsPlayer;
 
         public float acceleration_clamp;
+        public float velocity_clamp;
 
         public float friction;
 
