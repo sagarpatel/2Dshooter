@@ -21,3 +21,27 @@ E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravi
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\planet.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball1.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\snorelax.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\rocket.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\121-starmie.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\120-staryu.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\planet.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball1.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\snorelax.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Fonts\SpriteFont1.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.wma
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.wma
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.wma
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.wma
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\2Dshooter.exe
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\2Dshooter.pdb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\2Dshooter.exe
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\2Dshooter.pdb

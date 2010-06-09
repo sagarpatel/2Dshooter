@@ -786,7 +786,7 @@ namespace _2Dshooter
         {
 
             time_stretch = 0.01f;
-            G = 1f;
+            G = 10f;
             
             player1.scale = 1.0f;
             player1.mass = 1;
