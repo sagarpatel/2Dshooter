@@ -38,6 +38,8 @@ namespace _2Dshooter
 
         public float friction;
 
+        public int HP;
+
         
         public GameObject(Texture2D loadedTexture)
         {

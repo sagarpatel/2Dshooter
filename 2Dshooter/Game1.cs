@@ -29,6 +29,7 @@ namespace _2Dshooter
         float G = 1.0f;
 
         GameObject player1;
+        int player1_score = 0;
         
         GameObject [] player1_weapon1;
         const int max_player1_weapon1 = 10;
@@ -37,7 +38,7 @@ namespace _2Dshooter
         const int max_player1_weapon2 = 100;
 
         GameObject[] enemies1;
-        const int max_enemies1 = 20;
+        const int max_enemies1 = 30;
         int min_enemies1_velocity = 0;
         int max_enemies1_velocity = 0;
 
@@ -217,6 +218,8 @@ namespace _2Dshooter
 
 
             Spawn_enemies1();
+
+            Collisions();
             
 
             
@@ -340,46 +343,19 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "enemies1[1] Position: " + enemies1[1].position.ToString(),
-                new Vector2(10,70),
+                "Player1 Life " + player1.HP.ToString(),
+                new Vector2(20,90),
                 Color.Yellow
                 );
+
 
             spriteBatch.DrawString(
                 font,
-                "snorelax Velocity: " + snorelax.velocity.ToString(),
-                new Vector2(10, 90),
+                "Player1 Score " + player1_score.ToString(),
+                new Vector2(20, 110),
                 Color.Yellow
                 );
 
-            spriteBatch.DrawString(
-                font,
-                "snorelax Acceleration: " + snorelax.acceleration.ToString(),
-                new Vector2(10, 110),
-                Color.Yellow
-                );
-
-
-            //spriteBatch.DrawString(
-            //    font,
-            //    "Planet Position: " + planet.position.ToString(),
-            //    new Vector2(10, 130),
-            //    Color.Yellow
-            //    );
-
-            //spriteBatch.DrawString(
-            //    font,
-            //    "Planet Velocity: " + planet.velocity.ToString(),
-            //    new Vector2(10, 150),
-            //    Color.Yellow
-            //    );
-
-            //spriteBatch.DrawString(
-            //    font,
-            //    "Planet Acceleration: " + planet.acceleration.ToString(),
-            //    new Vector2(10, 170),
-            //    Color.Yellow
-            //    );
 
           
          
@@ -885,6 +861,62 @@ namespace _2Dshooter
 
 
 
+        private bool Check_Collision(GameObject m1, GameObject m2)
+        {
+
+            Rectangle m1Rect = new Rectangle(
+                                            (int)m1.position.X,
+                                            (int)m1.position.Y,
+                                            m1.sprite.Width,
+                                            m1.sprite.Height);
+
+            Rectangle m2Rect = new Rectangle(
+                                            (int)m2.position.X,
+                                            (int)m2.position.Y,
+                                            m2.sprite.Width,
+                                            m2.sprite.Height);
+
+
+            if (m1Rect.Intersects(m2Rect))
+            {
+                return true;
+            }
+
+            else
+                return false;
+
+            
+        }
+
+        private void Collisions()
+        {
+            //Check for collisions AND apply consequences
+
+            foreach (GameObject enemy in enemies1)
+            {
+                if (Check_Collision(enemy, player1))
+                {
+                    player1.HP -= 1;
+                }
+
+                foreach (GameObject shot in player1_weapon2)
+                {
+                    if (Check_Collision(enemy, shot))
+                    {
+                        player1_score += 1;
+                        enemy.alive = false;
+                        shot.alive = false;
+                    }
+                }
+            }
+
+
+          
+            
+        }
+
+
+
         private void Set_Values()
         {
 
@@ -896,6 +928,7 @@ namespace _2Dshooter
             player1.IsPlayer = true;
             player1.acceleration_clamp = 100.0f;
             player1.friction = 0.025f;
+            player1.HP = 100;
 
                         
             for (int i = 0; i < max_player1_weapon1; i++)
