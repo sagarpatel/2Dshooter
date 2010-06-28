@@ -899,15 +899,15 @@ namespace _2Dshooter
                     player1.HP -= 1;
                 }
 
-                //foreach (GameObject shot in player1_weapon2)
-                //{
-                //    if (Check_Collision(enemy, shot))
-                //    {
-                //        player1_score += 1;
-                //        enemy.alive = false;
-                //        shot.alive = false;
-                //    }
-                //}
+                foreach (GameObject shot in player1_weapon2)
+                {
+                    if (Check_Collision(enemy, shot))
+                    {
+                        player1_score += 1;
+                        enemy.alive = false;
+                        shot.alive = false;
+                    }
+                }
             }
 
 
