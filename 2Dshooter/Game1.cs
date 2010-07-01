@@ -74,7 +74,9 @@ namespace _2Dshooter
         GameObject snorelax;
 
 
+        // Create instance of Particle Engine
 
+        ParticleEngine PE;
 
 
         public Game1()
@@ -163,7 +165,7 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-
+            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1"));
            
         }
 
@@ -219,7 +221,7 @@ namespace _2Dshooter
 
             Spawn_enemies1();
 
-            Collisions();
+            Collisions(gameTime);
             
 
             
@@ -298,6 +300,8 @@ namespace _2Dshooter
             }
 
 
+            PE.DrawExplosion(PE.Particle1List, spriteBatch);
+            
 
 
             spriteBatch.DrawString(
@@ -888,7 +892,7 @@ namespace _2Dshooter
             
         }
 
-        private void Collisions()
+        private void Collisions(GameTime gameTime)
         {
             //Check for collisions AND apply consequences
 
@@ -906,6 +910,7 @@ namespace _2Dshooter
                         player1_score += 1;
                         enemy.alive = false;
                         shot.alive = false;
+                        PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
                     }
                 }
             }
@@ -919,7 +924,7 @@ namespace _2Dshooter
 
         private void Set_Values()
         {
-
+            
             time_stretch = 0.01f;
             G = 100f;
             

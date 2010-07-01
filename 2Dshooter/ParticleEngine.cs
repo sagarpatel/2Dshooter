@@ -34,7 +34,6 @@ namespace _2Dshooter
 
         public struct ParticleData
         {
-
             public float BirthTime;
             public float MaxAge;
             public Vector2 OrginalPosition;
@@ -44,33 +43,35 @@ namespace _2Dshooter
             public float Scaling;
             public Color ModColor;
 
-
         }
 
+
+        public List<ParticleData> Particle1List;
 
         public float ParticleScale = 0.25f; // Used in AddExplosionParticle()
         public float ParticleAcceleration = 3.0f; // Used in AddExplosionParticle()
+        public float ExplosionSize = 10.0f;
+        public float ParticleMaxAge = 2000.0f;
+        public int MaxParticles = 10; // U
 
         Random random = new Random(); // Will be used later for random generation
-
-
-
-
-        Texture2D Explosion1Sprite;
         
-        List<ParticleData> Particle1List = new List<ParticleData>() ;
+        Texture2D Explosion1Sprite;
+               
+        SpriteBatch spriteBatch;
 
 
-        public ParticleEngine(Texture2D EXP1Tex)
+        public ParticleEngine(SpriteBatch SB, Texture2D EXP1Tex)
         {
+            Particle1List = new List<ParticleData>() ;
 
             Explosion1Sprite = EXP1Tex;
 
-            
+            spriteBatch = SB;
         }
 
 
-        private void AddExplosionParticle(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, float MaxAge, GameTime gametime)
+        public void AddExplosionParticle(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, float MaxAge, GameTime gametime)
         {
 
             ParticleData particle = new ParticleData();
@@ -96,9 +97,34 @@ namespace _2Dshooter
 
 
         }
-    
-       
 
-        
+
+        public void AddExplosion(List<ParticleData> PL, int MaxParticles, Vector2 ExplosionPosition, float ExplosionSize, float MaxAge, GameTime gametime)
+        {
+            for (int i = 0; i < MaxParticles; i++)
+            {
+                AddExplosionParticle(PL, ExplosionPosition, ExplosionSize, MaxAge, gametime);
+
+            }
+
+        }
+
+
+         
+
+        public void DrawExplosion(List<ParticleData> PL, SpriteBatch spriteBatch)
+        {
+
+            for(int i=0; i< PL.Count; i++)
+            {
+                ParticleData particle = PL[i];
+                spriteBatch.Draw(Explosion1Sprite, particle.Position, null, particle.ModColor, i, new Vector2(256, 256), particle.Scaling, SpriteEffects.None, 1);
+               
+            }
+        }
+
+
+
+
     }
 }
