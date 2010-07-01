@@ -16,3 +16,4 @@ Content\Audio\128-battle-vs-gym-leader-.xnb
 Content\Audio\128-battle-vs-gym-leader-.wma
 Content\Audio\130-cycling.xnb
 Content\Audio\130-cycling.wma
+Content\Sprites\explosion1.xnb
