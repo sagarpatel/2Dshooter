@@ -38,7 +38,7 @@ namespace _2Dshooter
         const int max_player1_weapon2 = 100;
 
         GameObject[] enemies1;
-        const int max_enemies1 = 30;
+        const int max_enemies1 = 10;
         int min_enemies1_velocity = 0;
         int max_enemies1_velocity = 0;
 
@@ -120,6 +120,7 @@ namespace _2Dshooter
 
             player1 = new GameObject(Content.Load<Texture2D>("Sprites\\120-staryu"));
             player1.position = new Vector2(player1_initial_position_X, player1_initial_position_Y);
+            player1.alive = true;
         
                         
             player1_weapon1 = new GameObject[max_player1_weapon1];
@@ -231,6 +232,11 @@ namespace _2Dshooter
 
             keyboardState_before = Keyboard.GetState();
 
+            if (PE.Particle1List.Count > 0)
+            {
+                PE.UpdateParticles(PE.Particle1List, gameTime);
+            }
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -300,7 +306,7 @@ namespace _2Dshooter
             }
 
 
-            PE.DrawExplosion(PE.Particle1List, spriteBatch);
+            
             
 
 
@@ -363,6 +369,16 @@ namespace _2Dshooter
 
           
          
+
+            spriteBatch.End();
+
+
+            spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Deferred, SaveStateMode.None);
+
+            if (PE.Particle1List.Count > 0)
+            {
+                PE.DrawExplosion(PE.Particle1List, spriteBatch);
+            }
 
             spriteBatch.End();
 
@@ -869,14 +885,14 @@ namespace _2Dshooter
         {
 
             Rectangle m1Rect = new Rectangle(
-                                            (int)m1.position.X,
-                                            (int)m1.position.Y,
+                                            (int)m1.position.X+(int)m1.center.X,
+                                            (int)m1.position.Y+(int)m1.center.Y,
                                             m1.sprite.Width,
                                             m1.sprite.Height);
 
             Rectangle m2Rect = new Rectangle(
-                                            (int)m2.position.X,
-                                            (int)m2.position.Y,
+                                            (int)m2.position.X+(int)m2.center.X,
+                                            (int)m2.position.Y+(int)m2.center.Y,
                                             m2.sprite.Width,
                                             m2.sprite.Height);
 
@@ -905,12 +921,16 @@ namespace _2Dshooter
 
                 foreach (GameObject shot in player1_weapon2)
                 {
-                    if (Check_Collision(enemy, shot))
+                    if (shot.alive)
                     {
-                        player1_score += 1;
-                        enemy.alive = false;
-                        shot.alive = false;
-                        PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                        if (Check_Collision(enemy, shot))
+                        {
+                            player1_score += 1;
+                            enemy.alive = false;
+                            shot.alive = false;
+                            PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                            //PE.UpdateParticles(PE.Particle1List, gameTime);
+                        }
                     }
                 }
             }

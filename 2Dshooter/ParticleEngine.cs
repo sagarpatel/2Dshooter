@@ -36,6 +36,7 @@ namespace _2Dshooter
         {
             public float BirthTime;
             public float MaxAge;
+            public float NowAge;
             public Vector2 OrginalPosition;
             public Vector2 Accelaration;
             public Vector2 Direction;
@@ -48,11 +49,11 @@ namespace _2Dshooter
 
         public List<ParticleData> Particle1List;
 
-        public float ParticleScale = 0.25f; // Used in AddExplosionParticle()
-        public float ParticleAcceleration = 3.0f; // Used in AddExplosionParticle()
-        public float ExplosionSize = 10.0f;
-        public float ParticleMaxAge = 2000.0f;
-        public int MaxParticles = 10; // U
+        public float ParticleScale = 0.5f; // Used in AddExplosionParticle()
+        public float ParticleAcceleration = .50f; // Used in AddExplosionParticle()
+        public float ExplosionSize = 20.0f;
+        public float ParticleMaxAge = 750.0f;
+        public int MaxParticles = 15; // U
 
         Random random = new Random(); // Will be used later for random generation
         
@@ -79,7 +80,7 @@ namespace _2Dshooter
             particle.OrginalPosition = ExplosionPosition;
             particle.Position = particle.OrginalPosition;
 
-            particle.BirthTime = (float)gametime.TotalGameTime.Milliseconds;
+            particle.BirthTime = (float)gametime.TotalGameTime.TotalMilliseconds;
             particle.MaxAge = MaxAge;
             particle.Scaling = ParticleScale;
             particle.ModColor = Color.White;
@@ -92,6 +93,10 @@ namespace _2Dshooter
 
             particle.Direction = Displacement;
             particle.Accelaration = ParticleAcceleration * particle.Direction;
+
+            particle.Direction = Displacement * 2.0f;
+            particle.Accelaration = -particle.Direction;
+
 
             PL.Add(particle);
 
@@ -115,16 +120,56 @@ namespace _2Dshooter
         public void DrawExplosion(List<ParticleData> PL, SpriteBatch spriteBatch)
         {
 
-            for(int i=0; i< PL.Count; i++)
+
+            for (int i = 0; i < PL.Count; i++)
             {
                 ParticleData particle = PL[i];
-                spriteBatch.Draw(Explosion1Sprite, particle.Position, null, particle.ModColor, i, new Vector2(256, 256), particle.Scaling, SpriteEffects.None, 1);
-               
+                spriteBatch.Draw(Explosion1Sprite,
+                                 particle.Position,
+                                 null,
+                                 particle.ModColor,
+                                 i,
+                                 new Vector2(256,256),
+                                 particle.Scaling,
+                                 SpriteEffects.None,
+                                 1);
+
             }
         }
 
 
+        public void UpdateParticles(List<ParticleData> PL, GameTime gameTime)
+        {
 
+            float now = (float)gameTime.TotalGameTime.TotalMilliseconds;
+
+            for (int i = PL.Count - 1; i >= 0; i--)
+            {
+                ParticleData particle = PL[i];
+                float timeAlive = now - particle.BirthTime;
+                particle.NowAge = timeAlive;
+
+                if (particle.NowAge > particle.MaxAge)
+                {
+                    PL.RemoveAt(i);
+                }
+                else
+                {
+                    float relativeAge = timeAlive / particle.MaxAge;
+                    particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
+
+                    float inverseAge = 1.0f - relativeAge;
+                    particle.ModColor = new Color(new Vector4(inverseAge, inverseAge, inverseAge, inverseAge));
+
+                    Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
+                    float distance = positionFromCenter.Length();
+                    particle.Scaling = (50.0f + distance) / 200.0f;
+                    PL[i] = particle;
+                }
+            }
+        }
+
+         
 
     }
 }
