@@ -122,6 +122,24 @@
       <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Release\Content\Audio\130-cycling.wma</Extra>
       <Time>2010-05-19T20:33:34.4642926-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\042-golbat.png</Source>
+      <Name>Sprites\042-golbat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\042-golbat.xnb</Output>
+      <Time>2010-06-06T20:02:30.3738623-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\explosion1.png</Source>
+      <Name>Sprites\explosion1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\explosion1.xnb</Output>
+      <Time>2010-07-01T00:29:15.3563437-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

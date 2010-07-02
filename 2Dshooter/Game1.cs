@@ -571,6 +571,16 @@ namespace _2Dshooter
             // Update velocity and position of player
 
             Update_PVA(player1);
+
+            // Update velocity and position of weapon1
+            foreach (GameObject shot in player1_weapon1)
+            {
+                if (shot.alive)
+                {
+                    Update_PVA(shot);
+                }
+            }
+
             
             // Update velocity and position of weapon2
             foreach (GameObject shot in player1_weapon2)
@@ -605,8 +615,8 @@ namespace _2Dshooter
         private void Fire_Weapons(string weapon_id)
         {
 
-            float Weapon1_velocity = 10.0f;
-            float Weapon2_velocity = 50.0f;
+            //float Weapon1_velocity = 10.0f;
+            //float Weapon2_velocity = 50.0f;
                      
             
             switch (weapon_id)
@@ -621,7 +631,7 @@ namespace _2Dshooter
                             shot.alive = true;
                             shot.position = player1.position;
                             shot.position.Y -= 4;
-                            shot.velocity = new Vector2(Weapon1_velocity, 0);
+                          
 
                             return;
                         }
@@ -638,7 +648,7 @@ namespace _2Dshooter
                             shot.alive = true;
                             shot.position = player1.position;
                             shot.position.Y += 4;
-                            shot.velocity = new Vector2(Weapon2_velocity, 0);
+                           
 
                             return;
                         }
@@ -910,14 +920,37 @@ namespace _2Dshooter
 
         private void Collisions(GameTime gameTime)
         {
-            //Check for collisions AND apply consequences
+            //Check for enemies1 collisions AND apply consequences
 
             foreach (GameObject enemy in enemies1)
             {
+                //Check player collision
+                
                 if (Check_Collision(enemy, player1))
                 {
                     player1.HP -= 1;
                 }
+
+
+                //Check player1_weapon1 collision
+
+                foreach (GameObject shot in player1_weapon1)
+                {
+                    if (shot.alive)
+                    {
+                        if (Check_Collision(enemy, shot))
+                        {
+                            player1_score += 1;
+                            enemy.alive = false;
+                            shot.alive = false;
+                            PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+
+                        }
+                    }
+                }
+
+
+                //Check player1_weapon2 collision
 
                 foreach (GameObject shot in player1_weapon2)
                 {
@@ -929,7 +962,7 @@ namespace _2Dshooter
                             enemy.alive = false;
                             shot.alive = false;
                             PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                            //PE.UpdateParticles(PE.Particle1List, gameTime);
+                            
                         }
                     }
                 }
@@ -955,11 +988,13 @@ namespace _2Dshooter
             player1.friction = 0.025f;
             player1.HP = 100;
 
-                        
+
             for (int i = 0; i < max_player1_weapon1; i++)
             {
-                
-                player1_weapon1[i].acceleration_clamp = 10.0f;
+
+                player1_weapon1[i].friction = 0.0f;
+                player1_weapon1[i].velocity = new Vector2(50, 0);
+                player1_weapon1[i].velocity_clamp = 50.0f;
 
             }
 
@@ -970,6 +1005,7 @@ namespace _2Dshooter
                
                 player1_weapon2[i].mass = 10f;
                 player1_weapon2[i].acceleration_clamp = 50.0f;
+                player1_weapon2[i].velocity = new Vector2(50,0);
                 player1_weapon2[i].velocity_clamp = 300.0f;
                 player1_weapon2[i].friction = 0.0f;
 

@@ -21,3 +21,5 @@ E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\obj\x86\Release\ResolveAssemblyRefe
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\obj\x86\Release\2Dshooter.exe
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\obj\x86\Release\2Dshooter.pdb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\042-golbat.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\explosion1.xnb
