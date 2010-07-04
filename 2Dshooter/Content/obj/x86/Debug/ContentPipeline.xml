@@ -140,6 +140,24 @@
       <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.wma</Extra>
       <Time>2010-05-19T20:33:34.4642926-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\explosion1mod1.png</Source>
+      <Name>Sprites\explosion1mod1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod1.xnb</Output>
+      <Time>2010-07-02T16:35:35.1143935-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\explosion1mod2.png</Source>
+      <Name>Sprites\explosion1mod2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2.xnb</Output>
+      <Time>2010-07-04T16:21:05.9653472-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -50,10 +50,10 @@ namespace _2Dshooter
         public List<ParticleData> Particle1List;
 
         public float ParticleScale = 0.5f; // Used in AddExplosionParticle()
-        public float ParticleAcceleration = .50f; // Used in AddExplosionParticle()
-        public float ExplosionSize = 20.0f;
+        public float ParticleAcceleration = 3.0f; // Used in AddExplosionParticle()
+        public float ExplosionSize = 30f;
         public float ParticleMaxAge = 750.0f;
-        public int MaxParticles = 15; // U
+        public int MaxParticles = 80; // U
 
         Random random = new Random(); // Will be used later for random generation
         
@@ -159,11 +159,11 @@ namespace _2Dshooter
                     particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
 
                     float inverseAge = 1.0f - relativeAge;
-                    particle.ModColor = new Color(new Vector4(inverseAge, inverseAge, inverseAge, inverseAge));
+                    particle.ModColor = new Color(new Vector4(inverseAge, inverseAge+0.5f, inverseAge, inverseAge-0.1f));
 
                     Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
                     float distance = positionFromCenter.Length();
-                    particle.Scaling = (50.0f + distance) / 200.0f;
+                    particle.Scaling = (20.0f + distance) / 200.0f;
                     PL[i] = particle;
                 }
             }

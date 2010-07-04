@@ -48,3 +48,5 @@ C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Debug\2Dshooter
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod1.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2.xnb

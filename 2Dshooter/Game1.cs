@@ -33,9 +33,12 @@ namespace _2Dshooter
         
         GameObject [] player1_weapon1;
         const int max_player1_weapon1 = 10;
+        const float player1_weapon1_initial_velocity_X = 40.0f;
+        
 
         GameObject[] player1_weapon2;
-        const int max_player1_weapon2 = 100;
+        const int max_player1_weapon2 = 20;
+        const float player1_weapon2_initial_velocity_X = 40.0f;
 
         GameObject[] enemies1;
         const int max_enemies1 = 10;
@@ -166,7 +169,7 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1"));
+            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1mod2"));
            
         }
 
@@ -676,8 +679,9 @@ namespace _2Dshooter
                     if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
                     {
                         shot.alive = false;
-                        shot.acceleration.X = 0;
-                        shot.acceleration.Y = 0;
+                        shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
+                        shot.acceleration = new Vector2(0, 0);
+                        
                         continue;
                     }
                 }
@@ -693,8 +697,9 @@ namespace _2Dshooter
                     if (shot.position.X > Window_Width)
                     {
                         shot.alive = false;
-                        shot.acceleration.X = 0;
-                        shot.acceleration.Y = 0;
+                        shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                        shot.acceleration = new Vector2(0, 0);
+                        
                         continue;
                     }
                 }
@@ -943,6 +948,8 @@ namespace _2Dshooter
                             player1_score += 1;
                             enemy.alive = false;
                             shot.alive = false;
+                            shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
+                            shot.acceleration = new Vector2(0, 0);
                             PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
 
                         }
@@ -961,6 +968,8 @@ namespace _2Dshooter
                             player1_score += 1;
                             enemy.alive = false;
                             shot.alive = false;
+                            shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                            shot.acceleration = new Vector2(0, 0);
                             PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
                             
                         }
@@ -993,7 +1002,7 @@ namespace _2Dshooter
             {
 
                 player1_weapon1[i].friction = 0.0f;
-                player1_weapon1[i].velocity = new Vector2(50, 0);
+                player1_weapon1[i].velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
                 player1_weapon1[i].velocity_clamp = 50.0f;
 
             }
@@ -1005,7 +1014,7 @@ namespace _2Dshooter
                
                 player1_weapon2[i].mass = 10f;
                 player1_weapon2[i].acceleration_clamp = 50.0f;
-                player1_weapon2[i].velocity = new Vector2(50,0);
+                player1_weapon2[i].velocity = new Vector2(player1_weapon2_initial_velocity_X,0);
                 player1_weapon2[i].velocity_clamp = 300.0f;
                 player1_weapon2[i].friction = 0.0f;
 
