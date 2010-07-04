@@ -49,11 +49,11 @@ namespace _2Dshooter
 
         public List<ParticleData> Particle1List;
 
-        public float ParticleScale = 0.5f; // Used in AddExplosionParticle()
-        public float ParticleAcceleration = 3.0f; // Used in AddExplosionParticle()
-        public float ExplosionSize = 30f;
-        public float ParticleMaxAge = 750.0f;
-        public int MaxParticles = 80; // U
+        public float ParticleScale = 2.0f; // Used in AddExplosionParticle()
+        public float ParticleAcceleration = 1f; // Used in AddExplosionParticle()
+        public float ExplosionSize = 50f;
+        public float ParticleMaxAge = 300.0f;
+        public int MaxParticles = 20; // U
 
         Random random = new Random(); // Will be used later for random generation
         
@@ -92,11 +92,7 @@ namespace _2Dshooter
             Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(angle));
 
             particle.Direction = Displacement;
-            particle.Accelaration = ParticleAcceleration * particle.Direction;
-
-            particle.Direction = Displacement * 2.0f;
-            particle.Accelaration = -particle.Direction;
-
+            particle.Accelaration = -ParticleAcceleration * particle.Direction;
 
             PL.Add(particle);
 
@@ -149,7 +145,7 @@ namespace _2Dshooter
                 float timeAlive = now - particle.BirthTime;
                 particle.NowAge = timeAlive;
 
-                if (particle.NowAge > particle.MaxAge)
+                if (particle.NowAge > particle.MaxAge || particle.ModColor.A<0.25f)
                 {
                     PL.RemoveAt(i);
                 }
@@ -159,11 +155,11 @@ namespace _2Dshooter
                     particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
 
                     float inverseAge = 1.0f - relativeAge;
-                    particle.ModColor = new Color(new Vector4(inverseAge, inverseAge+0.5f, inverseAge, inverseAge-0.1f));
+                    particle.ModColor = new Color(new Vector4(inverseAge, inverseAge+0.5f, inverseAge, inverseAge-0.15f));
 
                     Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
                     float distance = positionFromCenter.Length();
-                    particle.Scaling = (20.0f + distance) / 200.0f;
+                    particle.Scaling = (30.0f + distance) / 200.0f;
                     PL[i] = particle;
                 }
             }

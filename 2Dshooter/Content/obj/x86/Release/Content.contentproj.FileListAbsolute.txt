@@ -1,1 +1,2 @@
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\Content\obj\x86\Release\ResolveAssemblyReference.cache
