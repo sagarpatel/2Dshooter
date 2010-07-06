@@ -45,6 +45,10 @@ namespace _2Dshooter
         int min_enemies1_velocity = 0;
         int max_enemies1_velocity = 0;
 
+        GameObject[] enemies2;
+        const int max_enemies2 = 20;
+        const int enemies2_perspawn = 2;
+
         Random random = new Random();
 
       
@@ -147,6 +151,12 @@ namespace _2Dshooter
                 enemies1[i] = new GameObject(Content.Load<Texture2D>("Sprites\\042-golbat"));
             }
 
+
+            enemies2 = new GameObject[max_enemies2];
+            for (int i = 0; i < max_enemies2; i++)
+            {
+                enemies2[i] = new GameObject(Content.Load<Texture2D>("Sprites\\041-zubat"));
+            }
                         
 
             ball = new GameObject(Content.Load<Texture2D>("Sprites\\pokeball1"));        
@@ -223,7 +233,7 @@ namespace _2Dshooter
             time_before  = (float)gameTime.TotalGameTime.TotalMilliseconds;
 
 
-            Spawn_enemies1();
+            Spawn_enemies(1,0f,0f);
 
             Collisions(gameTime);
             
@@ -308,6 +318,13 @@ namespace _2Dshooter
                 }
             }
 
+            foreach (GameObject enemy in enemies2)
+            {
+                if (enemy.alive)
+                {
+                    spriteBatch.Draw(enemy.sprite, enemy.position, Color.White);
+                }
+            }
 
             
             
@@ -594,16 +611,8 @@ namespace _2Dshooter
                 }
             }
 
-            
-            //Update enemies1 PVA
-            foreach (GameObject enemy in enemies1)
-            {
-                if (enemy.alive)
-                {
-                    Update_PVA(enemy);
-                }
-            }
 
+            Update_enemies(1);
 
             //Update_PVA(ball);
             //Update_PVA(snorelax);
@@ -751,23 +760,7 @@ namespace _2Dshooter
             Vector2 force_acceleration_m2 = Applied_Force / m2.mass;
             m2.acceleration -= force_acceleration_m2;
             
-            
-            
-            // Clamp aceleration values
-
-            
-            //if (m1.IsPlayer == false)
-            //{
-            //    m1.acceleration.X = MathHelper.Clamp(m1.acceleration.X, -m1.acceleration_clamp, m1.acceleration_clamp);
-            //    m1.acceleration.Y = MathHelper.Clamp(m1.acceleration.Y, -m1.acceleration_clamp, m1.acceleration_clamp);
-            //}
-
-            //if (m2.IsPlayer == false)
-            //{
-            //    m2.acceleration.X = MathHelper.Clamp(m2.acceleration.X, -m2.acceleration_clamp, m2.acceleration_clamp);
-            //    m2.acceleration.Y = MathHelper.Clamp(m2.acceleration.Y, -m2.acceleration_clamp, m2.acceleration_clamp);
-            //}
-
+                   
 
         }
 
@@ -869,31 +862,118 @@ namespace _2Dshooter
         }
 
 
-        private void Spawn_enemies1()
+        private void Spawn_enemies(int enemyID, float spawnX, float spawnY)
         {
 
-            for (int i = 0; i<max_enemies1; i++)
+            switch (enemyID)
             {
-                if(enemies1[i].alive == false)
-                {
-                    enemies1[i].alive = true;
-                    enemies1[i].position = new Vector2(Window_Width + 500, MathHelper.Lerp(0, Window_Height, (float)random.NextDouble()));
-                    enemies1[i].velocity = new Vector2(-(float)random.Next(min_enemies1_velocity, max_enemies1_velocity), 0f);
-                }
 
-                //if enemy has past left border, delete
-                if (enemies1[i].alive && enemies1[i].position.X < 0)
-                {
-                    enemies1[i].alive = false;
-                }
+                case 1:
 
 
-             
+                    for (int i = 0; i < max_enemies1; i++)
+                    {
+                        if (enemies1[i].alive == false)
+                        {
+                            enemies1[i].alive = true;
+                            enemies1[i].position = new Vector2(Window_Width + 500, MathHelper.Lerp(0, Window_Height, (float)random.NextDouble()));
+                            enemies1[i].velocity = new Vector2(-(float)random.Next(min_enemies1_velocity, max_enemies1_velocity), 0f);
+                        }
+                                           
+                                                
+                    }
+                    break;
+
+
+                    
+                case 2:
+
+                    int spawn_counter = 0;
+
+                    for (int i = 1; i < max_enemies2; i++)
+                    {
+                        
+                        if (enemies2[i].alive == false)
+                        {
+                            enemies2[i].alive = true;
+                            enemies2[i].position = new Vector2(spawnX, spawnY);
+                            spawn_counter++;
+                        }
+
+                        if (spawn_counter >= enemies2_perspawn)
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+
+
+
+
+                default: break;
+
             }
 
 
         }
 
+
+
+        private void Update_enemies(int enemyID)
+        {
+
+            switch (enemyID)
+            {
+
+                case 1:
+
+                    {
+                               //Update enemies1 PVA
+                        foreach (GameObject enemy in enemies1)
+                        {
+                            if (enemy.alive)
+                            {
+                                Update_PVA(enemy);
+
+                                if (enemy.position.X < 0)
+                                {
+                                    enemy.alive = false;
+                                }
+                            }
+                        }
+
+
+                    }
+                    break;
+
+
+
+                case 2:
+                    {
+
+                        foreach (GameObject enemy in enemies2)
+                        {
+                            if (enemy.alive)
+                            {
+                                Update_PVA(enemy);
+
+                                if (enemy.position.X < 0)
+                                {
+                                    enemy.alive = false;
+                                }
+                            }
+                        }
+                    }
+                    break;
+
+
+                default: break;
+
+            }
+
+
+        }
 
 
         private bool Check_Collision(GameObject m1, GameObject m2)
@@ -951,7 +1031,7 @@ namespace _2Dshooter
                             shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
                             shot.acceleration = new Vector2(0, 0);
                             PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-
+                            Spawn_enemies(2,enemy.position.X,enemy.position.Y);
                         }
                     }
                 }
@@ -971,7 +1051,7 @@ namespace _2Dshooter
                             shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
                             shot.acceleration = new Vector2(0, 0);
                             PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                            
+                            Spawn_enemies(2,enemy.position.X, enemy.position.Y);
                         }
                     }
                 }
@@ -1030,6 +1110,14 @@ namespace _2Dshooter
             min_enemies1_velocity = 20;
             max_enemies1_velocity = 60;
 
+
+            foreach (GameObject enemy in enemies2)
+            {
+                enemy.alive = false;
+                enemy.friction = 0;
+                enemy.velocity.X = 10f;
+                enemy.velocity.Y = 10f;
+            }
 
         
             ball.position.X = 450;
