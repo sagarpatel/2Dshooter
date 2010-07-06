@@ -48,6 +48,7 @@ namespace _2Dshooter
         GameObject[] enemies2;
         const int max_enemies2 = 20;
         const int enemies2_perspawn = 2;
+        const float enemies2_velocity_scalar = 20.0f;
 
         Random random = new Random();
 
@@ -613,6 +614,7 @@ namespace _2Dshooter
 
 
             Update_enemies(1);
+            Update_enemies(2);
 
             //Update_PVA(ball);
             //Update_PVA(snorelax);
@@ -888,7 +890,7 @@ namespace _2Dshooter
                     
                 case 2:
 
-                    int spawn_counter = 0;
+                    
 
                     for (int i = 1; i < max_enemies2; i++)
                     {
@@ -897,14 +899,10 @@ namespace _2Dshooter
                         {
                             enemies2[i].alive = true;
                             enemies2[i].position = new Vector2(spawnX, spawnY);
-                            spawn_counter++;
-                        }
-
-                        if (spawn_counter >= enemies2_perspawn)
-                        {
                             break;
                         }
 
+                        
                     }
                     break;
 
@@ -934,6 +932,7 @@ namespace _2Dshooter
                         {
                             if (enemy.alive)
                             {
+ 
                                 Update_PVA(enemy);
 
                                 if (enemy.position.X < 0)
@@ -956,9 +955,15 @@ namespace _2Dshooter
                         {
                             if (enemy.alive)
                             {
-                                Update_PVA(enemy);
 
-                                if (enemy.position.X < 0)
+                                Vector2 delta = player1.position - enemy.position;
+                                Vector2 norm = Vector2.Normalize(delta);
+                                enemy.velocity = norm * enemies2_velocity_scalar;
+                                
+
+                                Update_PVA(enemy);
+                                
+                                if (enemy.position.X < 0 || enemy.position.X > Window_Width || enemy.position.Y<0 || enemy.position.Y>Window_Height)
                                 {
                                     enemy.alive = false;
                                 }
@@ -1009,56 +1014,113 @@ namespace _2Dshooter
 
             foreach (GameObject enemy in enemies1)
             {
-                //Check player collision
-                
-                if (Check_Collision(enemy, player1))
+                if (enemy.alive)
                 {
-                    player1.HP -= 1;
-                }
+                    //Check player collision
 
-
-                //Check player1_weapon1 collision
-
-                foreach (GameObject shot in player1_weapon1)
-                {
-                    if (shot.alive)
+                    if (Check_Collision(enemy, player1))
                     {
-                        if (Check_Collision(enemy, shot))
-                        {
-                            player1_score += 1;
-                            enemy.alive = false;
-                            shot.alive = false;
-                            shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
-                            shot.acceleration = new Vector2(0, 0);
-                            PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                            Spawn_enemies(2,enemy.position.X,enemy.position.Y);
-                        }
+                        player1.HP -= 1;
                     }
                 }
 
+            }
 
-                //Check player1_weapon2 collision
+            
+            //Check player1_weapon1 collision
 
-                foreach (GameObject shot in player1_weapon2)
+            foreach (GameObject shot in player1_weapon1)
+            {
+                if (shot.alive)
                 {
-                    if (shot.alive)
+                    foreach (GameObject enemy in enemies1)
                     {
-                        if (Check_Collision(enemy, shot))
+                        if (enemy.alive)
                         {
-                            player1_score += 1;
-                            enemy.alive = false;
-                            shot.alive = false;
-                            shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
-                            shot.acceleration = new Vector2(0, 0);
-                            PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                            Spawn_enemies(2,enemy.position.X, enemy.position.Y);
+
+                            if (Check_Collision(enemy, shot))
+                            {
+                                player1_score += 1;
+                                enemy.alive = false;
+                                shot.alive = false;
+                                shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
+                                shot.acceleration = new Vector2(0, 0);
+                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                Spawn_enemies(2, enemy.position.X, enemy.position.Y);
+                            }
                         }
                     }
+
+
+                    foreach (GameObject enemy in enemies2)
+                    {
+                        if (enemy.alive)
+                        {
+
+
+                            if (Check_Collision(enemy, shot))
+                            {
+                                player1_score += 1;
+                                enemy.alive = false;
+                                shot.alive = false;
+                                shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
+                                shot.acceleration = new Vector2(0, 0);
+                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+
+                            }
+                        }
+                    }
+
                 }
             }
 
 
-          
+            //Check player1_weapon2 collision
+
+            foreach (GameObject shot in player1_weapon2)
+            {
+                if (shot.alive)
+                {
+                    foreach (GameObject enemy in enemies1)
+                    {
+                        if (enemy.alive)
+                        {
+
+                            if (Check_Collision(enemy, shot))
+                            {
+                                player1_score += 1;
+                                enemy.alive = false;
+                                shot.alive = false;
+                                shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                                shot.acceleration = new Vector2(0, 0);
+                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                Spawn_enemies(2, enemy.position.X, enemy.position.Y);
+                            }
+                        }
+                    }
+
+                    foreach (GameObject enemy in enemies2)
+                    {
+                        if (enemy.alive)
+                        {
+
+                            if (Check_Collision(enemy, shot))
+                            {
+                                player1_score += 1;
+                                enemy.alive = false;
+                                shot.alive = false;
+                                shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                                shot.acceleration = new Vector2(0, 0);
+                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+                      
             
         }
 
@@ -1117,6 +1179,8 @@ namespace _2Dshooter
                 enemy.friction = 0;
                 enemy.velocity.X = 10f;
                 enemy.velocity.Y = 10f;
+                enemy.velocity_clamp = 100f;
+                enemy.acceleration_clamp = 100f;
             }
 
         
