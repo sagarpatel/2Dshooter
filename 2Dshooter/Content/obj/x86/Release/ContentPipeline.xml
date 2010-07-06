@@ -158,6 +158,15 @@
       <Extra>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Release\Content\Audio\130-cycling.wma</Extra>
       <Time>2010-06-08T13:55:07.0952156-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\explosion1mod2b.png</Source>
+      <Name>Sprites\explosion1mod2b</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\explosion1mod2b.xnb</Output>
+      <Time>2010-07-05T21:04:04-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -169,7 +169,7 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1mod2"));
+            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1mod2b"));
            
         }
 

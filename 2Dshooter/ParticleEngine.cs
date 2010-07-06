@@ -49,10 +49,10 @@ namespace _2Dshooter
 
         public List<ParticleData> Particle1List;
 
-        public float ParticleScale = 2.0f; // Used in AddExplosionParticle()
+        public float ParticleScale = 50.0f; // Used in AddExplosionParticle()
         public float ParticleAcceleration = 1f; // Used in AddExplosionParticle()
-        public float ExplosionSize = 50f;
-        public float ParticleMaxAge = 300.0f;
+        public float ExplosionSize = 40f;
+        public float ParticleMaxAge = 350.0f;
         public int MaxParticles = 20; // U
 
         Random random = new Random(); // Will be used later for random generation
@@ -93,7 +93,7 @@ namespace _2Dshooter
 
             particle.Direction = Displacement;
             particle.Accelaration = -ParticleAcceleration * particle.Direction;
-
+            
             PL.Add(particle);
 
 
@@ -125,7 +125,7 @@ namespace _2Dshooter
                                  null,
                                  particle.ModColor,
                                  i,
-                                 new Vector2(256,256),
+                                 new Vector2(64,64),
                                  particle.Scaling,
                                  SpriteEffects.None,
                                  1);
@@ -145,7 +145,7 @@ namespace _2Dshooter
                 float timeAlive = now - particle.BirthTime;
                 particle.NowAge = timeAlive;
 
-                if (particle.NowAge > particle.MaxAge || particle.ModColor.A<0.25f)
+                if (particle.NowAge > particle.MaxAge || particle.ModColor.A<0.1f)
                 {
                     PL.RemoveAt(i);
                 }
@@ -159,7 +159,7 @@ namespace _2Dshooter
 
                     Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
                     float distance = positionFromCenter.Length();
-                    particle.Scaling = (30.0f + distance) / 200.0f;
+                    particle.Scaling = (10.0f + distance) / 20.0f;
                     PL[i] = particle;
                 }
             }

@@ -50,3 +50,4 @@ C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Release\Resolve
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Release\2Dshooter.exe
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\obj\x86\Release\2Dshooter.pdb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Release\Content\Sprites\explosion1mod2b.xnb
