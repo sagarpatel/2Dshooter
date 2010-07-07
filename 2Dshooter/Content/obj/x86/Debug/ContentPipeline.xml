@@ -176,6 +176,15 @@
       <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.wma</Extra>
       <Time>2010-05-19T20:33:34.4642926-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\bluepixel.png</Source>
+      <Name>Sprites\bluepixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bluepixel.xnb</Output>
+      <Time>2010-07-07T16:10:27.4982209-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

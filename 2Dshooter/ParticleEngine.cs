@@ -50,10 +50,14 @@ namespace _2Dshooter
         public List<ParticleData> Particle1List;
 
         public float ParticleScale = 50.0f; // Used in AddExplosionParticle()
+        public float ParticleScaleFactor1 = 10f;
+        public float ParticleScaleFactor2 = 20f;
         public float ParticleAcceleration = 1f; // Used in AddExplosionParticle()
         public float ExplosionSize = 40f;
         public float ParticleMaxAge = 350.0f;
         public int MaxParticles = 20; // U
+
+        public int ParticleID = 0;
 
         Random random = new Random(); // Will be used later for random generation
         
@@ -62,16 +66,40 @@ namespace _2Dshooter
         SpriteBatch spriteBatch;
 
 
-        public ParticleEngine(SpriteBatch SB, Texture2D EXP1Tex)
+        public ParticleEngine(SpriteBatch SB, Texture2D EXP1Tex, int PID)
         {
-            Particle1List = new List<ParticleData>() ;
+            Particle1List = new List<ParticleData>();
 
             Explosion1Sprite = EXP1Tex;
 
             spriteBatch = SB;
+
+            ParticleID = PID;
+
+            switch (ParticleID)
+            {
+
+                case 1:
+                    ParticleScale = 50.0f; // Used in AddExplosionParticle()
+                    ParticleScaleFactor1 = 10f;
+                    ParticleScaleFactor2 = 20f;
+                    ParticleAcceleration = 1f; // Used in AddExplosionParticle()
+                    ExplosionSize = 40f;
+                    ParticleMaxAge = 350.0f;
+                    MaxParticles = 20; // U
+
+                    break;
+
+                default: break;
+            }
+
         }
 
 
+
+
+
+            
         public void AddExplosionParticle(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, float MaxAge, GameTime gametime)
         {
 
@@ -159,7 +187,7 @@ namespace _2Dshooter
 
                     Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
                     float distance = positionFromCenter.Length();
-                    particle.Scaling = (10.0f + distance) / 20.0f;
+                    particle.Scaling = (ParticleScaleFactor1 + distance) / ParticleScaleFactor2;
                     PL[i] = particle;
                 }
             }

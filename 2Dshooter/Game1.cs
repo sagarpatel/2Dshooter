@@ -84,7 +84,7 @@ namespace _2Dshooter
 
         // Create instance of Particle Engine
 
-        ParticleEngine PE;
+        ParticleEngine PE1;
 
 
         public Game1()
@@ -180,7 +180,7 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1mod2b"));
+            PE1 = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\explosion1mod2b"),1);
            
         }
 
@@ -247,9 +247,9 @@ namespace _2Dshooter
 
             keyboardState_before = Keyboard.GetState();
 
-            if (PE.Particle1List.Count > 0)
+            if (PE1.Particle1List.Count > 0)
             {
-                PE.UpdateParticles(PE.Particle1List, gameTime);
+                PE1.UpdateParticles(PE1.Particle1List, gameTime);
             }
 
             // TODO: Add your update logic here
@@ -270,7 +270,7 @@ namespace _2Dshooter
 
             
 
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
 
@@ -397,9 +397,9 @@ namespace _2Dshooter
 
             spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Deferred, SaveStateMode.None);
 
-            if (PE.Particle1List.Count > 0)
+            if (PE1.Particle1List.Count > 0)
             {
-                PE.DrawExplosion(PE.Particle1List, spriteBatch);
+                PE1.DrawExplosion(PE1.Particle1List, spriteBatch);
             }
 
             spriteBatch.End();
@@ -1073,7 +1073,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime);
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 3 * shot.velocity.X, shot.position.Y + shot.center.Y + 3 * shot.velocity.Y);
                             }
                         }
@@ -1091,7 +1091,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime);
 
                             }
                         }
@@ -1118,7 +1118,7 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
                                 
-                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime);
                                 
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 0.5f * shot.velocity.X, shot.position.Y + shot.center.Y + 0.5f * shot.velocity.Y);
                             }
@@ -1135,7 +1135,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime);
 
                             }
                         }
