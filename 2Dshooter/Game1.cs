@@ -547,7 +547,7 @@ namespace _2Dshooter
                 Fire_Weapons("1");
             }
 
-            if (keyboardState.IsKeyDown(Keys.G) && keyboardState_before.IsKeyUp(Keys.G))
+            if (keyboardState.IsKeyDown(Keys.G) )//&& keyboardState_before.IsKeyUp(Keys.G))
             {
                 Fire_Weapons("2");
             }
@@ -952,6 +952,8 @@ namespace _2Dshooter
                                 if (enemy.position.X < 0)
                                 {
                                     enemy.alive = false;
+                                    player1_score -= 2;
+                                    
                                 }
                             }
                         }
@@ -1040,6 +1042,20 @@ namespace _2Dshooter
 
             }
 
+
+            foreach (GameObject enemy in enemies2)
+            {
+                if (enemy.alive)
+                {
+                    //Check player collision
+
+                    if (Check_Collision(enemy, player1))
+                    {
+                        player1.HP -= 1;
+                    }
+                }
+
+            }
             
             //Check player1_weapon1 collision
 
