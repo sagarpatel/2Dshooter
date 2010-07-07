@@ -223,6 +223,9 @@ namespace _2Dshooter
             Update_Walls();
             
             Controls();
+
+            Collisions(gameTime);
+            
             Update_Weapons();
 
             time_now = (float)gameTime.TotalGameTime.TotalMilliseconds;
@@ -236,8 +239,6 @@ namespace _2Dshooter
 
             Spawn_enemies(1,0f,0f);
 
-            Collisions(gameTime);
-            
 
             
             //planet.position.X = 600;
@@ -685,16 +686,23 @@ namespace _2Dshooter
             {
                 if (shot.alive)
                 {
-                    
+
 
                     if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
                     {
                         shot.alive = false;
                         shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
                         shot.acceleration = new Vector2(0, 0);
-                        
+
                         continue;
                     }
+
+                }
+
+                else
+                {
+                    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                    shot.acceleration = new Vector2(0, 0);
                 }
             }
 
@@ -713,6 +721,12 @@ namespace _2Dshooter
                         
                         continue;
                     }
+                }
+
+                else
+                {
+                    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                    shot.acceleration = new Vector2(0, 0);
                 }
             }
                       
@@ -1043,10 +1057,8 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
-                                shot.acceleration = new Vector2(0, 0);
                                 PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                                Spawn_enemies(2, enemy.position.X, enemy.position.Y);
+                                Spawn_enemies(2, shot.position.X + shot.center.X + 3 * shot.velocity.X, shot.position.Y + shot.center.Y + 3 * shot.velocity.Y);
                             }
                         }
                     }
@@ -1063,8 +1075,6 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
-                                shot.acceleration = new Vector2(0, 0);
                                 PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
 
                             }
@@ -1091,10 +1101,10 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
-                                shot.acceleration = new Vector2(0, 0);
+                                
                                 PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
-                                Spawn_enemies(2, enemy.position.X, enemy.position.Y);
+                                
+                                Spawn_enemies(2, shot.position.X + shot.center.X + 0.5f * shot.velocity.X, shot.position.Y + shot.center.Y + 0.5f * shot.velocity.Y);
                             }
                         }
                     }
@@ -1109,8 +1119,6 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
-                                shot.acceleration = new Vector2(0, 0);
                                 PE.AddExplosion(PE.Particle1List, PE.MaxParticles, enemy.position, PE.ExplosionSize, PE.ParticleMaxAge, gameTime);
 
                             }
