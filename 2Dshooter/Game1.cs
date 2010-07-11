@@ -276,17 +276,17 @@ namespace _2Dshooter
 
             spriteBatch.Draw(player1.sprite, player1.position, Color.White);
 
-            spriteBatch.Draw(
-                snorelax.sprite,
-                snorelax.position,
-                null,
-                Color.White,
-                snorelax.rotation,
-                snorelax.center,
-                snorelax.scale,
-                SpriteEffects.None,
-                0
-                );
+            //spriteBatch.Draw(
+            //    snorelax.sprite,
+            //    snorelax.position,
+            //    null,
+            //    Color.White,
+            //    snorelax.rotation,
+            //    snorelax.center,
+            //    snorelax.scale,
+            //    SpriteEffects.None,
+            //    0
+            //    );
 
            // spriteBatch.Draw(planet.sprite, planet.position, Color.White);
             spriteBatch.Draw(ball.sprite, ball.position, Color.White);

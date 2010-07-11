@@ -52,6 +52,8 @@ namespace _2Dshooter
         public float ParticleScale = 50.0f; // Used in AddExplosionParticle()
         public float ParticleScaleFactor1 = 10f;
         public float ParticleScaleFactor2 = 20f;
+        public float ParticleVectorX = 64;
+        public float ParticleVectorY = 64;
         public float ParticleAcceleration = 1f; // Used in AddExplosionParticle()
         public float ExplosionSize = 40f;
         public float ParticleMaxAge = 350.0f;
@@ -83,6 +85,8 @@ namespace _2Dshooter
                     ParticleScale = 50.0f; // Used in AddExplosionParticle()
                     ParticleScaleFactor1 = 10f;
                     ParticleScaleFactor2 = 20f;
+                    ParticleVectorX = 64;
+                    ParticleVectorY = 64;
                     ParticleAcceleration = 1f; // Used in AddExplosionParticle()
                     ExplosionSize = 40f;
                     ParticleMaxAge = 350.0f;
@@ -153,7 +157,7 @@ namespace _2Dshooter
                                  null,
                                  particle.ModColor,
                                  i,
-                                 new Vector2(64,64),
+                                 new Vector2(ParticleVectorX,ParticleVectorY),
                                  particle.Scaling,
                                  SpriteEffects.None,
                                  1);
