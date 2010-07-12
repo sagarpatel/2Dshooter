@@ -12,6 +12,8 @@ Content\Sprites\explosion1mod1.xnb
 Content\Sprites\explosion1mod2.xnb
 Content\Sprites\explosion1mod2b.xnb
 Content\Sprites\041-zubat.xnb
+Content\Sprites\bluepixel.xnb
+Content\Sprites\bluepixel2.xnb
 Content\Fonts\SpriteFont1.xnb
 Content\Audio\138-ocean.xnb
 Content\Audio\138-ocean.wma
@@ -21,4 +23,3 @@ Content\Audio\128-battle-vs-gym-leader-.xnb
 Content\Audio\128-battle-vs-gym-leader-.wma
 Content\Audio\130-cycling.xnb
 Content\Audio\130-cycling.wma
-Content\Sprites\bluepixel.xnb
