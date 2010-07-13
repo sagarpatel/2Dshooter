@@ -693,7 +693,7 @@ namespace _2Dshooter
                     if (!window_frame.Contains(new Point((int)shot.position.X, (int)shot.position.Y)))
                     {
                         shot.alive = false;
-                        shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
+                        shot.velocity = new Vector2(player1_weapon1_initial_velocity_X,0);
                         shot.acceleration = new Vector2(0, 0);
 
                         continue;
@@ -703,7 +703,7 @@ namespace _2Dshooter
 
                 else
                 {
-                    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X,0);
                     shot.acceleration = new Vector2(0, 0);
                 }
             }

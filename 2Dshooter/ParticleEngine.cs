@@ -148,6 +148,7 @@ namespace _2Dshooter
 
         public void AddExplosionParticle2(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, float MaxAge, GameTime gametime, Vector2 ImpactVelocity)
         {
+            int ConeWidth = 45;
 
             ParticleData particle = new ParticleData();
 
@@ -166,6 +167,7 @@ namespace _2Dshooter
             Vector2 IV = ImpactVelocity;
 
             Vector2 IVnorm = Vector2.Normalize(IV);
+            Vector2 CartesianIVnorm = new Vector2(0, 0);
 
             float angle = (float)Math.Atan( (IVnorm.Y / IVnorm.X));
             angle = MathHelper.ToDegrees(angle);
@@ -182,84 +184,85 @@ namespace _2Dshooter
             switch (quadrant)
             {
                 case 1:
-                    //angle = angle;
-                    angleRangeMin = 0;
-                    angleRangeMax = tanangle + tanangle;
-                    if (IVnorm.X == 1)
-                    {
-                        angleRangeMin = 45;
-                        angleRangeMax = 360 - 45;
-                    }
-                    
+                    CartesianIVnorm = new Vector2(Math.Abs(IVnorm.X), Math.Abs(IVnorm.Y));
+                    angle = (float)Math.Atan((CartesianIVnorm.Y / CartesianIVnorm.X));
+                    angle = MathHelper.ToDegrees(angle);
+                    angleRangeMin = angle - ConeWidth;
+                    angleRangeMax = angle + ConeWidth;
                     break;
 
                 case 2:
-                    angle = 180 - angle;
-                    angleRangeMin = angle - tanangle;
-                    angleRangeMax = 180;
+                    CartesianIVnorm = new Vector2(-Math.Abs(IVnorm.X), Math.Abs(IVnorm.Y));
+                    angle = (float)Math.Atan((CartesianIVnorm.X / CartesianIVnorm.Y));
+                    angle = Math.Abs(MathHelper.ToDegrees(angle));
+                    angleRangeMin = angle + 90 - ConeWidth;
+                    angleRangeMax = angle + 90 + ConeWidth;
                     break;
 
                 case 3:
-                    angle = 180 + angle;
-                    angleRangeMin = 180;
-                    angleRangeMax = angle + tanangle;
+                    CartesianIVnorm = new Vector2(-Math.Abs(IVnorm.X), -Math.Abs(IVnorm.Y));
+                    angle = (float)Math.Atan((CartesianIVnorm.Y / CartesianIVnorm.X));
+                    angle = MathHelper.ToDegrees(angle);
+                    angleRangeMin = angle + 180 - ConeWidth;
+                    angleRangeMax = angle + 180 + ConeWidth;
                     break;
 
                 case 4:
-                    angle = 360 - angle;
-                    angleRangeMin = angle - tanangle;
-                    angleRangeMax = 360;
+                    CartesianIVnorm = new Vector2(Math.Abs(IVnorm.X), -Math.Abs(IVnorm.Y));
+                    angle = (float)Math.Atan((CartesianIVnorm.X / CartesianIVnorm.Y));
+                    angle = Math.Abs(MathHelper.ToDegrees(angle));
+                    angleRangeMin = angle + 270 - ConeWidth;
+                    angleRangeMax = angle + 270 + ConeWidth;
                     break;
+
+                case 0 :
+                    if (IVnorm.X == 1 && IVnorm.Y == 0)
+                    {
+                        angleRangeMin = -ConeWidth;
+                        angleRangeMax = ConeWidth;
+                    }
+                    else if (IVnorm.X == 0 && IVnorm.Y == -1)
+                    {
+                        angleRangeMin = 90 - ConeWidth;
+                        angleRangeMax = 90 + ConeWidth;
+                    }
+                    else if (IVnorm.X == -1 && IVnorm.Y == 0)
+                    {
+                        angleRangeMin = 180 - ConeWidth;
+                        angleRangeMax = 180 + ConeWidth;
+                    }
+                    else if (IVnorm.X == 0 && IVnorm.Y == 1)
+                    {
+                        angleRangeMin = 270 - ConeWidth;
+                        angleRangeMax = 270 + ConeWidth;
+                    }
+
+                    break;
+                                        
+                default: break;
                     
-
-                default:
-                    if (angle == 0 || angle == 360)
-                    {
-                        angleRangeMin = 45;
-                        angleRangeMax = 315;
-                    }
-                    else if (angle == 90)
-                    {
-                        angleRangeMin = 45;
-                        angleRangeMax = 135;
-                    }
-                    else if (angle == 180)
-                    {
-                        angleRangeMin = 135;
-                        angleRangeMax = 225;
-                    }
-                    else if (angle == 270)
-                    {
-                        angleRangeMin = 225;
-                        angleRangeMax = 315;
-                    }
-
-
-
-                    break;
             }
 
+
+            
 
             // Generate radom angle between Min and Max, then feed to isplacment code below
-            float randomangle = random.Next((int)angleRangeMin, (int)angleRangeMax);
-            randomangle = MathHelper.ToRadians(randomangle);
+            float radMin = 1000*MathHelper.ToRadians(angleRangeMin);
+            float radMax = 1000*MathHelper.ToRadians(angleRangeMax);
+            float randomangle = random.Next((int)radMin, (int)radMax);
+            randomangle = randomangle / 1000;
+            //randomangle = MathHelper.ToRadians(randomangle);
 
-            if(angle == 0)
-            {
-                randomangle = (2*(float)random.Next(785398)/1000000);
-                randomangle = randomangle - (float)0.785398;
-
-            }
-
+            
 
             //For now, Displacement the usual-> relative to ExplosionSize, later can change to be magnitude of IV by using Vector2.Distance
 
-            Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(randomangle));
+            Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(-randomangle));
 
             particle.Direction = Displacement;
             particle.Accelaration = -ParticleAcceleration * particle.Direction;
 
-            PL.Add(particle);
+             PL.Add(particle);
 
 
         }
