@@ -37,16 +37,16 @@ namespace _2Dshooter
         
 
         GameObject[] player1_weapon2;
-        const int max_player1_weapon2 = 20;
+        const int max_player1_weapon2 = 40;
         const float player1_weapon2_initial_velocity_X = 40.0f;
 
         GameObject[] enemies1;
-        const int max_enemies1 = 10;
+        const int max_enemies1 = 20;
         int min_enemies1_velocity = 0;
         int max_enemies1_velocity = 0;
 
         GameObject[] enemies2;
-        const int max_enemies2 = 20;
+        const int max_enemies2 = 40;
         const int enemies2_perspawn = 2;
         const float enemies2_velocity_scalar = 20.0f;
 
@@ -85,7 +85,8 @@ namespace _2Dshooter
         // Create instance of Particle Engine
 
         ParticleEngine PE1;
-
+        ParticleEngine PE2;
+        
 
         public Game1()
         {
@@ -181,6 +182,7 @@ namespace _2Dshooter
             // TODO: use this.Content to load your game content here
 
             PE1 = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\bluepixel2"),2);
+            PE2 = new ParticleEngine(spriteBatch, Content.Load<Texture2D>("Sprites\\bluepixel2"), 2);
            
         }
 
@@ -247,10 +249,10 @@ namespace _2Dshooter
 
             keyboardState_before = Keyboard.GetState();
 
-            if (PE1.Particle1List.Count > 0)
-            {
-                PE1.UpdateParticles(PE1.Particle1List, gameTime, player1.position);
-            }
+         
+            PE1.UpdateParticles(PE1.ParticleArray, gameTime, player1.position);
+            PE2.UpdateParticles(PE2.ParticleArray, gameTime, player1.position);
+            
 
             // TODO: Add your update logic here
 
@@ -389,7 +391,19 @@ namespace _2Dshooter
                 );
 
 
-          
+            spriteBatch.DrawString(
+                font,
+                "ParticleCounter:    " + PE1.ParticleCounter.ToString(),
+                new Vector2(1000, 20),
+                Color.Yellow
+                );
+
+            spriteBatch.DrawString(
+                font,
+                "ParticleCounter:    " + PE1.ParticleCounter.ToString(),
+                new Vector2(1000, 40),
+                Color.Yellow
+                );
          
 
             spriteBatch.End();
@@ -397,11 +411,11 @@ namespace _2Dshooter
 
             spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Deferred, SaveStateMode.None);
 
-            if (PE1.Particle1List.Count > 0)
-            {
-                PE1.DrawExplosion(PE1.Particle1List, spriteBatch);
-            }
 
+
+            PE1.DrawExplosion(PE1.ParticleArray, spriteBatch);
+            PE2.DrawExplosion(PE2.ParticleArray, spriteBatch);
+            
             spriteBatch.End();
 
             
@@ -788,7 +802,7 @@ namespace _2Dshooter
 
         private void Update_PVA(GameObject m1)
         {
-
+            
 
             if (m1.IsPlayer == false)
             {
@@ -1075,7 +1089,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime,shot.velocity);
+                                PE1.AddExplosion(PE1.ParticleArray, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime,shot.velocity);
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 3 * shot.velocity.X, shot.position.Y + shot.center.Y + 3 * shot.velocity.Y);
                             }
                         }
@@ -1093,7 +1107,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
+                                PE2.AddExplosion(PE2.ParticleArray, PE2.MaxParticles, enemy.position, PE2.ExplosionSize, gameTime, shot.velocity);
 
                             }
                         }
@@ -1120,7 +1134,7 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
 
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
+                                PE1.AddExplosion(PE1.ParticleArray, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
                                 
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 0.5f * shot.velocity.X, shot.position.Y + shot.center.Y + 0.5f * shot.velocity.Y);
                             }
@@ -1137,7 +1151,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
+                                PE2.AddExplosion(PE2.ParticleArray, PE2.MaxParticles, enemy.position, PE2.ExplosionSize, gameTime, shot.velocity);
 
                             }
                         }

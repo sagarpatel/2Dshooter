@@ -44,20 +44,28 @@ namespace _2Dshooter
             public float Scaling;
             public Color ModColor;
             public bool IsHoming;
+            public bool IsAlive;
 
         }
 
 
-        public List<ParticleData> Particle1List;
+        
+        public ParticleData [] ParticleArray;
+        public int ParticleArraySize;
+
+        public int ParticleCounter =0;
 
         public float ParticleScale = 0.0f; // Used in AddExplosionParticle()
         public float ParticleScaleFactor1 = 0f;
         public float ParticleScaleFactor2 = 0f;
         public float ParticleVectorX = 64;
         public float ParticleVectorY = 64;
+        public float ParticleInitialVelocityScale = 1.0f;
         public float ParticleAcceleration = 1f; // Used in AddExplosionParticle()
+        public float ParticleToPlayerAccelerationScale = 1.0f;
         public float ExplosionSize = 40f;
         public float ParticleMaxAge = 350.0f;
+        public float ParticleAgeOffset = 1000f;
         public int MaxParticles = 20; // U
 
         public int ParticleID = 0;
@@ -71,7 +79,7 @@ namespace _2Dshooter
 
         public ParticleEngine(SpriteBatch SB, Texture2D EXP1Tex, int PID)
         {
-            Particle1List = new List<ParticleData>();
+            
 
             Explosion1Sprite = EXP1Tex;
 
@@ -91,21 +99,26 @@ namespace _2Dshooter
                     ParticleAcceleration = 1f; // Used in AddExplosionParticle()
                     ExplosionSize = 40f;
                     ParticleMaxAge = 350.0f;
-                    MaxParticles = 20; // U
+                    MaxParticles = 20;
+                    ParticleArraySize = 1000;
+                    ParticleArray = new ParticleData[ParticleArraySize];
 
                     break;
 
                 case 2:
-                    ParticleScale = 0.0f; // Used in AddExplosionParticle()
-                    ParticleScaleFactor1 = 10f;
-                    ParticleScaleFactor2 = 50f;
+                    ParticleScale = 0.10f;
+                    
                     ParticleVectorX = 0 ;
                     ParticleVectorY = 0;
+                    ParticleInitialVelocityScale = 3.0f;
                     ParticleAcceleration = 0.0f; // Used in AddExplosionParticle()
-                    ExplosionSize = 200f;
-                    ParticleMaxAge = 800.0f;
-                    MaxParticles = 800; // U
-
+                    ParticleToPlayerAccelerationScale = 300.0f;
+                    ExplosionSize = 100f;
+                    ParticleMaxAge = 500f;
+                    ParticleAgeOffset = 10000f;
+                    MaxParticles = 1000;
+                    ParticleArraySize = 10000;
+                    ParticleArray = new ParticleData[ParticleArraySize];
                     break;
 
 
@@ -119,11 +132,11 @@ namespace _2Dshooter
 
 
             
-        public void AddExplosionParticle1(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime)
+        public void AddExplosionParticle1(ParticleData[] PA, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime)
         {
 
             ParticleData particle = new ParticleData();
-
+            
             particle.OrginalPosition = ExplosionPosition;
             particle.Position = particle.OrginalPosition;
 
@@ -138,16 +151,21 @@ namespace _2Dshooter
             float angle = MathHelper.ToRadians(random.Next(360));
             Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(angle));
 
-            particle.Direction = Displacement;
+            particle.Direction = ParticleInitialVelocityScale * Displacement;
             particle.Accelaration = -ParticleAcceleration * particle.Direction;
-            
-            PL.Add(particle);
-            
+
+            particle.IsAlive = true;
+            if (ParticleCounter == ParticleArraySize - 1)
+            {
+                ParticleCounter = 0;
+            }
+            PA[ParticleCounter] = particle;
+            ParticleCounter++;
 
         }
 
 
-        public void AddExplosionParticle2(List<ParticleData> PL, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime, Vector2 ImpactVelocity)
+        public void AddExplosionParticle2(ParticleData[] PA, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime, Vector2 ImpactVelocity)
         {
             int ConeWidth = 75;
 
@@ -261,17 +279,25 @@ namespace _2Dshooter
 
             Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(-randomangle));
 
-            particle.Direction = Displacement;
+            particle.Direction = ParticleInitialVelocityScale * Displacement;
             particle.Accelaration = -ParticleAcceleration * particle.Direction;
 
-             PL.Add(particle);
+
+            particle.IsAlive = true;
+
+            if (ParticleCounter == ParticleArraySize - 1)
+            {
+                ParticleCounter = 0;
+            }
+            PA[ParticleCounter] = particle;
+            ParticleCounter++;
 
 
         }
 
 
 
-        public void AddExplosion(List<ParticleData> PL, int MaxParticles, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime, Vector2 ImpactVelocity)
+        public void AddExplosion(ParticleData[] PA, int MaxParticles, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime, Vector2 ImpactVelocity)
         {
             switch (ParticleID)
             {
@@ -279,7 +305,7 @@ namespace _2Dshooter
 
                     for (int i = 0; i < MaxParticles; i++)
                     {
-                        AddExplosionParticle1(PL, ExplosionPosition, ExplosionSize, gametime);
+                        AddExplosionParticle1(PA, ExplosionPosition, ExplosionSize, gametime);
                     }
                     break;
 
@@ -287,7 +313,7 @@ namespace _2Dshooter
 
                     for (int i = 0; i < MaxParticles; i++)
                     {
-                        AddExplosionParticle2(PL, ExplosionPosition, ExplosionSize, gametime, ImpactVelocity);
+                        AddExplosionParticle2(PA, ExplosionPosition, ExplosionSize, gametime, ImpactVelocity);
                     }
                     break;
 
@@ -301,29 +327,32 @@ namespace _2Dshooter
 
          
 
-        public void DrawExplosion(List<ParticleData> PL, SpriteBatch spriteBatch)
+        public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch)
         {
 
 
-            for (int i = 0; i < PL.Count; i++)
+            for (int i = 0; i < ParticleArraySize; i++)
             {
-                ParticleData particle = PL[i];
-                spriteBatch.Draw(Explosion1Sprite,
-                                 particle.Position,
-                                 null,
-                                 particle.ModColor,
-                                 i,
-                                 new Vector2(ParticleVectorX,ParticleVectorY),
-                                 particle.Scaling,
-                                 SpriteEffects.None,
-                                 1);
+                ParticleData particle = PA[i];
+                if (particle.IsAlive==true)
+                {
+                    spriteBatch.Draw(Explosion1Sprite,
+                                     particle.Position,
+                                     null,
+                                     particle.ModColor,
+                                     i,
+                                     new Vector2(ParticleVectorX, ParticleVectorY),
+                                     particle.Scaling,
+                                     SpriteEffects.None,
+                                     1);
+                }
 
             }
             
         }
 
 
-        public void UpdateParticles(List<ParticleData> PL, GameTime gameTime, Vector2 P1positon)
+        public void UpdateParticles(ParticleData[] PA, GameTime gameTime, Vector2 P1positon)
         {
 
 
@@ -334,15 +363,19 @@ namespace _2Dshooter
             {
                 case 1:
 
-                    for (int i = PL.Count - 1; i >= 0; i--)
+                    for (int i =0; i < ParticleArraySize ; i++)
                     {
-                        ParticleData particle = PL[i];
+                        ParticleData particle = PA[i];
                         float timeAlive = now - particle.BirthTime;
                         particle.NowAge = timeAlive;
 
                         if (particle.NowAge > ParticleMaxAge || particle.ModColor.A < 0.1f)
                         {
-                            PL.RemoveAt(i);
+                            particle.IsAlive = false;
+                            particle.Accelaration = new Vector2(0,0);
+                            particle.Direction = new Vector2(0,0);
+                            particle.IsHoming = false;
+                            
                         }
                         else
                         {
@@ -355,7 +388,7 @@ namespace _2Dshooter
                             Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
                             float distance = positionFromCenter.Length();
                             particle.Scaling = (ParticleScaleFactor1 + distance) / ParticleScaleFactor2;
-                            PL[i] = particle;
+                            PA[i] = particle;
                         }
                     }
                     break;
@@ -364,42 +397,55 @@ namespace _2Dshooter
 
                 case 2:
 
-                    for (int i = PL.Count - 1; i >= 0; i--)
+                    for (int i = 0; i < ParticleArraySize; i++)
                     {
-                        ParticleData particle = PL[i];
-                        float timeAlive = now - particle.BirthTime;
-                        particle.NowAge = timeAlive;
+                        ParticleData particle = PA[i];
+                        
 
-                        if (particle.NowAge > ParticleMaxAge +2000)
+                        if (particle.IsAlive == true)
                         {
-                            PL.RemoveAt(i);
-                        }
-                        else
-                        {
-                            float distori = Vector2.Distance(particle.OrginalPosition, particle.Position);
-                            float distplayer = Vector2.Distance(P1positon, particle.Position);
-                            
-                            if (Math.Abs(distori) >150 || Math.Abs(distplayer) < 100)
+                            float timeAlive = now - particle.BirthTime;
+                            particle.NowAge = timeAlive;
+
+                            if (particle.NowAge > ParticleMaxAge+ ParticleAgeOffset)
                             {
-                                particle.IsHoming = true;
-                                particle.Accelaration = 100 * Vector2.Normalize(P1positon - particle.Position); 
+                                particle.IsAlive = false;
+                                particle.Accelaration = new Vector2(0, 0);
+                                particle.Direction = new Vector2(0, 0);
+                                particle.BirthTime = 0;
+                                particle.IsHoming = false;
+                                PA[i] = particle;
+                                continue;
 
                             }
+                            else
+                            {
+                                float distori = Vector2.Distance(particle.OrginalPosition, particle.Position);
+                                float distplayer = Vector2.Distance(P1positon, particle.Position);
+
+                                if (Math.Abs(distori) > 100 || Math.Abs(distplayer) < 200)
+                                {
+                                    particle.IsHoming = true;
+                                    particle.Accelaration = ParticleToPlayerAccelerationScale * Vector2.Normalize(P1positon - particle.Position);
+                                    
+                                }
 
 
 
-                            float relativeAge = timeAlive / ParticleMaxAge;
-                                                    
+                                float relativeAge = timeAlive / ParticleMaxAge;
 
-                            particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
 
-                            float inverseAge = 1.0f - relativeAge;
-                            //particle.ModColor = new Color(new Vector4(inverseAge, inverseAge , inverseAge, inverseAge ));
+                                particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
 
-                            //Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
-                            //float distance = positionFromCenter.Length();
-                            particle.Scaling = 0.15f;// (ParticleScaleFactor1 + distance) / ParticleScaleFactor2;
-                            PL[i] = particle;
+                                float inverseAge = 1.0f - relativeAge;
+                                //particle.ModColor = new Color(new Vector4(inverseAge, inverseAge , inverseAge, inverseAge ));
+
+                                //Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;
+                                //float distance = positionFromCenter.Length();
+                                particle.Scaling = ParticleScale;// (ParticleScaleFactor1 + distance) / ParticleScaleFactor2;
+                                PA[i] = particle;
+                                
+                            }
                         }
                     }
                     break;
