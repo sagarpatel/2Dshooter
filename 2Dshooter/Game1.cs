@@ -249,7 +249,7 @@ namespace _2Dshooter
 
             if (PE1.Particle1List.Count > 0)
             {
-                PE1.UpdateParticles(PE1.Particle1List, gameTime);
+                PE1.UpdateParticles(PE1.Particle1List, gameTime, player1.position);
             }
 
             // TODO: Add your update logic here
@@ -1075,7 +1075,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime,shot.velocity);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime,shot.velocity);
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 3 * shot.velocity.X, shot.position.Y + shot.center.Y + 3 * shot.velocity.Y);
                             }
                         }
@@ -1093,7 +1093,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime, shot.velocity);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
 
                             }
                         }
@@ -1120,7 +1120,7 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
 
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime, shot.velocity);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
                                 
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 0.5f * shot.velocity.X, shot.position.Y + shot.center.Y + 0.5f * shot.velocity.Y);
                             }
@@ -1137,7 +1137,7 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
-                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, PE1.ParticleMaxAge, gameTime, shot.velocity);
+                                PE1.AddExplosion(PE1.Particle1List, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
 
                             }
                         }
