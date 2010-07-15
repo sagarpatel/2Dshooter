@@ -68,7 +68,11 @@ namespace _2Dshooter
         public float ParticleAgeOffset = 1000f;
         public int MaxParticles = 20; // U
 
+        public int ConeWidth = 75;
+
         public int ParticleID = 0;
+
+        Rectangle particleWindow;
 
         Random random = new Random(); // Will be used later for random generation
         
@@ -77,7 +81,7 @@ namespace _2Dshooter
         SpriteBatch spriteBatch;
 
 
-        public ParticleEngine(SpriteBatch SB, Texture2D EXP1Tex, int PID)
+        public ParticleEngine(GraphicsDeviceManager graphics, SpriteBatch SB, Texture2D EXP1Tex, int PID)
         {
             
 
@@ -113,12 +117,21 @@ namespace _2Dshooter
                     ParticleInitialVelocityScale = 3.0f;
                     ParticleAcceleration = 0.0f; // Used in AddExplosionParticle()
                     ParticleToPlayerAccelerationScale = 300.0f;
-                    ExplosionSize = 100f;
+                    ExplosionSize = 150f;
+                    ConeWidth = 75;
                     ParticleMaxAge = 500f;
-                    ParticleAgeOffset = 10000f;
-                    MaxParticles = 1000;
-                    ParticleArraySize = 10000;
+                    ParticleAgeOffset = 2000f;
+                    MaxParticles = 1200;
+                    ParticleArraySize = 15000;
                     ParticleArray = new ParticleData[ParticleArraySize];
+
+                    particleWindow = new Rectangle(
+                                                    0,
+                                                    0,
+                                                    graphics.GraphicsDevice.Viewport.Width,
+                                                    graphics.GraphicsDevice.Viewport.Height);
+                    
+
                     break;
 
 
@@ -128,8 +141,7 @@ namespace _2Dshooter
         }
 
 
-
-
+        
 
             
         public void AddExplosionParticle1(ParticleData[] PA, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime)
@@ -167,7 +179,6 @@ namespace _2Dshooter
 
         public void AddExplosionParticle2(ParticleData[] PA, Vector2 ExplosionPosition, float ExplosionSize, GameTime gametime, Vector2 ImpactVelocity)
         {
-            int ConeWidth = 75;
 
             ParticleData particle = new ParticleData();
 
@@ -407,6 +418,18 @@ namespace _2Dshooter
                             float timeAlive = now - particle.BirthTime;
                             particle.NowAge = timeAlive;
 
+                            if (!particleWindow.Contains(new Point((int)particle.Position.X, (int)particle.Position.Y)))
+                            {
+                                particle.IsAlive = false;
+                                particle.Accelaration = new Vector2(0, 0);
+                                particle.Direction = new Vector2(0, 0);
+                                particle.BirthTime = 0;
+                                particle.IsHoming = false;
+                                PA[i] = particle;
+                                continue;
+
+                            }
+
                             if (particle.NowAge > ParticleMaxAge+ ParticleAgeOffset)
                             {
                                 particle.IsAlive = false;
@@ -437,7 +460,8 @@ namespace _2Dshooter
 
                                 particle.Position = 0.5f * particle.Accelaration * relativeAge * relativeAge + particle.Direction * relativeAge + particle.OrginalPosition;
 
-                                float inverseAge = 1.0f - relativeAge;
+                                
+                                //float inverseAge = 1.0f - relativeAge;
                                 //particle.ModColor = new Color(new Vector4(inverseAge, inverseAge , inverseAge, inverseAge ));
 
                                 //Vector2 positionFromCenter = particle.Position - particle.OrginalPosition;

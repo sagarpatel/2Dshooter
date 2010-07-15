@@ -181,8 +181,8 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE1 = new ParticleEngine(spriteBatch,Content.Load<Texture2D>("Sprites\\bluepixel2"),2);
-            PE2 = new ParticleEngine(spriteBatch, Content.Load<Texture2D>("Sprites\\bluepixel2"), 2);
+            PE1 = new ParticleEngine(graphics, spriteBatch,Content.Load<Texture2D>("Sprites\\bluepixel2"),2);
+            PE2 = new ParticleEngine(graphics, spriteBatch, Content.Load<Texture2D>("Sprites\\bluepixel2"), 2);
            
         }
 
@@ -400,7 +400,7 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "ParticleCounter:    " + PE1.ParticleCounter.ToString(),
+                "ParticleCounter:    " + PE2.ParticleCounter.ToString(),
                 new Vector2(1000, 40),
                 Color.Yellow
                 );
@@ -411,7 +411,7 @@ namespace _2Dshooter
 
             spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Deferred, SaveStateMode.None);
 
-
+            
 
             PE1.DrawExplosion(PE1.ParticleArray, spriteBatch);
             PE2.DrawExplosion(PE2.ParticleArray, spriteBatch);
@@ -566,6 +566,14 @@ namespace _2Dshooter
             if (keyboardState.IsKeyDown(Keys.G) )//&& keyboardState_before.IsKeyUp(Keys.G))
             {
                 Fire_Weapons("2");
+            }
+
+
+            //Toggle fullscreen
+
+            if (keyboardState.IsKeyDown(Keys.T) && keyboardState_before.IsKeyUp(Keys.T))
+            {
+                graphics.ToggleFullScreen();
             }
 
             
