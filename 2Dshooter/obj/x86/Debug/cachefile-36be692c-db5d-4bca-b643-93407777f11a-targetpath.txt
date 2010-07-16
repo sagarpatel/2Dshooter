@@ -26,3 +26,6 @@ Content\Audio\130-cycling.wma
 Content\Sprites\blue.xnb
 Content\Sprites\green.xnb
 Content\Sprites\red.xnb
+Content\Sprites\blue_small.xnb
+Content\Sprites\green_small.xnb
+Content\Sprites\red_small.xnb

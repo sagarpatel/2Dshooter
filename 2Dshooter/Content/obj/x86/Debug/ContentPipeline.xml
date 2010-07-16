@@ -221,6 +221,33 @@
       <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red.xnb</Output>
       <Time>2010-07-15T21:29:53.018825-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\blue_small.png</Source>
+      <Name>Sprites\blue_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small.xnb</Output>
+      <Time>2010-07-16T13:22:50.9232141-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\green_small.png</Source>
+      <Name>Sprites\green_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small.xnb</Output>
+      <Time>2010-07-16T13:23:20.7939226-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\red_small.png</Source>
+      <Name>Sprites\red_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small.xnb</Output>
+      <Time>2010-07-16T13:23:53.2077765-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

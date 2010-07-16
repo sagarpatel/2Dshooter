@@ -113,7 +113,7 @@ namespace _2Dshooter
                     break;
 
                 case 2:
-                    ParticleScale = 0.0250f;
+                    ParticleScale = 0.50f;
                     
                     ParticleVectorX = 0 ;
                     ParticleVectorY = 0;
@@ -124,8 +124,8 @@ namespace _2Dshooter
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
                     ParticleAgeOffset = 8000f;
-                    MaxParticles = 1200;
-                    ParticleArraySize = 18000;
+                    MaxParticles = 1000;
+                    ParticleArraySize = 15000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
                     particleWindow = new Rectangle(
@@ -471,6 +471,8 @@ namespace _2Dshooter
                                 {
                                     particle.IsHoming = true;
                                     particle.Accelaration = ParticleToPlayerAccelerationScale * Vector2.Normalize(P1positon - particle.Position);
+                                    //particle.Accelaration.X = particle.Accelaration.X;
+                                    //particle.Accelaration.Y = particle.Accelaration.Y;
                                     
                                 }
 
