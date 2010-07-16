@@ -23,3 +23,6 @@ Content\Audio\128-battle-vs-gym-leader-.xnb
 Content\Audio\128-battle-vs-gym-leader-.wma
 Content\Audio\130-cycling.xnb
 Content\Audio\130-cycling.wma
+Content\Sprites\blue.xnb
+Content\Sprites\green.xnb
+Content\Sprites\red.xnb

@@ -54,6 +54,9 @@ namespace _2Dshooter
         public int ParticleArraySize;
 
         public int ParticleCounter =0;
+        public int ParticlesCreated = 0;
+        public int ParticlesKilled = 0;
+        public int ParticlesOverwritten = 0;
 
         public float ParticleScale = 0.0f; // Used in AddExplosionParticle()
         public float ParticleScaleFactor1 = 0f;
@@ -110,7 +113,7 @@ namespace _2Dshooter
                     break;
 
                 case 2:
-                    ParticleScale = 0.10f;
+                    ParticleScale = 0.0250f;
                     
                     ParticleVectorX = 0 ;
                     ParticleVectorY = 0;
@@ -120,9 +123,9 @@ namespace _2Dshooter
                     ExplosionSize = 150f;
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
-                    ParticleAgeOffset = 2000f;
+                    ParticleAgeOffset = 8000f;
                     MaxParticles = 1200;
-                    ParticleArraySize = 15000;
+                    ParticleArraySize = 18000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
                     particleWindow = new Rectangle(
@@ -166,13 +169,20 @@ namespace _2Dshooter
             particle.Direction = ParticleInitialVelocityScale * Displacement;
             particle.Accelaration = -ParticleAcceleration * particle.Direction;
 
-            particle.IsAlive = true;
             if (ParticleCounter == ParticleArraySize - 1)
             {
                 ParticleCounter = 0;
             }
+
+            if (particle.IsAlive)
+            {
+                ParticlesOverwritten++;
+            }
+
+            particle.IsAlive = true;
             PA[ParticleCounter] = particle;
             ParticleCounter++;
+            ParticlesCreated++;
 
         }
 
@@ -291,17 +301,26 @@ namespace _2Dshooter
             Displacement = Vector2.Transform(Displacement, Matrix.CreateRotationZ(-randomangle));
 
             particle.Direction = ParticleInitialVelocityScale * Displacement;
-            particle.Accelaration = -ParticleAcceleration * particle.Direction;
+              particle.Accelaration = -ParticleAcceleration * particle.Direction;
 
 
-            particle.IsAlive = true;
+            
 
             if (ParticleCounter == ParticleArraySize - 1)
             {
                 ParticleCounter = 0;
             }
+
+            if (particle.IsAlive == true)
+            {
+                ParticlesOverwritten++;
+            }
+
+            particle.IsAlive = true;
             PA[ParticleCounter] = particle;
             ParticleCounter++;
+            ParticlesCreated++;
+            
 
 
         }
@@ -426,6 +445,7 @@ namespace _2Dshooter
                                 particle.BirthTime = 0;
                                 particle.IsHoming = false;
                                 PA[i] = particle;
+                                ParticlesKilled++;
                                 continue;
 
                             }
@@ -438,6 +458,7 @@ namespace _2Dshooter
                                 particle.BirthTime = 0;
                                 particle.IsHoming = false;
                                 PA[i] = particle;
+                                ParticlesKilled++;
                                 continue;
 
                             }

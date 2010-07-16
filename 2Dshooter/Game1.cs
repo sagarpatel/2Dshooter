@@ -181,8 +181,8 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE1 = new ParticleEngine(graphics, spriteBatch,Content.Load<Texture2D>("Sprites\\bluepixel2"),2);
-            PE2 = new ParticleEngine(graphics, spriteBatch, Content.Load<Texture2D>("Sprites\\bluepixel2"), 2);
+            PE1 = new ParticleEngine(graphics, spriteBatch,Content.Load<Texture2D>("Sprites\\red"),2);
+            PE2 = new ParticleEngine(graphics, spriteBatch, Content.Load<Texture2D>("Sprites\\green"), 2);
            
         }
 
@@ -250,8 +250,8 @@ namespace _2Dshooter
             keyboardState_before = Keyboard.GetState();
 
          
-            PE1.UpdateParticles(PE1.ParticleArray, gameTime, player1.position);
-            PE2.UpdateParticles(PE2.ParticleArray, gameTime, player1.position);
+            PE1.UpdateParticles(PE1.ParticleArray, gameTime, (player1.position + player1.center));
+            PE2.UpdateParticles(PE2.ParticleArray, gameTime, (player1.position + player1.center));
             
 
             // TODO: Add your update logic here
@@ -361,7 +361,7 @@ namespace _2Dshooter
             spriteBatch.DrawString(
                 font,
                 "time diff" + time_diff.ToString(),
-                new Vector2(400, 50),
+                new Vector2(300, 50),
                 Color.Yellow
                 );
 
@@ -393,17 +393,59 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "ParticleCounter:    " + PE1.ParticleCounter.ToString(),
-                new Vector2(1000, 20),
+                "PE1 ParticleCounter:  " + PE1.ParticleCounter.ToString(),
+                new Vector2(500, 30),
                 Color.Yellow
                 );
 
             spriteBatch.DrawString(
                 font,
-                "ParticleCounter:    " + PE2.ParticleCounter.ToString(),
-                new Vector2(1000, 40),
+                "PE2 ParticleCounter:  " + PE2.ParticleCounter.ToString(),
+                new Vector2(500, 50),
                 Color.Yellow
                 );
+
+            spriteBatch.DrawString(
+                font,
+                "PE1 ParticlesCreated:  " + PE1.ParticlesCreated.ToString(),
+                new Vector2(750, 30),
+                Color.Yellow
+                );
+
+            spriteBatch.DrawString(
+                font,
+                "PE2 ParticlesCreated:  " + PE2.ParticlesCreated.ToString(),
+                new Vector2(750, 50),
+                Color.Yellow
+                );
+
+            spriteBatch.DrawString(
+                font,
+                "PE1 ParticlesKilled:  " + PE1.ParticlesKilled.ToString(),
+                new Vector2(1000, 30),
+                Color.Yellow
+                );
+
+            spriteBatch.DrawString(
+                 font,
+                 "PE2 ParticlesKilled:  " + PE2.ParticlesKilled.ToString(),
+                 new Vector2(1000, 50),
+                 Color.Yellow
+                 );
+
+            spriteBatch.DrawString(
+                 font,
+                 "PE1 ParticlesOverwritten:  " + PE1.ParticlesOverwritten.ToString(),
+                 new Vector2(800, 80),
+                 Color.Yellow
+                 );
+
+            spriteBatch.DrawString(
+                 font,
+                 "PE2 ParticlesOverwritten:  " + PE2.ParticlesOverwritten.ToString(),
+                 new Vector2(800, 100),
+                 Color.Yellow
+                 );
          
 
             spriteBatch.End();
