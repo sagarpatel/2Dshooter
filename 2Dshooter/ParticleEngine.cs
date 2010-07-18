@@ -125,9 +125,9 @@ namespace _2Dshooter
                     ExplosionSize = 150f;
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
-                    ParticleAgeOffset = 8000f;
-                    MaxParticles = 500;
-                    ParticleArraySize = 15000;
+                    ParticleAgeOffset = 2000f;
+                    MaxParticles = 100;
+                    ParticleArraySize = 5000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
                     particleWindow = new Rectangle(
