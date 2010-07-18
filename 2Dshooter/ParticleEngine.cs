@@ -126,7 +126,7 @@ namespace _2Dshooter
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
                     ParticleAgeOffset = 8000f;
-                    MaxParticles = 1000;
+                    MaxParticles = 500;
                     ParticleArraySize = 15000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
