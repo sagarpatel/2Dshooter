@@ -248,6 +248,42 @@
       <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small.xnb</Output>
       <Time>2010-07-16T13:23:53.2077765-04:00</Time>
     </Item>
+    <Item>
+      <Source>Shaders\blur.fx</Source>
+      <Name>Shaders\blur</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\blur.xnb</Output>
+      <Time>2010-07-17T20:52:27.0590951-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\grayscale.fx</Source>
+      <Name>Shaders\grayscale</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\grayscale.xnb</Output>
+      <Time>2010-07-17T14:07:53.3935839-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_simple.fx</Source>
+      <Name>Shaders\pulse_simple</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_simple.xnb</Output>
+      <Time>2010-07-17T22:02:29.2474465-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_blur.fx</Source>
+      <Name>Shaders\pulse_blur</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur.xnb</Output>
+      <Time>2010-07-17T18:30:00.9855467-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

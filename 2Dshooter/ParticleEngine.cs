@@ -83,10 +83,12 @@ namespace _2Dshooter
                
         SpriteBatch spriteBatch;
 
+        Game1.ShaderStruct Shaders;
 
-        public ParticleEngine(GraphicsDeviceManager graphics, SpriteBatch SB, Texture2D EXP1Tex, int PID)
+        public ParticleEngine(GraphicsDeviceManager graphics, SpriteBatch SB, Game1.ShaderStruct shaders, Texture2D EXP1Tex, int PID)
         {
-            
+
+            Shaders = shaders;
 
             Explosion1Sprite = EXP1Tex;
 
@@ -113,7 +115,7 @@ namespace _2Dshooter
                     break;
 
                 case 2:
-                    ParticleScale = 0.50f;
+                    ParticleScale = 0.5f;
                     
                     ParticleVectorX = 0 ;
                     ParticleVectorY = 0;
@@ -357,31 +359,7 @@ namespace _2Dshooter
 
          
 
-        public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch)
-        {
-
-
-            for (int i = 0; i < ParticleArraySize; i++)
-            {
-                ParticleData particle = PA[i];
-                if (particle.IsAlive==true)
-                {
-                    spriteBatch.Draw(Explosion1Sprite,
-                                     particle.Position,
-                                     null,
-                                     particle.ModColor,
-                                     i,
-                                     new Vector2(ParticleVectorX, ParticleVectorY),
-                                     particle.Scaling,
-                                     SpriteEffects.None,
-                                     1);
-                }
-
-            }
-            
-        }
-
-
+        
         public void UpdateParticles(ParticleData[] PA, GameTime gameTime, Vector2 P1positon)
         {
 
@@ -529,6 +507,47 @@ namespace _2Dshooter
             else
                 return 0;
                             
+        }
+
+
+
+        public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            
+
+            spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
+
+            Shaders.Pulse_Blur.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+            Shaders.Pulse_Blur.Begin();
+            Shaders.Pulse_Blur.CurrentTechnique.Passes[0].Begin();
+                                  
+
+            for (int i = 0; i < ParticleArraySize; i++)
+            {
+                ParticleData particle = PA[i];
+                if (particle.IsAlive == true)
+                {
+                    spriteBatch.Draw(Explosion1Sprite,
+                                     particle.Position,
+                                     null,
+                                     particle.ModColor,
+                                     i,
+                                     new Vector2(ParticleVectorX, ParticleVectorY),
+                                     particle.Scaling,
+                                     SpriteEffects.None,
+                                     1);
+                }
+
+            }
+
+
+            Shaders.Pulse_Blur.CurrentTechnique.Passes[0].End();
+            Shaders.Pulse_Blur.End();
+
+            spriteBatch.End();
+
+            
+
         }
         
          

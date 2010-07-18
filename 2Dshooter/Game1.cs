@@ -79,13 +79,25 @@ namespace _2Dshooter
         //GameObject planet;
         GameObject ball;
 
-        GameObject snorelax;
-
+   
 
         // Create instance of Particle Engine
 
         ParticleEngine PE1;
         ParticleEngine PE2;
+
+        // Shaders are created here, will be sent to PE but can be used here too.
+
+        public struct ShaderStruct 
+        {
+            public Effect Blur;
+            public Effect Grayscale;
+            public Effect Pulse_Simple;
+            public Effect Pulse_Blur;
+        }
+
+
+        ShaderStruct Shaders;
         
 
         public Game1()
@@ -162,9 +174,7 @@ namespace _2Dshooter
                         
 
             ball = new GameObject(Content.Load<Texture2D>("Sprites\\pokeball1"));        
-            snorelax = new GameObject(Content.Load<Texture2D>("Sprites\\snorelax"));
-
-
+            
             Set_Values();
             
             font = Content.Load<SpriteFont>("Fonts\\SpriteFont1");
@@ -181,8 +191,14 @@ namespace _2Dshooter
             //MediaPlayer.Play(BGM);
             // TODO: use this.Content to load your game content here
 
-            PE1 = new ParticleEngine(graphics, spriteBatch,Content.Load<Texture2D>("Sprites\\red_small"),2);
-            PE2 = new ParticleEngine(graphics, spriteBatch, Content.Load<Texture2D>("Sprites\\green_small"), 2);
+            Shaders.Blur = Content.Load<Effect>("Shaders\\blur");
+            Shaders.Grayscale = Content.Load<Effect>("Shaders\\grayscale");
+            Shaders.Pulse_Simple = Content.Load<Effect>("Shaders\\pulse_simple");
+            Shaders.Pulse_Blur = Content.Load<Effect>("Shaders\\pulse_blur");
+
+
+            PE1 = new ParticleEngine(graphics, spriteBatch, Shaders ,Content.Load<Texture2D>("Sprites\\red_small"),2);
+            PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, Content.Load<Texture2D>("Sprites\\green_small"), 2);
            
         }
 
@@ -274,23 +290,19 @@ namespace _2Dshooter
 
             GraphicsDevice.Clear(Color.Black);
 
+
+            //Draw particles from te Particle Enigne
+
+            PE1.DrawExplosion(PE1.ParticleArray, spriteBatch, gameTime);
+            PE2.DrawExplosion(PE2.ParticleArray, spriteBatch, gameTime);
+
+
+            
+
+            // Draw other objects
+
+
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
-
-            spriteBatch.Draw(player1.sprite, player1.position, Color.White);
-
-            //spriteBatch.Draw(
-            //    snorelax.sprite,
-            //    snorelax.position,
-            //    null,
-            //    Color.White,
-            //    snorelax.rotation,
-            //    snorelax.center,
-            //    snorelax.scale,
-            //    SpriteEffects.None,
-            //    0
-            //    );
-
-           // spriteBatch.Draw(planet.sprite, planet.position, Color.White);
             spriteBatch.Draw(ball.sprite, ball.position, Color.White);
             
 
@@ -446,19 +458,39 @@ namespace _2Dshooter
                  new Vector2(800, 100),
                  Color.Yellow
                  );
-         
+
+
+
+
+
+            spriteBatch.End();
+
+            //Draw player1
+
+
+
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
+
+            Shaders.Pulse_Simple.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+            Shaders.Pulse_Simple.Begin();
+            Shaders.Pulse_Simple.CurrentTechnique.Passes[0].Begin();
+
+            spriteBatch.Draw(player1.sprite, player1.position, Color.White);
+
+
+            Shaders.Pulse_Simple.CurrentTechnique.Passes[0].End();
+            Shaders.Pulse_Simple.End();
 
             spriteBatch.End();
 
 
-            spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Deferred, SaveStateMode.None);
+
+
+
 
             
 
-            PE1.DrawExplosion(PE1.ParticleArray, spriteBatch);
-            PE2.DrawExplosion(PE2.ParticleArray, spriteBatch);
             
-            spriteBatch.End();
 
             
             // TODO: Add your drawing code here
@@ -639,7 +671,6 @@ namespace _2Dshooter
                 if(player1_weapon2[i].alive)
                 {
 
-                    //Gravity(snorelax, player1_weapon2[i]);
                     Gravity(ball, player1_weapon2[i]);
 
                     
@@ -647,11 +678,6 @@ namespace _2Dshooter
          
             }
                         
-
-
-
-
-          //  Gravity(ball, snorelax);
 
 
 
@@ -684,10 +710,7 @@ namespace _2Dshooter
             Update_enemies(2);
 
             //Update_PVA(ball);
-            //Update_PVA(snorelax);
-
-
-                      
+         
 
         }
 
@@ -1282,13 +1305,7 @@ namespace _2Dshooter
             ball.velocity.X = 0f;
           
             
-
-            snorelax.position.X = 600;
-            snorelax.position.Y = 350;
-            snorelax.scale = 2.0f;
-            snorelax.mass = 150000;
-            snorelax.acceleration_clamp = 10.0f;
-     
+            
 
         }
 

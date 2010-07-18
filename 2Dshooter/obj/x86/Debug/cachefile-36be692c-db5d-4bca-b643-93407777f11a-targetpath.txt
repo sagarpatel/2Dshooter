@@ -29,3 +29,7 @@ Content\Sprites\red.xnb
 Content\Sprites\blue_small.xnb
 Content\Sprites\green_small.xnb
 Content\Sprites\red_small.xnb
+Content\Shaders\blur.xnb
+Content\Shaders\grayscale.xnb
+Content\Shaders\pulse_simple.xnb
+Content\Shaders\pulse_blur.xnb
