@@ -89,3 +89,6 @@ C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\S
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small16_frame32.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small16_frame32.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32.xnb
+C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32.xnb
