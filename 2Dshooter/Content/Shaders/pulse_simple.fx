@@ -22,8 +22,9 @@ float4 PixelShaderFunction(float2 uv : TEXCOORD0, float4 c: COLOR0) : COLOR0
     //    x = clamp(x, 0.75,2);
 
 	x = (0.75+abs(cos(time/500)/1.5));
-	
+			
 	color = color * x ;
+
 	
     return color ;
 

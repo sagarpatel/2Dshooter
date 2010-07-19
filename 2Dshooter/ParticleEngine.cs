@@ -125,7 +125,7 @@ namespace _2Dshooter
                     ExplosionSize = 150f;
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
-                    ParticleAgeOffset = 2000f;
+                    ParticleAgeOffset = 4000f;
                     MaxParticles = 100;
                     ParticleArraySize = 5000;
                     ParticleArray = new ParticleData[ParticleArraySize];
@@ -531,7 +531,7 @@ namespace _2Dshooter
                                      particle.Position,
                                      null,
                                      particle.ModColor,
-                                     i,
+                                     0,//MathHelper.ToRadians(i),//i, to rotate smoke cloud
                                      new Vector2(ParticleVectorX, ParticleVectorY),
                                      particle.Scaling,
                                      SpriteEffects.None,

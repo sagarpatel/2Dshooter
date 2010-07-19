@@ -13,13 +13,80 @@ float4 PixelShaderFunction(float2 uv : TEXCOORD0, float4 c: COLOR0) : COLOR0
         
     //blur
     float4 color;
+    float4 color1;
+    float4 color2;
+    
+    float2 oriuv;
+    
+    float pulse_amplitude = 0.5;
+    float pulse_frequency = time/400;
+    
+    oriuv = uv.xy;
+    
+    
+    
     color = tex2D(s, uv); //normal
-    color += tex2D(s, uv + (cos(time/500)/2 ));
-	color += tex2D(s, uv - (cos(time/500)/2 ));
-	color = color/2;
+    color1 = tex2D(s, uv.xy);
+	color2 = tex2D(s, uv.xy);
 	
-
 	
+	// Begin y = -x diagonal
+	
+			// To get y= -x diagonal
+					uv.x = (  + uv.x + pulse_amplitude*cos(pulse_frequency) );
+					uv.y = (  + uv.y + pulse_amplitude*cos(pulse_frequency) );
+		    		
+        
+    color1 = tex2D(s, uv.xy);
+    
+								//Reset uv
+								uv.xy = oriuv;
+							    
+    
+			// To get y= -x diagonal
+					uv.x = (  + uv.x - pulse_amplitude*cos(pulse_frequency) );
+					uv.y = (  + uv.y - pulse_amplitude*cos(pulse_frequency) );
+		    
+    color1 += tex2D(s, uv.xy);
+          
+    // End of y = -x  diagonal 
+    
+    
+         
+								//Reset uv
+								uv.xy = oriuv;
+							     
+        
+    // Begin y = x -b diagonal
+        
+       
+    
+			// To get y= x -b diagonal
+					uv.x = (  + uv.x + pulse_amplitude*cos(pulse_frequency) );
+					uv.y = (  + uv.y - pulse_amplitude*cos(pulse_frequency) );
+		    
+    color2 = tex2D(s, uv.xy);
+	
+	
+	
+								//Reset uv
+								uv.xy = oriuv;
+						
+			// To get y= x -b diagonal
+					uv.x = (  + uv.x - pulse_amplitude*cos(pulse_frequency) );
+					uv.y = (  + uv.y + pulse_amplitude*cos(pulse_frequency) );
+		    
+	color2 += tex2D(s,uv.xy);
+	
+	// End of y = x -b diagonal
+	
+	
+	
+	color = color + color1 + color2;
+	
+	
+	
+      
     return color ;
 
 }
