@@ -311,6 +311,33 @@
       <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur.xnb</Output>
       <Time>2010-07-19T12:08:06.3152381-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\blue_small16_frame32.png</Source>
+      <Name>Sprites\blue_small16_frame32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small16_frame32.xnb</Output>
+      <Time>2010-07-19T12:19:18.4026793-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\green_small16_frame32.png</Source>
+      <Name>Sprites\green_small16_frame32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32.xnb</Output>
+      <Time>2010-07-19T12:18:27.1317468-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\red_small16_frame32.png</Source>
+      <Name>Sprites\red_small16_frame32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32.xnb</Output>
+      <Time>2010-07-19T12:17:25.3372123-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

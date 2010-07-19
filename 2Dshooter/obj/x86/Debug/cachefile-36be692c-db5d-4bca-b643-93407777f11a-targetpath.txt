@@ -36,3 +36,6 @@ Content\Shaders\blur.xnb
 Content\Shaders\grayscale.xnb
 Content\Shaders\pulse_simple.xnb
 Content\Shaders\pulse_blur.xnb
+Content\Sprites\blue_small16_frame32.xnb
+Content\Sprites\green_small16_frame32.xnb
+Content\Sprites\red_small16_frame32.xnb

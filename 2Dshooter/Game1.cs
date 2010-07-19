@@ -197,8 +197,8 @@ namespace _2Dshooter
             Shaders.Pulse_Blur = Content.Load<Effect>("Shaders\\pulse_blur");
 
 
-            PE1 = new ParticleEngine(graphics, spriteBatch, Shaders ,Content.Load<Texture2D>("Sprites\\red_small_bigframe"),2);
-            PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, Content.Load<Texture2D>("Sprites\\green_small_bigframe"), 2);
+            PE1 = new ParticleEngine(graphics, spriteBatch, Shaders ,Content.Load<Texture2D>("Sprites\\red_small16_frame32"),2);
+            PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, Content.Load<Texture2D>("Sprites\\green_small16_frame32"), 2);
            
         }
 
