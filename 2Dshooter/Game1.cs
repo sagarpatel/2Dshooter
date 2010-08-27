@@ -22,6 +22,15 @@ namespace _2Dshooter
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+
+        KeyboardState keyboardState;
+        KeyboardState keyboardState_before = Keyboard.GetState();
+
+        GameScreen activeScreen;
+        StartScreen startScreen;
+        ActionScreen actionScreen;
+
+
         float time_before = 0.0f;
         float time_now = 0.0f;
         float time_diff = 0.0f;
@@ -57,8 +66,6 @@ namespace _2Dshooter
  
         SpriteFont font;
 
-        KeyboardState keyboardState_before = Keyboard.GetState();
-
 
         Rectangle window_frame;
 
@@ -93,7 +100,8 @@ namespace _2Dshooter
             public Effect Blur;
             public Effect Grayscale;
             public Effect Pulse_Simple;
-            public Effect Pulse_Blur;
+            public Effect Pulse_Blur_Time_Trig;
+            public Effect Pulse_Blur_Var_Linear;
         }
 
 
@@ -139,6 +147,25 @@ namespace _2Dshooter
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //string[] menuItems = { "Start Game", "High Scores", "End Game" };
+
+            //menuComponent = new MenuComponent(this,spriteBatch,Content.Load<SpriteFont>("Fonts\\SpriteFont1"),menuItems);
+            //Components.Add(menuComponent);
+
+            startScreen = new StartScreen(this,spriteBatch,Content.Load<SpriteFont>("Fonts\\SpriteFont1"),Content.Load<Texture2D>("alienmetal"));
+            Components.Add(startScreen);
+            startScreen.Hide();
+            
+            actionScreen = new ActionScreen(this,spriteBatch,Content.Load<Texture2D>("greenmetal"));
+            Components.Add(actionScreen);
+            actionScreen.Hide();
+
+            activeScreen = startScreen;
+            activeScreen.Show();
+
+
+
+
             player1 = new GameObject(Content.Load<Texture2D>("Sprites\\120-staryu"));
             player1.position = new Vector2(player1_initial_position_X, player1_initial_position_Y);
             player1.alive = true;
@@ -155,7 +182,7 @@ namespace _2Dshooter
             player1_weapon2 = new GameObject[max_player1_weapon2];
             for (int i = 0; i < max_player1_weapon2; i++)
             {
-                player1_weapon2[i] = new GameObject(Content.Load<Texture2D>("Sprites\\gravity_weapon"));
+                player1_weapon2[i] = new GameObject(Content.Load<Texture2D>("Sprites\\pokeball1"));
               
             }
 
@@ -173,7 +200,7 @@ namespace _2Dshooter
             }
                         
 
-            ball = new GameObject(Content.Load<Texture2D>("Sprites\\pokeball1"));        
+            ball = new GameObject(Content.Load<Texture2D>("Sprites\\gravity_weapon"));        
             
             Set_Values();
             
@@ -194,7 +221,8 @@ namespace _2Dshooter
             Shaders.Blur = Content.Load<Effect>("Shaders\\blur");
             Shaders.Grayscale = Content.Load<Effect>("Shaders\\grayscale");
             Shaders.Pulse_Simple = Content.Load<Effect>("Shaders\\pulse_simple");
-            Shaders.Pulse_Blur = Content.Load<Effect>("Shaders\\pulse_blur");
+            Shaders.Pulse_Blur_Time_Trig = Content.Load<Effect>("Shaders\\pulse_blur_time_trig");
+            Shaders.Pulse_Blur_Var_Linear = Content.Load<Effect>("Shaders\\pulse_blur_var_linear");
 
 
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders ,Content.Load<Texture2D>("Sprites\\red_small16_frame32"),2);
@@ -230,13 +258,33 @@ namespace _2Dshooter
             }
 
 
+            keyboardState = Keyboard.GetState();
 
-            
+                                 
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
+            if (activeScreen == startScreen)
+            {
+                //if (CheckKey(Keys.Enter))
+                if (keyboardState.IsKeyDown(Keys.Enter))
+                {
+                    if (startScreen.SelectedIndex == 0)
+                    {
+                        activeScreen.Hide();
+                        activeScreen = actionScreen;
+                        activeScreen.Show();
+                    }
+                    if (startScreen.SelectedIndex == 1)
+                    {
+                        this.Exit();
+                    }
+                }
+            }
+            
 
             Update_Walls();
             
@@ -263,8 +311,6 @@ namespace _2Dshooter
             //planet.position.Y = 300;
 
 
-            keyboardState_before = Keyboard.GetState();
-
          
             PE1.UpdateParticles(PE1.ParticleArray, gameTime, (player1.position + player1.center));
             PE2.UpdateParticles(PE2.ParticleArray, gameTime, (player1.position + player1.center));
@@ -273,6 +319,7 @@ namespace _2Dshooter
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+            keyboardState_before = keyboardState;
         }
 
         /// <summary>
@@ -293,8 +340,8 @@ namespace _2Dshooter
 
             //Draw particles from te Particle Enigne
 
-            PE1.DrawExplosion(PE1.ParticleArray, spriteBatch, gameTime);
-            PE2.DrawExplosion(PE2.ParticleArray, spriteBatch, gameTime);
+            PE1.DrawExplosion(PE1.ParticleArray, spriteBatch, gameTime, player1);
+            PE2.DrawExplosion(PE2.ParticleArray, spriteBatch, gameTime, player1);
 
 
             
@@ -483,30 +530,21 @@ namespace _2Dshooter
 
             spriteBatch.End();
 
-
-
-
-
-
-            
+                    
 
             
 
             
             // TODO: Add your drawing code here
-
+            
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
             base.Draw(gameTime);
-
+            spriteBatch.End();
             
         }
 
-
         
-
-
-
-
-
         // Extra functions
 
         
@@ -515,22 +553,52 @@ namespace _2Dshooter
         {
 
 
+            int acceleration_increment = 1;
+
+
             // CONTROLS
 
 
             KeyboardState keyboardState = Keyboard.GetState();
+            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
+
+
+            if (gamePadState.DPad.Down == ButtonState.Pressed)
+            {
+                player1.acceleration.Y += acceleration_increment;
+
+                if (player1.acceleration.Y < 0)
+                {
+                    player1.acceleration.Y = 0;
+                }
+            }
+
+
+            if (gamePadState.DPad.Up == ButtonState.Pressed)
+            {
+                player1.acceleration.Y -= acceleration_increment;
+
+                if (player1.acceleration.Y > 0)
+                {
+                    player1.acceleration.Y = 0;
+                }
+            }
+
+
+            if (gamePadState.Buttons.X == ButtonState.Pressed)
+            {
+                Fire_Weapons("2");
+            }
+
 
             // Exit Game if ESC is pressed
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
-                Exit();
+                this.Exit();
             }
         
-
-
-
-            int acceleration_increment = 1;
-
+            
+            
             if (keyboardState.IsKeyDown(Keys.Left))
             {
                 player1.acceleration.X -= acceleration_increment;
@@ -1237,6 +1305,12 @@ namespace _2Dshooter
             
         }
 
+
+        private bool CheckKey(Keys theKey)
+        {
+            return keyboardState.IsKeyUp(theKey) && keyboardState_before.IsKeyDown(theKey);
+        }
+        
 
 
         private void Set_Values()

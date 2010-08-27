@@ -126,7 +126,7 @@ namespace _2Dshooter
                     ConeWidth = 75;
                     ParticleMaxAge = 500f;
                     ParticleAgeOffset = 4000f;
-                    MaxParticles = 400;
+                    MaxParticles = 200;
                     ParticleArraySize = 10000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
@@ -511,29 +511,54 @@ namespace _2Dshooter
 
 
 
-        public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch, GameTime gameTime)
+        public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch, GameTime gameTime, GameObject player1)
         {
             
 
             spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
 
-            Shaders.Pulse_Blur.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
-            Shaders.Pulse_Blur.Begin();
-            Shaders.Pulse_Blur.CurrentTechnique.Passes[0].Begin();
-                                  
+            Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+
+            
+
+            Shaders.Pulse_Blur_Time_Trig.Begin();
+            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
+
+            //Shaders.Pulse_Blur_Var_Linear.Begin();
+            //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].Begin();
+
+
+            float nowdist = 0;
+            float p1dist = 0;
+            float ratio = 0;
 
             for (int i = 0; i < ParticleArraySize; i++)
             {
-                ParticleData particle = PA[i];
-                if (particle.IsAlive == true)
+            
+
+                //ParticleData particle = PA[i];
+
+
+                if (PA[i].IsAlive == true)
                 {
+
+                    //p1dist = Vector2.Distance(PA[i].OrginalPosition, player1.position);
+                    
+                    nowdist = Vector2.Distance(PA[i].Position, player1.position);
+                    ratio = nowdist / 2000;
+
+                    Shaders.Pulse_Blur_Var_Linear.Parameters["var"].SetValue( 1.15f-ratio  );
+                    
+                    //Shaders.Pulse_Blur_Time_Trig.Parameters["var"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+                    
+
                     spriteBatch.Draw(Explosion1Sprite,
-                                     particle.Position,
+                                     PA[i].Position,
                                      null,
-                                     particle.ModColor,
+                                     PA[i].ModColor,
                                      0,//MathHelper.ToRadians(i),//i, to rotate smoke cloud
                                      new Vector2(ParticleVectorX, ParticleVectorY),
-                                     particle.Scaling,
+                                     PA[i].Scaling,
                                      SpriteEffects.None,
                                      1);
                 }
@@ -541,8 +566,13 @@ namespace _2Dshooter
             }
 
 
-            Shaders.Pulse_Blur.CurrentTechnique.Passes[0].End();
-            Shaders.Pulse_Blur.End();
+
+            //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].End();
+            //Shaders.Pulse_Blur_Var_Linear.End();
+
+            
+            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
+            Shaders.Pulse_Blur_Time_Trig.End();
 
             spriteBatch.End();
 

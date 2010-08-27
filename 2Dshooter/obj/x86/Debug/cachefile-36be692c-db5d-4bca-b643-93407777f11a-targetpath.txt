@@ -38,4 +38,7 @@ Content\Audio\130-cycling.wma
 Content\Shaders\blur.xnb
 Content\Shaders\grayscale.xnb
 Content\Shaders\pulse_simple.xnb
-Content\Shaders\pulse_blur.xnb
+Content\Shaders\pulse_blur_time_trig.xnb
+Content\Shaders\pulse_blur_var_linear.xnb
+Content\alienmetal.xnb
+Content\greenmetal.xnb

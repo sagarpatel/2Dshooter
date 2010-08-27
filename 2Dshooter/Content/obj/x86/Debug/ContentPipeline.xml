@@ -330,13 +330,40 @@
       <Time>2010-07-19T12:28:11.9320063-04:00</Time>
     </Item>
     <Item>
-      <Source>Shaders\pulse_blur.fx</Source>
-      <Name>Shaders\pulse_blur</Name>
+      <Source>Shaders\pulse_blur_time_trig.fx</Source>
+      <Name>Shaders\pulse_blur_time_trig</Name>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur.xnb</Output>
+      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_time_trig.xnb</Output>
       <Time>2010-07-19T12:28:11.9164063-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_blur_var_linear.fx</Source>
+      <Name>Shaders\pulse_blur_var_linear</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb</Output>
+      <Time>2010-07-19T19:05:24.3252289-04:00</Time>
+    </Item>
+    <Item>
+      <Source>alienmetal.jpg</Source>
+      <Name>alienmetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\alienmetal.xnb</Output>
+      <Time>2010-08-24T19:44:10.6922289-04:00</Time>
+    </Item>
+    <Item>
+      <Source>greenmetal.jpg</Source>
+      <Name>greenmetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\greenmetal.xnb</Output>
+      <Time>2010-08-24T19:44:20.2862456-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
