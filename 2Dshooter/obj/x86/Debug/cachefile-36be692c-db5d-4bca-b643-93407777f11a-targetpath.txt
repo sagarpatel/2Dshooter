@@ -42,3 +42,5 @@ Content\Shaders\grayscale.xnb
 Content\Shaders\pulse_simple.xnb
 Content\Shaders\pulse_blur_time_trig.xnb
 Content\Shaders\pulse_blur_var_linear.xnb
+Content\Videos\F1.xnb
+Content\Videos\F1.wmv

@@ -25,6 +25,8 @@ namespace _2Dshooter
         
 
         Video myVideoFile;
+        VideoPlayer videoPlayer;
+
 
 
         KeyboardState keyboardState;
@@ -117,6 +119,8 @@ namespace _2Dshooter
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            videoPlayer = new VideoPlayer();
 
             
         }
@@ -223,6 +227,9 @@ namespace _2Dshooter
 
             BGM = Content.Load<Song>("Audio\\130-cycling");
             //MediaPlayer.Play(BGM);
+
+            myVideoFile = Content.Load<Video>("Videos\\F1");
+
             // TODO: use this.Content to load your game content here
 
             Shaders.Blur = Content.Load<Effect>("Shaders\\blur");
@@ -234,6 +241,8 @@ namespace _2Dshooter
 
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders ,Content.Load<Texture2D>("Sprites\\red_small16_frame32"),2);
             PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, Content.Load<Texture2D>("Sprites\\green_small16_frame32"), 2);
+
+
            
         }
 
@@ -267,7 +276,10 @@ namespace _2Dshooter
 
             keyboardState = Keyboard.GetState();
 
-                                 
+
+            videoPlayer.Play(myVideoFile);
+
+
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -547,6 +559,10 @@ namespace _2Dshooter
             //GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
             base.Draw(gameTime);
+            if (videoPlayer.State == MediaState.Playing)
+            {
+                spriteBatch.Draw(videoPlayer.GetTexture(), new Rectangle(0, 0, myVideoFile.Width, myVideoFile.Height), Color.White);
+            }
             spriteBatch.End();
             
         }

@@ -365,6 +365,16 @@
       <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb</Output>
       <Time>2010-08-28T09:24:39.8736247-04:00</Time>
     </Item>
+    <Item>
+      <Source>Videos\F1.wmv</Source>
+      <Name>Videos\F1</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.xnb</Output>
+      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.wmv</Extra>
+      <Time>2010-08-30T19:13:42.0076522-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
