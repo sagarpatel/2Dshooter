@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
 
+
 namespace _2Dshooter
 {
     /// <summary>
@@ -21,6 +22,9 @@ namespace _2Dshooter
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        
+
+        Video myVideoFile;
 
 
         KeyboardState keyboardState;
@@ -108,10 +112,13 @@ namespace _2Dshooter
         ShaderStruct Shaders;
         
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            
         }
 
         /// <summary>

@@ -69,7 +69,6 @@ E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_s
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\blur.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\grayscale.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_simple.xnb
-E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small_bigframe.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small_bigframe.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small_bigframe.xnb
@@ -95,3 +94,7 @@ C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\S
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\alienmetal.xnb
 C:\Users\Sagar\Documents\GameDev\XNA\2Dshooter\2Dshooter\bin\x86\Debug\Content\greenmetal.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\alienmetal.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\greenmetal.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_time_trig.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb

@@ -26,6 +26,8 @@ Content\Sprites\green_small_bigframe.xnb
 Content\Sprites\blue_small16_frame32.xnb
 Content\Sprites\green_small16_frame32.xnb
 Content\Sprites\red_small16_frame32.xnb
+Content\alienmetal.xnb
+Content\greenmetal.xnb
 Content\Fonts\SpriteFont1.xnb
 Content\Audio\138-ocean.xnb
 Content\Audio\138-ocean.wma
@@ -40,5 +42,3 @@ Content\Shaders\grayscale.xnb
 Content\Shaders\pulse_simple.xnb
 Content\Shaders\pulse_blur_time_trig.xnb
 Content\Shaders\pulse_blur_var_linear.xnb
-Content\alienmetal.xnb
-Content\greenmetal.xnb
