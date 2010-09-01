@@ -100,3 +100,5 @@ E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.xnb
 E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.wmv
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.xnb
+E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.wmv

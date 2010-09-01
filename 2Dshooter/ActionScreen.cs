@@ -166,7 +166,7 @@ namespace _2Dshooter
             BGM = game.Content.Load<Song>("Audio\\130-cycling");
             //MediaPlayer.Play(BGM);
 
-            myVideoFile = game.Content.Load<Video>("Videos\\F1");
+            myVideoFile = game.Content.Load<Video>("Videos\\F1v3");
 
             // TODO: use this.Content to load your game content here
 
