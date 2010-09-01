@@ -116,6 +116,8 @@ namespace _2Dshooter
                 
                 //base.Draw(gameTime);
 
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
+
                 Vector2 location = position;
                 Color tint;
                 for (int i = 0; i < menuItems.Length; i++)
@@ -131,6 +133,8 @@ namespace _2Dshooter
                     tint);
                     location.Y += spriteFont.LineSpacing + 5;
                 }
+
+                spriteBatch.End();
 
             //}
 

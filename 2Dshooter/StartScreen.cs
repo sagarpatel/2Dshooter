@@ -47,7 +47,9 @@ namespace _2Dshooter
 
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
             spriteBatch.Draw(image, imageRectangle, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

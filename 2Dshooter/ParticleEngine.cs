@@ -83,9 +83,23 @@ namespace _2Dshooter
                
         SpriteBatch spriteBatch;
 
-        Game1.ShaderStruct Shaders;
+        public struct ShaderStruct
+        {
+            public Effect Blur;
+            public Effect Grayscale;
+            public Effect Pulse_Simple;
+            public Effect Pulse_Blur_Time_Trig;
+            public Effect Pulse_Blur_Var_Linear;
+        }
 
-        public ParticleEngine(GraphicsDeviceManager graphics, SpriteBatch SB, Game1.ShaderStruct shaders, Texture2D EXP1Tex, int PID)
+
+        ShaderStruct Shaders;
+
+
+
+
+
+        public ParticleEngine(GraphicsDeviceManager graphics, SpriteBatch SB, ShaderStruct shaders, Texture2D EXP1Tex, int PID)
         {
 
             Shaders = shaders;

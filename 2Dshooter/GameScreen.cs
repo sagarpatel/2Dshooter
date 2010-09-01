@@ -57,6 +57,7 @@ namespace _2Dshooter
         }
 
 
+
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
