@@ -561,7 +561,7 @@ namespace _2Dshooter
                     nowdist = Vector2.Distance(PA[i].Position, player1.position);
                     ratio = nowdist / 2000;
 
-                    Shaders.Pulse_Blur_Var_Linear.Parameters["var"].SetValue( 1.15f-ratio  );
+                    //Shaders.Pulse_Blur_Var_Linear.Parameters["var"].SetValue( 1.15f-ratio  );
                     
                     //Shaders.Pulse_Blur_Time_Trig.Parameters["var"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
                     

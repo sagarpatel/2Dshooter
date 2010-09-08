@@ -276,13 +276,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="alienmetal.jpg">
-      <Name>alienmetal</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="greenmetal.jpg">
       <Name>greenmetal</Name>
       <Importer>TextureImporter</Importer>
@@ -305,6 +298,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alienmetal.jpg">
+      <Name>alienmetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Videos\F1v3.wmv">
       <Name>F1v3</Name>
       <Importer>WmvImporter</Importer>

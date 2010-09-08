@@ -55,6 +55,10 @@ namespace _2Dshooter
         const int enemies2_perspawn = 2;
         const float enemies2_velocity_scalar = 20.0f;
 
+
+        GameObject Feynman;
+
+
         Random random = new Random();
 
 
@@ -180,6 +184,9 @@ namespace _2Dshooter
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32"), 2);
             PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32"), 2);
 
+            // Create animerted objecct
+            //Giving it temporary sprite here, will update to video fram later
+            Feynman = new GameObject(game.Content.Load<Texture2D>("Sprites\\120-staryu"));
                         
        
         }
@@ -245,6 +252,12 @@ namespace _2Dshooter
             PE2.UpdateParticles(PE2.ParticleArray, gameTime, (player1.position + player1.center));
 
 
+            Feynman.sprite = videoPlayer.GetTexture();
+            //Feynman.position = new Vector2(10*(float)Math.Sin(gameTime.TotalGameTime.Milliseconds), 10*(float)Math.Sin(gameTime.TotalGameTime.Milliseconds));
+            if (gameTime.TotalGameTime.Seconds % 5 == 0)
+            {
+                Feynman.position = new Vector2(random.Next(1200), random.Next(720));
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -267,7 +280,7 @@ namespace _2Dshooter
             string fps = string.Format("FPS: {0}", frameRate);
 
 
-
+            
 
             this.graphics.GraphicsDevice.Clear(Color.Black);
 
@@ -444,12 +457,41 @@ namespace _2Dshooter
 
             spriteBatch.End();
 
+
+            // Draw video
+
+
+            spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate, SaveStateMode.None);
+
+            Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds * 2);
+
+
+
+            Shaders.Pulse_Blur_Time_Trig.Begin();
+            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
+
+
+            spriteBatch.Draw(Feynman.sprite, Feynman.position, Color.White);
+
+            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
+            Shaders.Pulse_Blur_Time_Trig.End();
+
+            spriteBatch.End();
+
+            
+
+
+
+
+
+
+
             //Draw player1
             
 
             spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
 
-            Shaders.Pulse_Simple.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+            Shaders.Pulse_Simple.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds/2);
             Shaders.Pulse_Simple.Begin();
             Shaders.Pulse_Simple.CurrentTechnique.Passes[0].Begin();
 
@@ -460,14 +502,15 @@ namespace _2Dshooter
             Shaders.Pulse_Simple.End();
 
 
-            //PLay video
-            if (videoPlayer.State == MediaState.Playing)
-            {
-                spriteBatch.Draw(videoPlayer.GetTexture(), new Rectangle(0, 0, myVideoFile.Width, myVideoFile.Height), Color.White);
-            }
+         
+            
+            
+            spriteBatch.End();
+
             
 
-            spriteBatch.End();
+
+
 
             base.Draw(gameTime);
             
