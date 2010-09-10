@@ -115,7 +115,7 @@ namespace _2Dshooter
                                             Game.Window.ClientBounds.Height);
 
             videoPlayer = new VideoPlayer();
-            myVideoFile = game.Content.Load<Video>("Videos\\F1");
+           // myVideoFile = game.Content.Load<Video>("Videos\\F1v4");
 
             
 
@@ -170,7 +170,7 @@ namespace _2Dshooter
             BGM = game.Content.Load<Song>("Audio\\130-cycling");
             //MediaPlayer.Play(BGM);
 
-            myVideoFile = game.Content.Load<Video>("Videos\\F1v3");
+            myVideoFile = game.Content.Load<Video>("Videos\\F1v4");
 
             // TODO: use this.Content to load your game content here
 

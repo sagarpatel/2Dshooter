@@ -27,6 +27,7 @@ Content\Sprites\blue_small16_frame32.xnb
 Content\Sprites\green_small16_frame32.xnb
 Content\Sprites\red_small16_frame32.xnb
 Content\greenmetal.xnb
+Content\alienmetal.xnb
 Content\Fonts\SpriteFont1.xnb
 Content\Audio\138-ocean.xnb
 Content\Audio\138-ocean.wma
@@ -45,4 +46,5 @@ Content\Videos\F1.xnb
 Content\Videos\F1.wmv
 Content\Videos\F1v3.xnb
 Content\Videos\F1v3.wmv
-Content\alienmetal.xnb
+Content\Videos\F1v4.xnb
+Content\Videos\F1v4.wmv
