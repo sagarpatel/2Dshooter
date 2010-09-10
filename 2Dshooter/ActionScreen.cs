@@ -573,10 +573,10 @@ namespace _2Dshooter
             }
 
 
-      
+      //Player Controls
 
 
-            if (keyboardState.IsKeyDown(Keys.Left))
+            if (keyboardState.IsKeyDown(Keys.A))
             {
                 player1.acceleration.X -= acceleration_increment;
 
@@ -588,7 +588,7 @@ namespace _2Dshooter
 
             }
 
-            if (keyboardState.IsKeyDown(Keys.Right))
+            if (keyboardState.IsKeyDown(Keys.D))
             {
                 player1.acceleration.X += acceleration_increment;
 
@@ -600,7 +600,7 @@ namespace _2Dshooter
             }
 
 
-            if (keyboardState.IsKeyDown(Keys.Up))
+            if (keyboardState.IsKeyDown(Keys.W))
             {
                 player1.acceleration.Y -= acceleration_increment;
 
@@ -611,7 +611,7 @@ namespace _2Dshooter
 
             }
 
-            if (keyboardState.IsKeyDown(Keys.Down))
+            if (keyboardState.IsKeyDown(Keys.S))
             {
                 player1.acceleration.Y += acceleration_increment;
 
@@ -624,26 +624,104 @@ namespace _2Dshooter
 
             // Kill acceleration if not pressed
 
-            if (keyboardState.IsKeyUp(Keys.Left) && keyboardState_before.IsKeyDown(Keys.Left))
+            if (keyboardState.IsKeyUp(Keys.A) && keyboardState_before.IsKeyDown(Keys.A))
             {
                 player1.acceleration.X = 0;
+            }
+            if (keyboardState.IsKeyUp(Keys.D) && keyboardState_before.IsKeyDown(Keys.D))
+            {
+                player1.acceleration.X = 0;
+            }
+            if (keyboardState.IsKeyUp(Keys.W) && keyboardState_before.IsKeyDown(Keys.W))
+            {
+                player1.acceleration.Y = 0;
+            }
+            if (keyboardState.IsKeyUp(Keys.S) && keyboardState_before.IsKeyDown(Keys.S))
+            {
+                player1.acceleration.Y = 0;
+            }
+
+
+            //Gravit weapon control
+
+
+            
+
+
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                ball.acceleration.X -= acceleration_increment;
+
+                if (ball.acceleration.X > 0)
+                {
+                    ball.acceleration.X = 0;
+                }
+
+
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                ball.acceleration.X += acceleration_increment;
+
+                if (ball.acceleration.X < 0)
+                {
+                    ball.acceleration.X = 0;
+                }
+
+            }
+
+
+            if (keyboardState.IsKeyDown(Keys.Up))
+            {
+                ball.acceleration.Y -= acceleration_increment;
+
+                if (ball.acceleration.Y > 0)
+                {
+                    ball.acceleration.Y = 0;
+                }
+
+            }
+
+            if (keyboardState.IsKeyDown(Keys.Down))
+            {
+                ball.acceleration.Y += acceleration_increment;
+
+                if (ball.acceleration.Y < 0)
+                {
+                    ball.acceleration.Y = 0;
+                }
+            }
+
+
+
+            // Kill acceleration if not pressed
+
+            if (keyboardState.IsKeyUp(Keys.Left) && keyboardState_before.IsKeyDown(Keys.Left))
+            {
+                ball.acceleration.X = 0;
             }
             if (keyboardState.IsKeyUp(Keys.Right) && keyboardState_before.IsKeyDown(Keys.Right))
             {
-                player1.acceleration.X = 0;
+                ball.acceleration.X = 0;
             }
             if (keyboardState.IsKeyUp(Keys.Up) && keyboardState_before.IsKeyDown(Keys.Up))
             {
-                player1.acceleration.Y = 0;
+                ball.acceleration.Y = 0;
             }
             if (keyboardState.IsKeyUp(Keys.Down) && keyboardState_before.IsKeyDown(Keys.Down))
             {
-                player1.acceleration.Y = 0;
+                ball.acceleration.Y = 0;
             }
+
+
+
+
 
 
             // RESET POSITION
             if (keyboardState.IsKeyDown(Keys.R))
+            
             {
                 player1.position.X = player1_initial_position_X;
                 player1.position.Y = player1_initial_position_Y;
@@ -724,6 +802,9 @@ namespace _2Dshooter
             // Update velocity and position of player
 
             Update_PVA(player1);
+
+
+            Update_PVA(ball);
 
             // Update velocity and position of weapon1
             foreach (GameObject shot in player1_weapon1)
@@ -1288,7 +1369,7 @@ namespace _2Dshooter
         {
 
             time_stretch = 0.01f;
-            G = 100f;
+            G = 10f;
 
             player1.scale = 1.0f;
             player1.mass = 1;
