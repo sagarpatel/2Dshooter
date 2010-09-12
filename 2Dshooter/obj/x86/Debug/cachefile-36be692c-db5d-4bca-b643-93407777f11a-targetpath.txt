@@ -48,3 +48,11 @@ Content\Videos\F1v3.xnb
 Content\Videos\F1v3.wmv
 Content\Videos\F1v4.xnb
 Content\Videos\F1v4.wmv
+Content\Sprites\pokeball_color.xnb
+Content\Sprites\041-zubat_ss.xnb
+Content\Sprites\042-golbat_ss.xnb
+Content\Sprites\bubblemod_ss.xnb
+Content\Sprites\gravity_weapon_ss.xnb
+Content\Sprites\green_small16_frame32_ss.xnb
+Content\Sprites\pokeball_color1_ss.xnb
+Content\Sprites\red_small16_frame32_ss.xnb

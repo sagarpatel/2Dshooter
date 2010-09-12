@@ -395,6 +395,78 @@
       <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v4.wmv</Extra>
       <Time>2010-09-08T20:14:03.4521928-04:00</Time>
     </Item>
+    <Item>
+      <Source>Sprites\pokeball_color.png</Source>
+      <Name>Sprites\pokeball_color</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color.xnb</Output>
+      <Time>2010-08-28T09:24:40.2536464-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\041-zubat_ss.png</Source>
+      <Name>Sprites\041-zubat_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\041-zubat_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.410508-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\042-golbat_ss.png</Source>
+      <Name>Sprites\042-golbat_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.4395097-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\bubblemod_ss.png</Source>
+      <Name>Sprites\bubblemod_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.4895125-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\gravity_weapon_ss.png</Source>
+      <Name>Sprites\gravity_weapon_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.3525047-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\green_small16_frame32_ss.png</Source>
+      <Name>Sprites\green_small16_frame32_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.3625053-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\pokeball_color1_ss.png</Source>
+      <Name>Sprites\pokeball_color1_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color1_ss.xnb</Output>
+      <Time>2010-09-12T13:42:18.0279487-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\red_small16_frame32_ss.png</Source>
+      <Name>Sprites\red_small16_frame32_ss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32_ss.xnb</Output>
+      <Time>2010-09-12T13:49:27.3905069-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

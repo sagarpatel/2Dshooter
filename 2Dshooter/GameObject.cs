@@ -40,6 +40,7 @@ namespace _2Dshooter
 
         public int HP;
 
+        public int acceleration_increment;
         
         public GameObject(Texture2D loadedTexture)
         {
@@ -48,6 +49,8 @@ namespace _2Dshooter
             position = Vector2.Zero;
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
+
+            acceleration_increment = 0;
 
       
             rotation = 0.0f;

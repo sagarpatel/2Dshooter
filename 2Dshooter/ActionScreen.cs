@@ -43,17 +43,17 @@ namespace _2Dshooter
 
         GameObject[] player1_weapon2;
         const int max_player1_weapon2 = 40;
-        const float player1_weapon2_initial_velocity_X = 40.0f;
+        const float player1_weapon2_initial_velocity_X = 20.0f;
 
         GameObject[] enemies1;
-        const int max_enemies1 = 20;
+        const int max_enemies1 = 10;
         int min_enemies1_velocity = 0;
         int max_enemies1_velocity = 0;
 
         GameObject[] enemies2;
-        const int max_enemies2 = 40;
+        const int max_enemies2 = 20;
         const int enemies2_perspawn = 2;
-        const float enemies2_velocity_scalar = 20.0f;
+        const float enemies2_velocity_scalar = 10.0f;
 
 
         GameObject Feynman;
@@ -127,7 +127,7 @@ namespace _2Dshooter
             player1_weapon1 = new GameObject[max_player1_weapon1];
             for (int i = 0; i < max_player1_weapon1; i++)
             {
-                player1_weapon1[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\bubblemod"));
+                player1_weapon1[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\bubblemod_ss"));
 
             }
 
@@ -135,25 +135,25 @@ namespace _2Dshooter
             player1_weapon2 = new GameObject[max_player1_weapon2];
             for (int i = 0; i < max_player1_weapon2; i++)
             {
-                player1_weapon2[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\pokeball1"));
+                player1_weapon2[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\pokeball_color1_ss"));
 
             }
 
             enemies1 = new GameObject[max_enemies1];
             for (int i = 0; i < max_enemies1; i++)
             {
-                enemies1[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\042-golbat"));
+                enemies1[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\042-golbat_ss"));
             }
 
 
             enemies2 = new GameObject[max_enemies2];
             for (int i = 0; i < max_enemies2; i++)
             {
-                enemies2[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\041-zubat"));
+                enemies2[i] = new GameObject(game.Content.Load<Texture2D>("Sprites\\041-zubat_ss"));
             }
 
 
-            ball = new GameObject(game.Content.Load<Texture2D>("Sprites\\gravity_weapon"));
+            ball = new GameObject(game.Content.Load<Texture2D>("Sprites\\gravity_weapon_ss"));
 
             Set_Values();
 
@@ -181,8 +181,8 @@ namespace _2Dshooter
             Shaders.Pulse_Blur_Var_Linear = game.Content.Load<Effect>("Shaders\\pulse_blur_var_linear");
             
 
-            PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32"), 2);
-            PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32"), 2);
+            PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32_ss"), 2);
+            PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32_ss"), 2);
 
             // Create animerted objecct
             //Giving it temporary sprite here, will update to video fram later
@@ -341,7 +341,7 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "Position: " + player1.position.ToString() + "           time_before: " + time_before.ToString(),
+                "Position: " + ball.position.ToString() + "           time_before: " + time_before.ToString(),
                 new Vector2(10, 10),
                 Color.Yellow
                 );
@@ -356,7 +356,7 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "Velocity: " + player1.velocity.ToString() + "                  time_now: " + time_now.ToString(),
+                "Velocity: " + ball.velocity.ToString() + "                  time_now: " + time_now.ToString(),
                 new Vector2(10, 30),
                 Color.Yellow
                 );
@@ -372,7 +372,7 @@ namespace _2Dshooter
 
             spriteBatch.DrawString(
                 font,
-                "Acceleration: " + player1.acceleration.ToString(),
+                "Acceleration: " + ball.acceleration.ToString(),
                 new Vector2(10, 50),
                 Color.Yellow
                 );
@@ -535,9 +535,7 @@ namespace _2Dshooter
         {
 
 
-            int acceleration_increment = 1;
-
-
+            
             // CONTROLS
 
 
@@ -547,7 +545,7 @@ namespace _2Dshooter
 
             if (gamePadState.DPad.Down == ButtonState.Pressed)
             {
-                player1.acceleration.Y += acceleration_increment;
+                player1.acceleration.Y += player1.acceleration_increment;
 
                 if (player1.acceleration.Y < 0)
                 {
@@ -558,7 +556,7 @@ namespace _2Dshooter
 
             if (gamePadState.DPad.Up == ButtonState.Pressed)
             {
-                player1.acceleration.Y -= acceleration_increment;
+                player1.acceleration.Y -= player1.acceleration_increment;
 
                 if (player1.acceleration.Y > 0)
                 {
@@ -578,7 +576,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.A))
             {
-                player1.acceleration.X -= acceleration_increment;
+                player1.acceleration.X -= player1.acceleration_increment;
 
                 if (player1.acceleration.X > 0)
                 {
@@ -590,7 +588,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.D))
             {
-                player1.acceleration.X += acceleration_increment;
+                player1.acceleration.X += player1.acceleration_increment;
 
                 if (player1.acceleration.X < 0)
                 {
@@ -602,7 +600,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.W))
             {
-                player1.acceleration.Y -= acceleration_increment;
+                player1.acceleration.Y -= player1.acceleration_increment;
 
                 if (player1.acceleration.Y > 0)
                 {
@@ -613,7 +611,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.S))
             {
-                player1.acceleration.Y += acceleration_increment;
+                player1.acceleration.Y += player1.acceleration_increment;
 
                 if (player1.acceleration.Y < 0)
                 {
@@ -643,11 +641,11 @@ namespace _2Dshooter
 
 
 
-
+            // Gravity well controls (ball)
 
             if (keyboardState.IsKeyDown(Keys.Left))
             {
-                ball.acceleration.X -= acceleration_increment;
+                ball.acceleration.X -= ball.acceleration_increment;
 
                 if (ball.acceleration.X > 0)
                 {
@@ -659,7 +657,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.Right))
             {
-                ball.acceleration.X += acceleration_increment;
+                ball.acceleration.X += ball.acceleration_increment;
 
                 if (ball.acceleration.X < 0)
                 {
@@ -671,7 +669,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.Up))
             {
-                ball.acceleration.Y -= acceleration_increment;
+                ball.acceleration.Y -= ball.acceleration_increment;
 
                 if (ball.acceleration.Y > 0)
                 {
@@ -682,7 +680,7 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.Down))
             {
-                ball.acceleration.Y += acceleration_increment;
+                ball.acceleration.Y += ball.acceleration_increment;
 
                 if (ball.acceleration.Y < 0)
                 {
@@ -711,7 +709,13 @@ namespace _2Dshooter
             }
 
 
+            // Teleport ball in front of player
 
+            if (keyboardState.IsKeyDown(Keys.E) && keyboardState_before.IsKeyUp(Keys.E))
+            {
+                ball.position = player1.position;
+                ball.position.X = player1.position.X + 100f;
+            }
 
 
 
@@ -952,9 +956,9 @@ namespace _2Dshooter
 
             //r = r / 5;
 
-            if (r < 10)
+            if (r < 100)
             {
-                r = 10;
+                r = 100;
             }
 
             F = (G * m1.mass * m2.mass) / Math.Pow(r, 2);
@@ -1076,11 +1080,11 @@ namespace _2Dshooter
 
             Wall_Bounce(player1);
 
-            foreach (GameObject shot in player1_weapon2)
-            {
-                //Check_Borders(shot);
-                Wall_Bounce(shot);
-            }
+            //foreach (GameObject shot in player1_weapon2)
+            //{
+            //    //Check_Borders(shot);
+            //    Wall_Bounce(shot);
+            //}
         }
 
 
@@ -1373,7 +1377,8 @@ namespace _2Dshooter
             player1.acceleration_clamp = 100.0f;
             player1.friction = 0.025f;
             player1.HP = 100;
-
+            player1.acceleration_increment = 1;
+            
 
             for (int i = 0; i < max_player1_weapon1; i++)
             {
@@ -1392,8 +1397,8 @@ namespace _2Dshooter
                 player1_weapon2[i].mass = 1f;
                 player1_weapon2[i].acceleration_clamp = 50.0f;
                 player1_weapon2[i].velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
-                player1_weapon2[i].velocity_clamp = 1000.0f;
-                player1_weapon2[i].friction = 0.01f;
+                player1_weapon2[i].velocity_clamp = 2000.0f;
+                player1_weapon2[i].friction = 0.02f;
 
             }
 
@@ -1425,7 +1430,10 @@ namespace _2Dshooter
             ball.acceleration_clamp = 11000000.75f;
             ball.velocity.Y = 0;
             ball.velocity.X = 0f;
-
+            ball.velocity_clamp = 1000f;
+            ball.acceleration_clamp = 1000f;
+            ball.acceleration_increment = 2;
+            ball.friction = 0.05f;
 
 
 
