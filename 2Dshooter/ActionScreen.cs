@@ -24,6 +24,13 @@ namespace _2Dshooter
         KeyboardState keyboardState;
         KeyboardState keyboardState_before = Keyboard.GetState();
 
+        GamePadState gamePadState ;
+        GamePadState gamePadState_before = GamePad.GetState(PlayerIndex.One);
+
+
+
+
+
         Video myVideoFile;
         VideoPlayer videoPlayer;
 
@@ -42,8 +49,9 @@ namespace _2Dshooter
 
 
         GameObject[] player1_weapon2;
-        const int max_player1_weapon2 = 40;
+        const int max_player1_weapon2 = 100;
         const float player1_weapon2_initial_velocity_X = 20.0f;
+        float player1_weapon2_maxage = 10000;
 
         GameObject[] enemies1;
         const int max_enemies1 = 10;
@@ -179,6 +187,7 @@ namespace _2Dshooter
             Shaders.Pulse_Simple = game.Content.Load<Effect>("Shaders\\pulse_simple");
             Shaders.Pulse_Blur_Time_Trig = game.Content.Load<Effect>("Shaders\\pulse_blur_time_trig");
             Shaders.Pulse_Blur_Var_Linear = game.Content.Load<Effect>("Shaders\\pulse_blur_var_linear");
+            Shaders.Weapon2_Timefade = game.Content.Load<Effect>("Shaders\\weapon2_timefade");
             
 
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32_ss"), 2);
@@ -218,6 +227,7 @@ namespace _2Dshooter
 
 
             keyboardState = Keyboard.GetState();
+            gamePadState = GamePad.GetState(PlayerIndex.One);
 
 
             videoPlayer.Play(myVideoFile);
@@ -226,11 +236,11 @@ namespace _2Dshooter
 
             Update_Walls();
 
-            Controls();
+            Controls(gameTime);
 
             Collisions(gameTime);
 
-            Update_Weapons();
+            Update_Weapons(gameTime);
 
             time_now = (float)gameTime.TotalGameTime.TotalMilliseconds;
 
@@ -262,6 +272,7 @@ namespace _2Dshooter
 
             base.Update(gameTime);
             keyboardState_before = keyboardState;
+            gamePadState_before = gamePadState;
         }
 
 
@@ -311,14 +322,7 @@ namespace _2Dshooter
 
 
 
-            foreach (GameObject shot in player1_weapon2)
-            {
-                if (shot.alive)
-                {
-                    spriteBatch.Draw(shot.sprite, shot.position, Color.White);
-                }
-
-            }
+            
 
             foreach (GameObject enemy in enemies1)
             {
@@ -478,9 +482,47 @@ namespace _2Dshooter
 
             spriteBatch.End();
 
+
+
+
+            //Draw weapon2
+
+
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
+
+            
+           
+
+            foreach (GameObject shot in player1_weapon2)
+            {
+                if (shot.alive)
+                {
+                    //Shaders.Weapon2_Timefade.Parameters["fade_percentage"].SetValue(shot.FadePercentage);
+
+                    //Shaders.Weapon2_Timefade.Begin();
+                    //Shaders.Weapon2_Timefade.CurrentTechnique.Passes[0].Begin();
+                    
+                    
+                    
+                    spriteBatch.Draw(shot.sprite, shot.position, new Color(255,255,255,shot.FadePercentage*255*0.01f));
+
+                    //Shaders.Weapon2_Timefade.CurrentTechnique.Passes[0].End();
+                    //Shaders.Weapon2_Timefade.End();
+
+                    
+
+
+                }
+
+            }
+
+
             
 
 
+
+
+            spriteBatch.End();
 
 
 
@@ -531,7 +573,7 @@ namespace _2Dshooter
         
 
 
-        private void Controls()
+        private void Controls(GameTime gameTime)
         {
 
 
@@ -539,39 +581,120 @@ namespace _2Dshooter
             // CONTROLS
 
 
-            KeyboardState keyboardState = Keyboard.GetState();
-            GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
+           // KeyboardState keyboardState = Keyboard.GetState();
+           // GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
 
 
-            if (gamePadState.DPad.Down == ButtonState.Pressed)
+            // Xbox controller controls
+
+
+            if (gamePadState.IsConnected)
             {
-                player1.acceleration.Y += player1.acceleration_increment;
 
-                if (player1.acceleration.Y < 0)
+                Vector2 LeftStick = gamePadState.ThumbSticks.Left;
+                Vector2 RightStick = gamePadState.ThumbSticks.Right;
+
+                // Invert y-axis
+                LeftStick.Y = -LeftStick.Y;
+                RightStick.Y = -RightStick.Y;
+
+
+                //Player1 Controls
+
+                // Kill accleration if oposite direction 
+
+                if (LeftStick.X / player1.acceleration.X < 0)
+                {
+                    player1.acceleration.X = 0;
+                }
+
+                if (LeftStick.Y / player1.acceleration.Y < 0)
                 {
                     player1.acceleration.Y = 0;
                 }
-            }
 
 
-            if (gamePadState.DPad.Up == ButtonState.Pressed)
-            {
-                player1.acceleration.Y -= player1.acceleration_increment;
+                // Apply accelration
 
-                if (player1.acceleration.Y > 0)
+                player1.acceleration.X += player1.acceleration_increment * LeftStick.X;
+                player1.acceleration.Y += player1.acceleration_increment * LeftStick.Y;
+
+                // Kill accleration if stick not used
+
+                if (LeftStick.X == 0)
+                {
+                    player1.acceleration.X = 0;
+                }
+
+                if (LeftStick.Y == 0)
                 {
                     player1.acceleration.Y = 0;
                 }
-            }
 
 
-            if (gamePadState.Buttons.X == ButtonState.Pressed)
-            {
-                Fire_Weapons("2");
+                // Gravity well (ball) controls
+
+                // Kill accleration if oposite direction 
+
+                if (RightStick.X / ball.acceleration.X < 0)
+                {
+                    ball.acceleration.X = 0;
+                }
+
+                if (RightStick.Y / ball.acceleration.Y < 0)
+                {
+                    ball.acceleration.Y = 0;
+                }
+
+
+                // Apply accelration
+
+                ball.acceleration.X += ball.acceleration_increment * RightStick.X;
+                ball.acceleration.Y += ball.acceleration_increment * RightStick.Y;
+
+                // Kill accleration if stick not used
+
+                if (RightStick.X == 0)
+                {
+                    ball.acceleration.X = 0;
+                }
+
+                if (RightStick.Y == 0)
+                {
+                    ball.acceleration.Y = 0;
+                }
+
+
+                // Teleport ball in front of player
+
+                if (gamePadState.Buttons.X == ButtonState.Pressed )//&& gamePadState_before.Buttons.X == ButtonState.Released)
+                {
+                    ball.position = player1.position;
+                    ball.position.X = player1.position.X + 100f;
+                }
+
+
+                if (gamePadState.Triggers.Right > 0)
+                {
+                    Fire_Weapons("2", gameTime);
+                    GamePad.SetVibration(PlayerIndex.One, 0.5f, 0.5f);
+                }
+                else
+                {
+                    GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+                }
+
+
+
+                
+
             }
+         
 
 
       
+            
+            // Keyboard controls
 
 
             if (keyboardState.IsKeyDown(Keys.A))
@@ -758,12 +881,12 @@ namespace _2Dshooter
 
             if (keyboardState.IsKeyDown(Keys.Space) && keyboardState_before.IsKeyUp(Keys.Space))
             {
-                Fire_Weapons("1");
+                Fire_Weapons("1",gameTime);
             }
 
             if (keyboardState.IsKeyDown(Keys.G))//&& keyboardState_before.IsKeyUp(Keys.G))
             {
-                Fire_Weapons("2");
+                Fire_Weapons("2",gameTime);
             }
 
 
@@ -836,12 +959,12 @@ namespace _2Dshooter
 
 
 
-        private void Fire_Weapons(string weapon_id)
+        private void Fire_Weapons(string weapon_id, GameTime gameTime)
         {
 
             //float Weapon1_velocity = 10.0f;
             //float Weapon2_velocity = 50.0f;
-
+            
 
             switch (weapon_id)
             {
@@ -872,7 +995,8 @@ namespace _2Dshooter
                             shot.alive = true;
                             shot.position = player1.position;
                             shot.position.Y += 4;
-
+                            shot.BirhtTime = (float)gameTime.TotalGameTime.TotalMilliseconds;
+                            
 
                             return;
                         }
@@ -888,7 +1012,7 @@ namespace _2Dshooter
         }
 
 
-        private void Update_Weapons()
+        private void Update_Weapons(GameTime gameTime)
         {
 
             foreach (GameObject shot in player1_weapon1)
@@ -910,7 +1034,7 @@ namespace _2Dshooter
 
                 else
                 {
-                    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                    shot.velocity = new Vector2(player1_weapon1_initial_velocity_X, 0);
                     shot.acceleration = new Vector2(0, 0);
                 }
             }
@@ -921,15 +1045,23 @@ namespace _2Dshooter
                 if (shot.alive)
                 {
 
-
-                    if (shot.position.X > Window_Width)
+                    shot.NowAge = (float)gameTime.TotalGameTime.TotalMilliseconds - shot.BirhtTime;
+                    shot.FadePercentage = 1 - (shot.NowAge / player1_weapon2_maxage);
+                    if (shot.NowAge > player1_weapon2_maxage)
                     {
                         shot.alive = false;
-                        shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
-                        shot.acceleration = new Vector2(0, 0);
-
+                        
                         continue;
                     }
+
+                    //if (shot.position.X > Window_Width)
+                    //{
+                    //    shot.alive = false;
+                    //    shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                    //    shot.acceleration = new Vector2(0, 0);
+
+                    //    continue;
+                    //}
                 }
 
                 else
@@ -956,9 +1088,9 @@ namespace _2Dshooter
 
             //r = r / 5;
 
-            if (r < 100)
+            if (r < 10)
             {
-                r = 100;
+                r = 10;
             }
 
             F = (G * m1.mass * m2.mass) / Math.Pow(r, 2);
@@ -978,13 +1110,17 @@ namespace _2Dshooter
 
             // Apply Force to m1 using a = F/m
             Vector2 force_acceleration_m1 = Applied_Force / m1.mass;
-            m1.acceleration += force_acceleration_m1;
-
+            if (m1.IsGravityWell == false)
+            {
+                m1.acceleration += force_acceleration_m1;
+            }
 
             // Apply Force to m2 using a = F/m
             Vector2 force_acceleration_m2 = Applied_Force / m2.mass;
-            m2.acceleration -= force_acceleration_m2;
-
+            if (m2.IsGravityWell == false)
+            {
+                m2.acceleration -= force_acceleration_m2;
+            }
 
 
         }
@@ -1401,6 +1537,7 @@ namespace _2Dshooter
                 player1_weapon2[i].friction = 0.02f;
 
             }
+            player1_weapon2_maxage = 5000;
 
 
 
@@ -1434,7 +1571,7 @@ namespace _2Dshooter
             ball.acceleration_clamp = 1000f;
             ball.acceleration_increment = 2;
             ball.friction = 0.05f;
-
+            ball.IsGravityWell = true;
 
 
         }

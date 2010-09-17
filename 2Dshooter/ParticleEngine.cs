@@ -90,6 +90,7 @@ namespace _2Dshooter
             public Effect Pulse_Simple;
             public Effect Pulse_Blur_Time_Trig;
             public Effect Pulse_Blur_Var_Linear;
+            public Effect Weapon2_Timefade;
         }
 
 

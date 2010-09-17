@@ -56,3 +56,4 @@ Content\Sprites\gravity_weapon_ss.xnb
 Content\Sprites\green_small16_frame32_ss.xnb
 Content\Sprites\pokeball_color1_ss.xnb
 Content\Sprites\red_small16_frame32_ss.xnb
+Content\Shaders\weapon2_timefade.xnb

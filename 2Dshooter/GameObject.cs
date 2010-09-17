@@ -41,6 +41,15 @@ namespace _2Dshooter
         public int HP;
 
         public int acceleration_increment;
+
+        public bool IsGravityWell;
+
+        public float BirhtTime;
+        public float NowAge;
+
+        public float FadePercentage;
+
+
         
         public GameObject(Texture2D loadedTexture)
         {
@@ -61,6 +70,9 @@ namespace _2Dshooter
             IsPlayer = false;
 
             mass = 0;
+
+            IsGravityWell = false;
+
         }
 
 
