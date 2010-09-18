@@ -25,6 +25,9 @@ namespace _2Dshooter
                 
         KeyboardState keyboardState;
         KeyboardState keyboardState_before = Keyboard.GetState();
+        GamePadState gamePadState;
+        GamePadState gamePadState_before = GamePad.GetState(PlayerIndex.One);
+
 
         GameScreen activeScreen;
         StartScreen startScreen;
@@ -120,6 +123,7 @@ namespace _2Dshooter
 
 
             keyboardState = Keyboard.GetState();
+            gamePadState = GamePad.GetState(PlayerIndex.One);
 
 
            // videoPlayer.Play(myVideoFile);
@@ -145,12 +149,18 @@ namespace _2Dshooter
                 graphics.ToggleFullScreen();
             }
 
+            if (gamePadState.DPad.Up == ButtonState.Pressed && gamePadState_before.DPad.Up == ButtonState.Released)
+            {
+                graphics.ToggleFullScreen();
+            }
+
+
 
 
             if (activeScreen == startScreen)
             {
                 //if (CheckKey(Keys.Enter))
-                if (keyboardState.IsKeyDown(Keys.Enter))
+                if (keyboardState.IsKeyDown(Keys.Enter) || gamePadState.Buttons.Start == ButtonState.Pressed)  
                 {
                     if (startScreen.SelectedIndex == 0)
                     {
@@ -169,6 +179,7 @@ namespace _2Dshooter
 
             base.Update(gameTime);
             keyboardState_before = keyboardState;
+            gamePadState_before = gamePadState;
         }
 
       

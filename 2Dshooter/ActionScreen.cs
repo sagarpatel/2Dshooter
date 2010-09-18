@@ -677,13 +677,42 @@ namespace _2Dshooter
                 if (gamePadState.Triggers.Right > 0)
                 {
                     Fire_Weapons("2", gameTime);
-                    GamePad.SetVibration(PlayerIndex.One, 0.5f, 0.5f);
+                    //GamePad.SetVibration(PlayerIndex.One, 0.5f, 0.5f);
                 }
                 else
                 {
                     GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
                 }
 
+
+                // RESET POSITION
+                if ( gamePadState.DPad.Down == ButtonState.Pressed && gamePadState_before.DPad.Down == ButtonState.Released )
+                {
+                    player1.position.X = player1_initial_position_X;
+                    player1.position.Y = player1_initial_position_Y;
+
+                    for (int i = 0; i < max_player1_weapon2; i++)
+                    {
+                        if (player1_weapon2[i].alive)
+                        {
+                            player1_weapon2[i].alive = false;
+
+                        }
+
+                    }
+
+
+                    for (int i = 0; i < max_enemies1; i++)
+                    {
+                        if (enemies1[i].alive)
+                        {
+                            enemies1[i].alive = false;
+
+                        }
+                    }
+                    
+
+                }
 
 
                 
@@ -996,10 +1025,18 @@ namespace _2Dshooter
                             shot.position = player1.position;
                             shot.position.Y += 4;
                             shot.BirhtTime = (float)gameTime.TotalGameTime.TotalMilliseconds;
-                            
 
+                            GamePad.SetVibration(PlayerIndex.One, 0.15f, 0.15f);
+
+                            //continue; // Use this for one shot per button press
                             return;
                         }
+                        else
+                        {
+                            GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+                        }
+
+                        
                     }
                     break;
 

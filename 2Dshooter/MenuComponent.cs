@@ -20,8 +20,12 @@ namespace _2Dshooter
         int selectedIndex;
         Color normal = Color.White;
         Color hilite = Color.Gold;
+
         KeyboardState keyboardState;
-        KeyboardState oldKeyboardState;
+        KeyboardState keyboardState_before;
+        GamePadState gamepadState;
+        GamePadState gamepadState_before;
+
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
         Vector2 position;
@@ -79,19 +83,22 @@ namespace _2Dshooter
         private bool CheckKey(Keys theKey)
         {
             return keyboardState.IsKeyUp(theKey) &&
-            oldKeyboardState.IsKeyDown(theKey);
+            keyboardState_before.IsKeyDown(theKey);
         }
 
         public override void Update(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
-            if (CheckKey(Keys.Down))
+            gamepadState = GamePad.GetState(PlayerIndex.One);
+
+
+            if (CheckKey(Keys.Down) || ((gamepadState.ThumbSticks.Left.Y > 0.0f) && (gamepadState_before.ThumbSticks.Left.Y == 0.0f)) )
             {
                 selectedIndex++;
                 if (selectedIndex == menuItems.Length)
                     selectedIndex = 0;
             }
-            if (CheckKey(Keys.Up))
+            if (CheckKey(Keys.Up) || ((gamepadState.ThumbSticks.Left.Y < 0.0f) && (gamepadState_before.ThumbSticks.Left.Y == 0.0f)))
             {
                 selectedIndex--;
                 if (selectedIndex < 0)
@@ -106,7 +113,8 @@ namespace _2Dshooter
 
             base.Update(gameTime);
 
-            oldKeyboardState = keyboardState;
+            keyboardState_before = keyboardState;
+            gamepadState_before = gamepadState;
         }
 
         public override void Draw(GameTime gameTime)
