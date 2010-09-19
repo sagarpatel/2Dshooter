@@ -99,7 +99,7 @@ namespace _2Dshooter
 
         ParticleEngine PE1;
         ParticleEngine PE2;
-
+        ParticleEngine PE3;
 
         // Shaders are created here, will be sent to PE but can be used here too.
                 
@@ -192,6 +192,7 @@ namespace _2Dshooter
 
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32_ss"), 2);
             PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32_ss"), 2);
+            PE3 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\explosion1mod2b"), 1);
 
             // Create animerted objecct
             //Giving it temporary sprite here, will update to video fram later
@@ -232,7 +233,9 @@ namespace _2Dshooter
 
             videoPlayer.Play(myVideoFile);
 
-            
+            Player1Health();
+
+            Player1Death(gameTime);
 
             Update_Walls();
 
@@ -260,6 +263,7 @@ namespace _2Dshooter
 
             PE1.UpdateParticles(PE1.ParticleArray, gameTime, (player1.position + player1.center));
             PE2.UpdateParticles(PE2.ParticleArray, gameTime, (player1.position + player1.center));
+            PE3.UpdateParticles(PE3.ParticleArray, gameTime, new Vector2(0,0));
 
 
             Feynman.sprite = videoPlayer.GetTexture();
@@ -300,6 +304,8 @@ namespace _2Dshooter
 
             PE1.DrawExplosion(PE1.ParticleArray, spriteBatch, gameTime, player1);
             PE2.DrawExplosion(PE2.ParticleArray, spriteBatch, gameTime, player1);
+            PE3.DrawExplosion(PE3.ParticleArray, spriteBatch, gameTime, player1);
+
 
 
 
@@ -710,13 +716,7 @@ namespace _2Dshooter
 
                         }
                     }
-                    
-
-                }
-
-
-                
-
+                }             
             }
          
 
@@ -1087,6 +1087,8 @@ namespace _2Dshooter
                     if (shot.NowAge > player1_weapon2_maxage)
                     {
                         shot.alive = false;
+                        shot.velocity = new Vector2(player1_weapon2_initial_velocity_X, 0);
+                        shot.acceleration = new Vector2(0, 0);
                         
                         continue;
                     }
@@ -1534,6 +1536,30 @@ namespace _2Dshooter
         private bool CheckKey(Keys theKey)
         {
             return keyboardState.IsKeyUp(theKey) && keyboardState_before.IsKeyDown(theKey);
+        }
+
+
+
+
+        private void Player1Health()
+        {
+            if (player1.HP <= 0)
+            {
+                player1.alive = false;
+            }
+        }
+
+
+                //Handles Plyer1 death
+        private void Player1Death(GameTime gameTime)
+        {
+
+            if (player1.alive == false )//&& player1.HP == 0)
+            {
+                PE3.AddExplosion(PE3.ParticleArray, PE3.MaxParticles, (player1.position + player1.center), PE3.ExplosionSize, gameTime, new Vector2(0,0));
+                //game.Exit();
+            }
+
         }
 
 

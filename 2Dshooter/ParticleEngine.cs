@@ -115,13 +115,13 @@ namespace _2Dshooter
             {
 
                 case 1:
-                    ParticleScale = 50.0f; // Used in AddExplosionParticle()
+                    ParticleScale = 5.0f; // Used in AddExplosionParticle()
                     ParticleScaleFactor1 = 10f;
                     ParticleScaleFactor2 = 20f;
                     ParticleVectorX = 64;
                     ParticleVectorY = 64;
                     ParticleAcceleration = 1f; // Used in AddExplosionParticle()
-                    ExplosionSize = 40f;
+                    ExplosionSize = 4f;
                     ParticleMaxAge = 350.0f;
                     MaxParticles = 20;
                     ParticleArraySize = 1000;
@@ -528,73 +528,99 @@ namespace _2Dshooter
 
         public void DrawExplosion(ParticleData[] PA, SpriteBatch spriteBatch, GameTime gameTime, GameObject player1)
         {
-            
 
-            spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
-
-            Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
-
-            
-
-            Shaders.Pulse_Blur_Time_Trig.Begin();
-            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
-
-            //Shaders.Pulse_Blur_Var_Linear.Begin();
-            //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].Begin();
-
-
-            float nowdist = 0;
-            float p1dist = 0;
-            float ratio = 0;
-
-            for (int i = 0; i < ParticleArraySize; i++)
+            if (ParticleID == 1)
             {
-            
+                spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
 
-                //ParticleData particle = PA[i];
-
-
-                if (PA[i].IsAlive == true)
+                for (int i = 0; i < ParticleArraySize; i++)
                 {
-
-                    //p1dist = Vector2.Distance(PA[i].OrginalPosition, player1.position);
-                    
-                    nowdist = Vector2.Distance(PA[i].Position, player1.position);
-                    ratio = nowdist / 2000;
-
-                    //Shaders.Pulse_Blur_Var_Linear.Parameters["var"].SetValue( 1.15f-ratio  );
-                    
-                    //Shaders.Pulse_Blur_Time_Trig.Parameters["var"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
-                    
-
                     spriteBatch.Draw(Explosion1Sprite,
-                                     PA[i].Position,
-                                     null,
-                                     PA[i].ModColor,
-                                     0,//MathHelper.ToRadians(i),//i, to rotate smoke cloud
-                                     new Vector2(ParticleVectorX, ParticleVectorY),
-                                     PA[i].Scaling,
-                                     SpriteEffects.None,
-                                     1);
+                                   PA[i].Position,
+                                   null,
+                                   PA[i].ModColor,
+                                   0,//MathHelper.ToRadians(i),//i, to rotate smoke cloud
+                                   new Vector2(ParticleVectorX, ParticleVectorY),
+                                   PA[i].Scaling,
+                                   SpriteEffects.None,
+                                   1);
                 }
 
+                spriteBatch.End();
             }
 
+            else
+            {
 
 
-            //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].End();
-            //Shaders.Pulse_Blur_Var_Linear.End();
 
-            
-            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
-            Shaders.Pulse_Blur_Time_Trig.End();
 
-            spriteBatch.End();
 
-            
+                spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
 
+                Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+
+
+
+                Shaders.Pulse_Blur_Time_Trig.Begin();
+                Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
+
+                //Shaders.Pulse_Blur_Var_Linear.Begin();
+                //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].Begin();
+
+
+                float nowdist = 0;
+                float p1dist = 0;
+                float ratio = 0;
+
+                for (int i = 0; i < ParticleArraySize; i++)
+                {
+
+
+                    //ParticleData particle = PA[i];
+
+
+                    if (PA[i].IsAlive == true)
+                    {
+
+                        //p1dist = Vector2.Distance(PA[i].OrginalPosition, player1.position);
+
+                        nowdist = Vector2.Distance(PA[i].Position, player1.position);
+                        ratio = nowdist / 2000;
+
+                        //Shaders.Pulse_Blur_Var_Linear.Parameters["var"].SetValue( 1.15f-ratio  );
+
+                        //Shaders.Pulse_Blur_Time_Trig.Parameters["var"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
+
+
+                        spriteBatch.Draw(Explosion1Sprite,
+                                         PA[i].Position,
+                                         null,
+                                         PA[i].ModColor,
+                                         0,//MathHelper.ToRadians(i),//i, to rotate smoke cloud
+                                         new Vector2(ParticleVectorX, ParticleVectorY),
+                                         PA[i].Scaling,
+                                         SpriteEffects.None,
+                                         1);
+                    }
+
+                }
+
+
+
+                //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].End();
+                //Shaders.Pulse_Blur_Var_Linear.End();
+
+
+                Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
+                Shaders.Pulse_Blur_Time_Trig.End();
+
+                spriteBatch.End();
+
+
+
+            }
         }
-        
          
 
     }
