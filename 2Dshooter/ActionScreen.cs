@@ -42,6 +42,7 @@ namespace _2Dshooter
 
         GameObject player1;
         int player1_score = 0;
+        bool player1_exploded = false;
 
         GameObject[] player1_weapon1;
         const int max_player1_weapon1 = 10;
@@ -1554,9 +1555,10 @@ namespace _2Dshooter
         private void Player1Death(GameTime gameTime)
         {
 
-            if (player1.alive == false )//&& player1.HP == 0)
+            if (player1.alive == false && player1_exploded == false )//&& player1.HP == 0)
             {
                 PE3.AddExplosion(PE3.ParticleArray, PE3.MaxParticles, (player1.position + player1.center), PE3.ExplosionSize, gameTime, new Vector2(0,0));
+                player1_exploded = true;
                 //game.Exit();
             }
 

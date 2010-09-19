@@ -120,10 +120,10 @@ namespace _2Dshooter
                     ParticleScaleFactor2 = 20f;
                     ParticleVectorX = 64;
                     ParticleVectorY = 64;
-                    ParticleAcceleration = 1f; // Used in AddExplosionParticle()
-                    ExplosionSize = 40f;
-                    ParticleMaxAge = 350.0f;
-                    MaxParticles = 20;
+                    ParticleAcceleration = 50f; // Used in AddExplosionParticle()
+                    ExplosionSize = 50f;
+                    ParticleMaxAge = 750.0f;
+                    MaxParticles = 100;
                     ParticleArraySize = 1000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
