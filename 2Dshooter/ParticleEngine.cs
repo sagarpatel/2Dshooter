@@ -115,13 +115,13 @@ namespace _2Dshooter
             {
 
                 case 1:
-                    ParticleScale = 5.0f; // Used in AddExplosionParticle()
+                    ParticleScale = 50.0f; // Used in AddExplosionParticle()
                     ParticleScaleFactor1 = 10f;
                     ParticleScaleFactor2 = 20f;
                     ParticleVectorX = 64;
                     ParticleVectorY = 64;
                     ParticleAcceleration = 1f; // Used in AddExplosionParticle()
-                    ExplosionSize = 4f;
+                    ExplosionSize = 40f;
                     ParticleMaxAge = 350.0f;
                     MaxParticles = 20;
                     ParticleArraySize = 1000;
