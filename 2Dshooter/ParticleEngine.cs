@@ -115,10 +115,10 @@ namespace _2Dshooter
             {
 
                 case 1:
-                    ParticleScale = 50.0f; // Used in AddExplosionParticle()
+                    ParticleScale = 1.0f; // Used in AddExplosionParticle()
                     ParticleScaleFactor1 = 10f;
                     ParticleScaleFactor2 = 20f;
-                    ParticleVectorX = 64;
+                    ParticleVectorX = 63;
                     ParticleVectorY = 64;
                     ParticleAcceleration = 50f; // Used in AddExplosionParticle()
                     ExplosionSize = 50f;
@@ -136,12 +136,12 @@ namespace _2Dshooter
                     ParticleVectorY = 0;
                     ParticleInitialVelocityScale = 3.0f;
                     ParticleAcceleration = 0.0f; // Used in AddExplosionParticle()
-                    ParticleToPlayerAccelerationScale = 300.0f;
+                    ParticleToPlayerAccelerationScale = 700.0f;
                     ExplosionSize = 150f;
-                    ConeWidth = 75;
+                    ConeWidth = 360;
                     ParticleMaxAge = 500f;
                     ParticleAgeOffset = 4000f;
-                    MaxParticles = 200;
+                    MaxParticles = 500;
                     ParticleArraySize = 10000;
                     ParticleArray = new ParticleData[ParticleArraySize];
 
@@ -460,7 +460,7 @@ namespace _2Dshooter
                                 float distori = Vector2.Distance(particle.OrginalPosition, particle.Position);
                                 float distplayer = Vector2.Distance(P1positon, particle.Position);
 
-                                if (Math.Abs(distori) > 100 || Math.Abs(distplayer) < 200)
+                                if (Math.Abs(distori) > 0 || Math.Abs(distplayer) < 200)
                                 {
                                     particle.IsHoming = true;
                                     particle.Accelaration = ParticleToPlayerAccelerationScale * Vector2.Normalize(P1positon - particle.Position);

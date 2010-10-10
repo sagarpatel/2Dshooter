@@ -26,13 +26,13 @@ namespace _2Dshooter
 
         GamePadState gamePadState ;
         GamePadState gamePadState_before = GamePad.GetState(PlayerIndex.One);
+       
 
 
 
 
-
-        Video myVideoFile;
-        VideoPlayer videoPlayer;
+       // Video myVideoFile;
+       // VideoPlayer videoPlayer;
 
         float time_before = 0.0f;
         float time_now = 0.0f;
@@ -85,6 +85,8 @@ namespace _2Dshooter
         int player1_initial_position_Y = 300;
 
         Song BGM;
+        SoundEffect zubat_scream;
+        SoundEffect golbat_scream;
 
 
         int frameRate = 0;
@@ -123,7 +125,7 @@ namespace _2Dshooter
                                             Game.Window.ClientBounds.Width,
                                             Game.Window.ClientBounds.Height);
 
-            videoPlayer = new VideoPlayer();
+           // videoPlayer = new VideoPlayer();
            // myVideoFile = game.Content.Load<Video>("Videos\\F1v4");
 
             
@@ -176,10 +178,12 @@ namespace _2Dshooter
                 );
 
 
-            BGM = game.Content.Load<Song>("Audio\\130-cycling");
-            //MediaPlayer.Play(BGM);
+            BGM = game.Content.Load<Song>("Audio\\128-battle-vs-gym-leader-");
+            MediaPlayer.Play(BGM);
+            zubat_scream = game.Content.Load<SoundEffect>("Audio\\zubat_scream");
+            golbat_scream = game.Content.Load<SoundEffect>("Audio\\golbat_scream");
 
-            myVideoFile = game.Content.Load<Video>("Videos\\F1v4");
+         //   myVideoFile = game.Content.Load<Video>("Videos\\F1v4");
 
             // TODO: use this.Content to load your game content here
 
@@ -193,11 +197,11 @@ namespace _2Dshooter
 
             PE1 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\red_small16_frame32_ss"), 2);
             PE2 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32_ss"), 2);
-            PE3 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\explosion1mod2b"), 1);
+            PE3 = new ParticleEngine(graphics, spriteBatch, Shaders, game.Content.Load<Texture2D>("Sprites\\green_small16_frame32_ss"), 1);//"Sprites\\explosion1mod2b"), 1);
 
             // Create animerted objecct
             //Giving it temporary sprite here, will update to video fram later
-            Feynman = new GameObject(game.Content.Load<Texture2D>("Sprites\\120-staryu"));
+          //  Feynman = new GameObject(game.Content.Load<Texture2D>("Sprites\\120-staryu"));
                         
        
         }
@@ -232,7 +236,7 @@ namespace _2Dshooter
             gamePadState = GamePad.GetState(PlayerIndex.One);
 
 
-            videoPlayer.Play(myVideoFile);
+          // videoPlayer.Play(myVideoFile);
 
             Player1Health();
 
@@ -267,12 +271,12 @@ namespace _2Dshooter
             PE3.UpdateParticles(PE3.ParticleArray, gameTime, new Vector2(0,0));
 
 
-            Feynman.sprite = videoPlayer.GetTexture();
+           // Feynman.sprite = videoPlayer.GetTexture();
             //Feynman.position = new Vector2(10*(float)Math.Sin(gameTime.TotalGameTime.Milliseconds), 10*(float)Math.Sin(gameTime.TotalGameTime.Milliseconds));
-            if (gameTime.TotalGameTime.Seconds % 5 == 0)
-            {
-                Feynman.position = new Vector2(random.Next(1200), random.Next(720));
-            }
+            //if (gameTime.TotalGameTime.Seconds % 5 == 0)
+            //{
+            //    Feynman.position = new Vector2(random.Next(1200), random.Next(720));
+            //}
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -350,12 +354,12 @@ namespace _2Dshooter
 
             
 
-            spriteBatch.DrawString(
-                font,
-                "Position: " + ball.position.ToString() + "           time_before: " + time_before.ToString(),
-                new Vector2(10, 10),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "Position: " + ball.position.ToString() + "           time_before: " + time_before.ToString(),
+            //    new Vector2(10, 10),
+            //    Color.Yellow
+            //    );
 
 
             spriteBatch.DrawString(
@@ -365,28 +369,28 @@ namespace _2Dshooter
                 Color.Yellow
                 );
 
-            spriteBatch.DrawString(
-                font,
-                "Velocity: " + ball.velocity.ToString() + "                  time_now: " + time_now.ToString(),
-                new Vector2(10, 30),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "Velocity: " + ball.velocity.ToString() + "                  time_now: " + time_now.ToString(),
+            //    new Vector2(10, 30),
+            //    Color.Yellow
+            //    );
 
 
 
-            spriteBatch.DrawString(
-                font,
-                "time diff" + time_diff.ToString(),
-                new Vector2(300, 50),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "time diff" + time_diff.ToString(),
+            //    new Vector2(300, 50),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                font,
-                "Acceleration: " + ball.acceleration.ToString(),
-                new Vector2(10, 50),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "Acceleration: " + ball.acceleration.ToString(),
+            //    new Vector2(10, 50),
+            //    Color.Yellow
+            //    );
 
 
 
@@ -407,61 +411,61 @@ namespace _2Dshooter
                 );
 
 
-            spriteBatch.DrawString(
-                font,
-                "PE1 ParticleCounter:  " + PE1.ParticleCounter.ToString(),
-                new Vector2(500, 30),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "PE1 ParticleCounter:  " + PE1.ParticleCounter.ToString(),
+            //    new Vector2(500, 30),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                font,
-                "PE2 ParticleCounter:  " + PE2.ParticleCounter.ToString(),
-                new Vector2(500, 50),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "PE2 ParticleCounter:  " + PE2.ParticleCounter.ToString(),
+            //    new Vector2(500, 50),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                font,
-                "PE1 ParticlesCreated:  " + PE1.ParticlesCreated.ToString(),
-                new Vector2(750, 30),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "PE1 ParticlesCreated:  " + PE1.ParticlesCreated.ToString(),
+            //    new Vector2(750, 30),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                font,
-                "PE2 ParticlesCreated:  " + PE2.ParticlesCreated.ToString(),
-                new Vector2(750, 50),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "PE2 ParticlesCreated:  " + PE2.ParticlesCreated.ToString(),
+            //    new Vector2(750, 50),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                font,
-                "PE1 ParticlesKilled:  " + PE1.ParticlesKilled.ToString(),
-                new Vector2(1000, 30),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    "PE1 ParticlesKilled:  " + PE1.ParticlesKilled.ToString(),
+            //    new Vector2(1000, 30),
+            //    Color.Yellow
+            //    );
 
-            spriteBatch.DrawString(
-                 font,
-                 "PE2 ParticlesKilled:  " + PE2.ParticlesKilled.ToString(),
-                 new Vector2(1000, 50),
-                 Color.Yellow
-                 );
+            //spriteBatch.DrawString(
+            //     font,
+            //     "PE2 ParticlesKilled:  " + PE2.ParticlesKilled.ToString(),
+            //     new Vector2(1000, 50),
+            //     Color.Yellow
+            //     );
 
-            spriteBatch.DrawString(
-                 font,
-                 "PE1 ParticlesOverwritten:  " + PE1.ParticlesOverwritten.ToString(),
-                 new Vector2(800, 80),
-                 Color.Yellow
-                 );
+            //spriteBatch.DrawString(
+            //     font,
+            //     "PE1 ParticlesOverwritten:  " + PE1.ParticlesOverwritten.ToString(),
+            //     new Vector2(800, 80),
+            //     Color.Yellow
+            //     );
 
-            spriteBatch.DrawString(
-                 font,
-                 "PE2 ParticlesOverwritten:  " + PE2.ParticlesOverwritten.ToString(),
-                 new Vector2(800, 100),
-                 Color.Yellow
-                 );
+            //spriteBatch.DrawString(
+            //     font,
+            //     "PE2 ParticlesOverwritten:  " + PE2.ParticlesOverwritten.ToString(),
+            //     new Vector2(800, 100),
+            //     Color.Yellow
+            //     );
 
 
             
@@ -472,22 +476,22 @@ namespace _2Dshooter
             // Draw video
 
 
-            spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate, SaveStateMode.None);
+            //spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate, SaveStateMode.None);
 
-            Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds * 2);
-
-
-
-            Shaders.Pulse_Blur_Time_Trig.Begin();
-            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
+            //Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds * 2);
 
 
-            spriteBatch.Draw(Feynman.sprite, Feynman.position, Color.White);
 
-            Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
-            Shaders.Pulse_Blur_Time_Trig.End();
+            //Shaders.Pulse_Blur_Time_Trig.Begin();
+            //Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
 
-            spriteBatch.End();
+
+            //spriteBatch.Draw(Feynman.sprite, Feynman.position, Color.White);
+
+            //Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
+            //Shaders.Pulse_Blur_Time_Trig.End();
+
+            //spriteBatch.End();
 
 
 
@@ -1503,6 +1507,8 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
 
+                                golbat_scream.Play();
+
                                 PE1.AddExplosion(PE1.ParticleArray, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
 
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 0.5f * shot.velocity.X, shot.position.Y + shot.center.Y + 0.5f * shot.velocity.Y);
@@ -1520,6 +1526,9 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
+
+                                zubat_scream.Play();
+
                                 PE2.AddExplosion(PE2.ParticleArray, PE2.MaxParticles, enemy.position, PE2.ExplosionSize, gameTime, shot.velocity);
 
                             }
