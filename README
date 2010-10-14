@@ -1,0 +1,62 @@
+
+README for 2D shooter!
+Sagar Patel
+17.sagar.patel@gmail.com
+http://github.com/SagarPatel/2Dshooter
+
+
+REQUIREMENTS: 
+				-  .NET Framework 3.5 Redistributable.
+				-  Framework Redistributable 3.1.
+
+				OR
+				If you have XNA Game Studio 3.1 installed, it should include the above and you could play around with the source code and recompile.
+
+
+HOW TO PLAY:
+				- Locate the 2Dshooter.exe, it is located in \2Dshooter\2Dshooter\bin\x86\Debug
+				However, this .exe may not be up to date.
+				To ensure you are playing the latest version, run the source code from Visual Studio.
+				Errors may occur when trying to compile, this is because I tend to only update the source code, and not the Visual Studio files. 
+				Most likely error would be something like "Error loading "Audio\golbat_scream". File not found."
+				The actual file is in there, but Visual Studio won't see it unless the file is added to the project officially.
+				To do so, go the the Solution Explorer bar, right-click on the "Audio" folder --> Add --> Existing Item then select the file.
+
+	CONTROLS:
+
+	I recommend using an Xbox 360 controller
+
+	KEYBOARD:
+				- "Enter" key to start game at menu screen
+				- "WASD" controls player movement
+				- Arrow keys control gravity well
+				- "G" to fire weapon
+				- "E" to teleport gravity ball in front of the player
+				- "R" to reset position of player, gravity weapon and enemies
+				- "T" to toggle full screen
+
+	Xbox 360 controller:
+
+				- "START" button to start game at menu screen
+				- Left analog stick controls player movement
+				- Right analog stick controls gravity well
+				- Right trigger to fire weapon
+				- "X" to teleport gravity ball in front of the player, Hold it to keep it in front of player
+				- "Down" on the D-Pad to reset position of player, gravity weapon and enemies
+				- "Up" on the D-Pad to toggle full screen
+
+
+	
+	TIPS:
+			"Charge Up" the gravity well with the weapon(pokeballs) ("G" or right trigger)
+			Then move the gravity well around and the pokeballs will follow
+			Only the pokeballs can destroy enemies.
+
+			There a fix number of active pokeballs at a time.
+			Pokeballs will eventually fade away and disappear.
+	
+	PRO-TIP:
+			Charge up the gravity well far away from you.
+			Then, teleport the gravity well("E" or "X" on Xbox controller)
+			This will pull all the pokeballs back ==> massive damage!
+		
