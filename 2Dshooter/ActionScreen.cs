@@ -179,7 +179,7 @@ namespace _2Dshooter
 
 
             BGM = game.Content.Load<Song>("Audio\\128-battle-vs-gym-leader-");
-            MediaPlayer.Play(BGM);
+            
             zubat_scream = game.Content.Load<SoundEffect>("Audio\\zubat_scream");
             golbat_scream = game.Content.Load<SoundEffect>("Audio\\golbat_scream");
 
@@ -210,8 +210,8 @@ namespace _2Dshooter
 
         public override void Initialize()
         {
-  
 
+            
             base.Initialize();
         }
 
@@ -222,16 +222,21 @@ namespace _2Dshooter
         public override void Update(GameTime gameTime)
         {
             // To check FPS
-            elapsedTime += gameTime.ElapsedGameTime;
+            //elapsedTime += gameTime.ElapsedGameTime;
 
-            if (elapsedTime > TimeSpan.FromSeconds(1))
+            //if (elapsedTime > TimeSpan.FromSeconds(1))
+            //{
+            //    elapsedTime -= TimeSpan.FromSeconds(1);
+            //    frameRate = frameCounter;
+            //    frameCounter = 0;
+            //}
+
+            if (MediaPlayer.State != MediaState.Playing)
             {
-                elapsedTime -= TimeSpan.FromSeconds(1);
-                frameRate = frameCounter;
-                frameCounter = 0;
+                MediaPlayer.Play(BGM);
             }
 
-
+          
             keyboardState = Keyboard.GetState();
             gamePadState = GamePad.GetState(PlayerIndex.One);
 
@@ -362,12 +367,12 @@ namespace _2Dshooter
             //    );
 
 
-            spriteBatch.DrawString(
-                font,
-                fps,
-                new Vector2(600, 10),
-                Color.Yellow
-                );
+            //spriteBatch.DrawString(
+            //    font,
+            //    fps,
+            //    new Vector2(600, 10),
+            //    Color.Yellow
+            //    );
 
             //spriteBatch.DrawString(
             //    font,
@@ -1462,6 +1467,14 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
+
+
+                                SoundEffectInstance GS = golbat_scream.CreateInstance();
+                                GS.Pitch = 0f;
+                                GS.Volume = 0.5f;
+                                GS.Play();
+
+
                                 PE1.AddExplosion(PE1.ParticleArray, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
                                 Spawn_enemies(2, shot.position.X + shot.center.X + 3 * shot.velocity.X, shot.position.Y + shot.center.Y + 3 * shot.velocity.Y);
                             }
@@ -1480,6 +1493,12 @@ namespace _2Dshooter
                                 player1_score += 1;
                                 enemy.alive = false;
                                 shot.alive = false;
+
+                                SoundEffectInstance ZS = zubat_scream.CreateInstance();
+                                ZS.Pitch = 0f;
+                                ZS.Volume = 0.5f;
+                                ZS.Play();
+
                                 PE2.AddExplosion(PE2.ParticleArray, PE2.MaxParticles, enemy.position, PE2.ExplosionSize, gameTime, shot.velocity);
 
                             }
@@ -1507,7 +1526,10 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
 
-                                golbat_scream.Play();
+                                SoundEffectInstance GS = golbat_scream.CreateInstance();
+                                GS.Pitch = 0f;
+                                GS.Volume = 0.5f;
+                                GS.Play();
 
                                 PE1.AddExplosion(PE1.ParticleArray, PE1.MaxParticles, enemy.position, PE1.ExplosionSize, gameTime, shot.velocity);
 
@@ -1527,7 +1549,10 @@ namespace _2Dshooter
                                 enemy.alive = false;
                                 shot.alive = false;
 
-                                zubat_scream.Play();
+                                SoundEffectInstance ZS = zubat_scream.CreateInstance();
+                                ZS.Pitch = 0f;
+                                ZS.Volume = 0.5f;
+                                ZS.Play();
 
                                 PE2.AddExplosion(PE2.ParticleArray, PE2.MaxParticles, enemy.position, PE2.ExplosionSize, gameTime, shot.velocity);
 
