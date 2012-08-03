@@ -5,7 +5,7 @@ sampler s2;
 float foo;
 float fade_percentage; // 100% percent means completely faded
 
-float x;
+static float x;
 
 
 float4 PixelShaderFunction(float2 uv : TEXCOORD0, float4 c: COLOR0) : COLOR0

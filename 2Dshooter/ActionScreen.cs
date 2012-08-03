@@ -322,8 +322,11 @@ namespace _2Dshooter
 
             // Draw other objects
 
+            //old code!
+            //spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
 
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
+            //new code
+            spriteBatch.Begin(0, BlendState.AlphaBlend);
             spriteBatch.Draw(ball.sprite, ball.position, Color.White);
 
 
@@ -503,8 +506,9 @@ namespace _2Dshooter
 
             //Draw weapon2
 
-
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
+            //old code
+            //spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
+            spriteBatch.Begin(SpriteSortMode.Immediate,BlendState.AlphaBlend);
 
             
            
@@ -546,18 +550,26 @@ namespace _2Dshooter
 
             //Draw player1
             
+            //old code!
+            //spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
 
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.None);
+            //new code!
+            spriteBatch.Begin(SpriteSortMode.Immediate,BlendState.AlphaBlend);
 
             Shaders.Pulse_Simple.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds/2);
-            Shaders.Pulse_Simple.Begin();
-            Shaders.Pulse_Simple.CurrentTechnique.Passes[0].Begin();
+
+            //old code
+            //Shaders.Pulse_Simple.Begin();
+            //Shaders.Pulse_Simple.CurrentTechnique.Passes[0].Begin();
+
+            Shaders.Pulse_Simple.CurrentTechnique.Passes[0].Apply();
 
             spriteBatch.Draw(player1.sprite, player1.position, Color.White);
 
 
-            Shaders.Pulse_Simple.CurrentTechnique.Passes[0].End();
-            Shaders.Pulse_Simple.End();
+            //old code - not needed
+            //Shaders.Pulse_Simple.CurrentTechnique.Passes[0].End();
+            //Shaders.Pulse_Simple.End();
 
 
          

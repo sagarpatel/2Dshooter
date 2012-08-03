@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2Dshooter", "2Dshooter\2Dshooter.csproj", "{A5E9319A-B4C2-4C93-B5A9-800859DC7508}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DshooterContent", "2Dshooter\Content\2DshooterContent.contentproj", "{36BE692C-DB5D-4BCA-B643-93407777F11A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

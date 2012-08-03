@@ -124,7 +124,11 @@ namespace _2Dshooter
                 
                 //base.Draw(gameTime);
 
-            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
+            //oldcode!
+            //spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
+
+            //new code!
+            spriteBatch.Begin(0,BlendState.AlphaBlend);
 
                 Vector2 location = position;
                 Color tint;

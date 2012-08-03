@@ -531,7 +531,11 @@ namespace _2Dshooter
 
             if (ParticleID == 1)
             {
-                spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
+                //old code!
+                //spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
+
+                //new code!
+                spriteBatch.Begin(SpriteSortMode.Immediate,BlendState.Additive);
 
                 for (int i = 0; i < ParticleArraySize; i++)
                 {
@@ -555,15 +559,21 @@ namespace _2Dshooter
 
 
 
+                //old code!
+                //spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
 
-                spriteBatch.Begin(SpriteBlendMode.Additive, SpriteSortMode.Immediate, SaveStateMode.None);
+                //new code!
+                spriteBatch.Begin(SpriteSortMode.Immediate,BlendState.Additive);
 
                 Shaders.Pulse_Blur_Time_Trig.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
 
 
+                //old code!
+                //Shaders.Pulse_Blur_Time_Trig.Begin();
+                //Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
 
-                Shaders.Pulse_Blur_Time_Trig.Begin();
-                Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Begin();
+                //new code!
+                Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].Apply();
 
                 //Shaders.Pulse_Blur_Var_Linear.Begin();
                 //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].Begin();
@@ -611,9 +621,9 @@ namespace _2Dshooter
                 //Shaders.Pulse_Blur_Var_Linear.CurrentTechnique.Passes[0].End();
                 //Shaders.Pulse_Blur_Var_Linear.End();
 
-
-                Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
-                Shaders.Pulse_Blur_Time_Trig.End();
+                //old code - simply no longer needed!
+                //Shaders.Pulse_Blur_Time_Trig.CurrentTechnique.Passes[0].End();
+                //Shaders.Pulse_Blur_Time_Trig.End();
 
                 spriteBatch.End();
 

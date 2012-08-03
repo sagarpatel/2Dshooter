@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\rocket.xnb</Output>
-      <Time>2010-08-28T09:24:40.2616469-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\rocket.xnb</Output>
+      <Time>2012-07-28T22:31:01.2010888+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\121-starmie.jpg</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\121-starmie.xnb</Output>
-      <Time>2010-08-28T09:24:39.8936258-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\121-starmie.xnb</Output>
+      <Time>2012-07-28T22:30:59.9930643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\120-staryu.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\120-staryu.xnb</Output>
-      <Time>2010-08-28T09:24:39.8936258-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\120-staryu.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\bubblemod.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod.xnb</Output>
-      <Time>2010-08-28T09:24:40.2166443-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod.xnb</Output>
+      <Time>2012-07-28T22:31:01.1030832+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\gravity_weapon.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon.xnb</Output>
-      <Time>2010-08-28T09:24:40.246646-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon.xnb</Output>
+      <Time>2012-07-28T22:31:01.1320848+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\planet.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\planet.xnb</Output>
-      <Time>2010-08-28T09:24:40.2526464-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\planet.xnb</Output>
+      <Time>2012-07-28T22:31:01.1830877+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\pokeball1.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball1.xnb</Output>
-      <Time>2010-08-28T09:24:40.2536464-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball1.xnb</Output>
+      <Time>2012-07-28T22:31:01.1840878+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\snorelax.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\snorelax.xnb</Output>
-      <Time>2010-08-28T09:24:40.2616469-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\snorelax.xnb</Output>
+      <Time>2012-07-28T22:31:01.2010888+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\042-golbat.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb</Output>
-      <Time>2010-08-28T09:24:39.8866254-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\explosion1.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1.xnb</Output>
-      <Time>2010-08-28T09:24:40.228645-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1.xnb</Output>
+      <Time>2012-07-28T22:31:01.1270845+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\explosion1mod1.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod1.xnb</Output>
-      <Time>2010-08-28T09:24:40.229645-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod1.xnb</Output>
+      <Time>2012-07-28T22:31:01.1290846+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\explosion1mod2.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2.xnb</Output>
-      <Time>2010-08-28T09:24:40.229645-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2.xnb</Output>
+      <Time>2012-07-28T22:31:01.1310848+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\explosion1mod2b.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2b.xnb</Output>
-      <Time>2010-08-28T09:24:40.2306451-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\explosion1mod2b.xnb</Output>
+      <Time>2012-07-28T22:31:01.1320848+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\041-zubat.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\041-zubat.xnb</Output>
-      <Time>2010-08-28T09:24:39.8746247-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\041-zubat.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\bluepixel.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bluepixel.xnb</Output>
-      <Time>2010-08-28T09:24:40.2136441-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bluepixel.xnb</Output>
+      <Time>2012-07-28T22:31:01.0950827+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\bluepixel2.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bluepixel2.xnb</Output>
-      <Time>2010-08-28T09:24:40.2136441-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bluepixel2.xnb</Output>
+      <Time>2012-07-28T22:31:01.0960828+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\blue.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue.xnb</Output>
-      <Time>2010-08-28T09:24:40.211644-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue.xnb</Output>
+      <Time>2012-07-28T22:31:01.0860822+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\green.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green.xnb</Output>
-      <Time>2010-08-28T09:24:40.2486461-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green.xnb</Output>
+      <Time>2012-07-28T22:31:01.1650867+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\red.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red.xnb</Output>
-      <Time>2010-08-28T09:24:40.2606468-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red.xnb</Output>
+      <Time>2012-07-28T22:31:01.1970885+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\blue_small.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small.xnb</Output>
-      <Time>2010-08-28T09:24:40.2126441-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small.xnb</Output>
+      <Time>2012-07-28T22:31:01.0880823+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\green_small.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small.xnb</Output>
-      <Time>2010-08-28T09:24:40.2486461-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small.xnb</Output>
+      <Time>2012-07-28T22:31:01.1650867+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\red_small.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small.xnb</Output>
-      <Time>2010-08-28T09:24:40.2606468-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small.xnb</Output>
+      <Time>2012-07-28T22:31:01.1970885+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\red_small_bigframe.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small_bigframe.xnb</Output>
-      <Time>2010-08-28T09:24:40.2616469-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small_bigframe.xnb</Output>
+      <Time>2012-07-28T22:31:01.2000887+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\blue_small_bigframe.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small_bigframe.xnb</Output>
-      <Time>2010-08-28T09:24:40.2126441-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small_bigframe.xnb</Output>
+      <Time>2012-07-28T22:31:01.0920825+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\green_small_bigframe.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small_bigframe.xnb</Output>
-      <Time>2010-08-28T09:24:40.2496462-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small_bigframe.xnb</Output>
+      <Time>2012-07-28T22:31:01.1770874+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\blue_small16_frame32.png</Source>
@@ -232,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small16_frame32.xnb</Output>
-      <Time>2010-08-28T09:24:40.2126441-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\blue_small16_frame32.xnb</Output>
+      <Time>2012-07-28T22:31:01.0900824+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\green_small16_frame32.png</Source>
@@ -241,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32.xnb</Output>
-      <Time>2010-08-28T09:24:40.2496462-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32.xnb</Output>
+      <Time>2012-07-28T22:31:01.1750873+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\red_small16_frame32.png</Source>
@@ -250,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32.xnb</Output>
-      <Time>2010-08-28T09:24:40.2616469-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32.xnb</Output>
+      <Time>2012-07-28T22:31:01.1980886+09:00</Time>
     </Item>
     <Item>
       <Source>greenmetal.jpg</Source>
@@ -259,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\greenmetal.xnb</Output>
-      <Time>2010-08-28T09:24:40.264647-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\greenmetal.xnb</Output>
+      <Time>2012-07-28T22:31:01.5271074+09:00</Time>
     </Item>
     <Item>
       <Source>alienmetal.jpg</Source>
@@ -268,132 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\alienmetal.xnb</Output>
-      <Time>2010-08-28T09:24:40.263647-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\SpriteFont1.spritefont</Source>
-      <Name>Fonts\SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Fonts\SpriteFont1.xnb</Output>
-      <Time>2010-08-28T09:24:39.8706245-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\138-ocean.mp3</Source>
-      <Name>Audio\138-ocean</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.wma</Extra>
-      <Time>2010-08-28T09:24:39.8586238-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\139-cinnabar-islands-theme.mp3</Source>
-      <Name>Audio\139-cinnabar-islands-theme</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.wma</Extra>
-      <Time>2010-08-28T09:24:39.861624-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\128-battle-vs-gym-leader-.mp3</Source>
-      <Name>Audio\128-battle-vs-gym-leader-</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.wma</Extra>
-      <Time>2010-08-28T09:24:39.8356225-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\130-cycling.mp3</Source>
-      <Name>Audio\130-cycling</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.wma</Extra>
-      <Time>2010-08-28T09:24:39.8516234-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Shaders\blur.fx</Source>
-      <Name>Shaders\blur</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\blur.xnb</Output>
-      <Time>2010-08-28T09:24:39.8716246-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Shaders\grayscale.fx</Source>
-      <Name>Shaders\grayscale</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\grayscale.xnb</Output>
-      <Time>2010-08-28T09:24:39.8716246-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Shaders\pulse_simple.fx</Source>
-      <Name>Shaders\pulse_simple</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_simple.xnb</Output>
-      <Time>2010-08-28T09:24:39.8736247-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Shaders\pulse_blur_time_trig.fx</Source>
-      <Name>Shaders\pulse_blur_time_trig</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_time_trig.xnb</Output>
-      <Time>2010-08-28T09:24:39.8716246-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Shaders\pulse_blur_var_linear.fx</Source>
-      <Name>Shaders\pulse_blur_var_linear</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb</Output>
-      <Time>2010-08-28T09:24:39.8736247-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Videos\F1.wmv</Source>
-      <Name>Videos\F1</Name>
-      <Importer>WmvImporter</Importer>
-      <Processor>VideoProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.wmv</Extra>
-      <Time>2010-08-30T19:13:42.0076522-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Videos\F1v3.wmv</Source>
-      <Name>Videos\F1v3</Name>
-      <Importer>WmvImporter</Importer>
-      <Processor>VideoProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.wmv</Extra>
-      <Time>2010-09-01T15:15:41.9039071-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Videos\F1v4.wmv</Source>
-      <Name>Videos\F1v4</Name>
-      <Importer>WmvImporter</Importer>
-      <Processor>VideoProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v4.xnb</Output>
-      <Extra>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v4.wmv</Extra>
-      <Time>2010-09-08T20:14:03.4521928-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\alienmetal.xnb</Output>
+      <Time>2012-07-28T22:31:01.5261074+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\pokeball_color.png</Source>
@@ -401,8 +277,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color.xnb</Output>
-      <Time>2010-08-28T09:24:40.2536464-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color.xnb</Output>
+      <Time>2012-07-28T22:31:01.1850878+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\041-zubat_ss.png</Source>
@@ -410,8 +286,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\041-zubat_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.410508-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\041-zubat_ss.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\042-golbat_ss.png</Source>
@@ -419,8 +295,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.4395097-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\042-golbat_ss.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\bubblemod_ss.png</Source>
@@ -428,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.4895125-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\bubblemod_ss.xnb</Output>
+      <Time>2012-07-28T22:31:01.1050833+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\gravity_weapon_ss.png</Source>
@@ -437,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.3525047-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\gravity_weapon_ss.xnb</Output>
+      <Time>2012-07-28T22:31:01.1640866+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\green_small16_frame32_ss.png</Source>
@@ -446,8 +322,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.3625053-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\green_small16_frame32_ss.xnb</Output>
+      <Time>2012-07-28T22:31:01.1760873+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\pokeball_color1_ss.png</Source>
@@ -455,8 +331,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color1_ss.xnb</Output>
-      <Time>2010-09-12T13:42:18.0279487-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\pokeball_color1_ss.xnb</Output>
+      <Time>2012-07-28T22:31:01.1860879+09:00</Time>
     </Item>
     <Item>
       <Source>Sprites\red_small16_frame32_ss.png</Source>
@@ -464,8 +340,102 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32_ss.xnb</Output>
-      <Time>2010-09-12T13:49:27.3905069-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Sprites\red_small16_frame32_ss.xnb</Output>
+      <Time>2012-07-28T22:31:01.1990886+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\SpriteFont1.spritefont</Source>
+      <Name>Fonts\SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Fonts\SpriteFont1.xnb</Output>
+      <Time>2012-07-28T22:30:59.9730643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\138-ocean.mp3</Source>
+      <Name>Audio\138-ocean</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\138-ocean.wma</Extra>
+      <Time>2012-07-28T22:30:59.9630643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\139-cinnabar-islands-theme.mp3</Source>
+      <Name>Audio\139-cinnabar-islands-theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\139-cinnabar-islands-theme.wma</Extra>
+      <Time>2012-07-28T22:30:59.9630643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\128-battle-vs-gym-leader-.mp3</Source>
+      <Name>Audio\128-battle-vs-gym-leader-</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\128-battle-vs-gym-leader-.wma</Extra>
+      <Time>2012-07-28T22:30:59.9130642+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\130-cycling.mp3</Source>
+      <Name>Audio\130-cycling</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\130-cycling.wma</Extra>
+      <Time>2012-07-28T22:30:59.9330642+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\blur.fx</Source>
+      <Name>Shaders\blur</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\blur.xnb</Output>
+      <Time>2012-07-28T22:30:59.9730643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\grayscale.fx</Source>
+      <Name>Shaders\grayscale</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\grayscale.xnb</Output>
+      <Time>2012-07-28T22:30:59.9730643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_simple.fx</Source>
+      <Name>Shaders\pulse_simple</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_simple.xnb</Output>
+      <Time>2012-07-28T22:40:05.8990568+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_blur_time_trig.fx</Source>
+      <Name>Shaders\pulse_blur_time_trig</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_time_trig.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Shaders\pulse_blur_var_linear.fx</Source>
+      <Name>Shaders\pulse_blur_var_linear</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\pulse_blur_var_linear.xnb</Output>
+      <Time>2012-07-28T22:30:59.9830643+09:00</Time>
     </Item>
     <Item>
       <Source>Shaders\weapon2_timefade.fx</Source>
@@ -473,47 +443,96 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\weapon2_timefade.xnb</Output>
-      <Time>2010-09-12T22:06:38.0657239-04:00</Time>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Shaders\weapon2_timefade.xnb</Output>
+      <Time>2012-07-28T22:40:34.3660649+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Videos\F1.wmv</Source>
+      <Name>Videos\F1</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1.wmv</Extra>
+      <Time>2012-07-28T22:31:01.3000944+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Videos\F1v3.wmv</Source>
+      <Name>Videos\F1v3</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v3.wmv</Extra>
+      <Time>2012-07-28T22:31:01.4491029+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Videos\F1v4.wmv</Source>
+      <Name>Videos\F1v4</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v4.xnb</Output>
+      <Extra>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Videos\F1v4.wmv</Extra>
+      <Time>2012-07-28T22:31:01.5231072+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\golbat_scream.wav</Source>
+      <Name>Audio\golbat_scream</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\golbat_scream.xnb</Output>
+      <Time>2012-07-28T22:30:59.9730643+09:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\zubat_scream.wav</Source>
+      <Name>Audio\zubat_scream</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\Audio\zubat_scream.xnb</Output>
+      <Time>2012-07-28T22:30:59.9730643+09:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\Content\</RootDirectory>
-      <LoggerRootDirectory>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\Game Dev\XNA\Learning\2Dshooter\2Dshooter\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Big L\2Dshooter\2Dshooter\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Big L\2Dshooter\2Dshooter\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Big L\2Dshooter\2Dshooter\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Big L\2Dshooter\2Dshooter\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-28T00:16:14-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2009-05-28T00:16:06-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-28T00:16:16-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-28T00:16:26-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-28T00:16:12-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-28T00:16:06-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T21:41:18+09:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2010-08-30T18:47:44.6565768-04:00</Value>
+        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-01-02T22:39:19.8940366+09:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
